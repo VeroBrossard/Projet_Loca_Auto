@@ -1,0 +1,15 @@
+
+$route['patients/create'] = 'patients/create';
+$route['patients/(:any)'] = 'patients/view_1Patient/$1';
+$route['patients'] = 'patients';
+$route['news/create'] = 'news/create';
+$route['news/(:any)'] = 'news/view_1News/$1';
+$route['news'] = 'news';
+$route['(:any)'] = 'pages/view/$1';
+$route['default_controller'] = 'pages/view';
+
+pourquoi enlever:
+
+$route['default_controller'] = 'welcome';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;

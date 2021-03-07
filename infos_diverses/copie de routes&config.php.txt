@@ -1,0 +1,56 @@
+
+$route['patients/create'] = 'patients/create';
+$route['patients/(:any)'] = 'patients/view_1Patient/$1';
+$route['patients'] = 'patients';
+$route['news/create'] = 'news/create';
+$route['news/(:any)'] = 'news/view_1News/$1';
+$route['news'] = 'news';
+$route['(:any)'] = 'pages/view/$1';
+$route['default_controller'] = 'pages/view';
+
+pourquoi enlever:
+
+$route['default_controller'] = 'welcome';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
+
+<?php
+//ligne 2 
+defined('BASEPATH') OR exit('No direct script access allowed');
+//ligne 26 
+$config['base_url'] = 'http://lamanu-formationcomplete/CodeIgniterHospital/';
+//ligne 38 
+$config['index_page'] = 'index.php';
+//ligne 55
+$config['uri_protocol']	= 'REQUEST_URI';
+//ligne 67
+$config['url_suffix'] = '';
+//ligne 79 - 92 - 103
+$config['language']	= 'english';
+$config['charset'] = 'UTF-8';
+$config['enable_hooks'] = FALSE;
+//ligne 117
+$config['subclass_prefix'] = 'MY_';
+//ligne 139
+$config['composer_autoload'] = FALSE;
+//ligne 161 
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+// ligne 185 à 188
+$config['enable_query_strings'] = FALSE;
+$config['controller_trigger'] = 'c';
+$config['function_trigger'] = 'm';
+$config['directory_trigger'] = 'd';
+//ligne 202
+$config['allow_get_array'] = TRUE;
+
+// etc... idem
+
+
+
+
+
+
+
+
+
+
