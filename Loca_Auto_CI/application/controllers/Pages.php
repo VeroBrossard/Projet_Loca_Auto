@@ -14,7 +14,7 @@ class Pages extends CI_Controller {
         //   $this-> load-> helper ('url') ; // pour style.css dans header VB
           $data['title'] = ucfirst($page); // Capitalize the first letter
   
-          $this->load->view('templates/header', $data);
+          $this->load->view('templates/header_home', $data);
           $this->load->view('pages/'.$page, $data);
           $this->load->view('templates/footer', $data);
   }

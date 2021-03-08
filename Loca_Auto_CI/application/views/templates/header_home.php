@@ -2,12 +2,12 @@
         <head>
         <link rel="stylesheet" href="<?php echo base_url("application/assets/css/style.css"); ?>">
 
-                <title>CodeIgniter VB header.php</title>
+                <title>Loca-Auto - Location de voitures - Le Havre</title>
         </head>
         <body>
-        <header id="header"><span class="header">CodeIgniter VB header</span></header> <br>
+        <header ><span class="header"> barre de nav et logo </span> </span></header> <br>
        
-<div> <h1> H1<?php echo $title; ?></h1></div>
+<!-- <div> <h1> H1<?php echo $title; ?></h1></div> -->
                
 <section>
                <!-- <br> Vers PAGE BDD... <br>

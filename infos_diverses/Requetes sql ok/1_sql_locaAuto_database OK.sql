@@ -1,14 +1,14 @@
 #------------------------------------------------------------
 #        Script MySQL.
 #------------------------------------------------------------
-CREATE DATABASE IF NOT EXISTS `Auto-Loca` CHARACTER SET 'utf8';
-USE `Auto-Loca`;
+CREATE DATABASE IF NOT EXISTS `Loca-Auto` CHARACTER SET 'utf8';
+USE `Loca-Auto`;
 
 #------------------------------------------------------------
-# Table: user
+# Table: users
 #------------------------------------------------------------
 
-CREATE TABLE user(
+CREATE TABLE users(
         u_id        Int  Auto_increment  NOT NULL ,
         u_lastname  Varchar (30) NOT NULL ,
         u_firstname Varchar (30) NOT NULL ,
@@ -17,7 +17,7 @@ CREATE TABLE user(
         u_phone     Varchar (10) NOT NULL ,
         u_toArchive Bool NOT NULL ,
         u_birthdate Date NOT NULL
-	,CONSTRAINT user_PK PRIMARY KEY (u_id)
+	,CONSTRAINT users_PK PRIMARY KEY (u_id)
 )ENGINE=InnoDB;
 
 
@@ -89,17 +89,17 @@ CREATE TABLE packagePeriod(
 
 
 #------------------------------------------------------------
-# Table: UserOpinion
+# Table: usersOpinion
 #------------------------------------------------------------
 
-CREATE TABLE UserOpinion(
+CREATE TABLE usersOpinion(
         uo_id    Int  Auto_increment  NOT NULL ,
         uo_stars Int NOT NULL ,
         uo_comm  Text NOT NULL ,
         u_id     Int NOT NULL
-	,CONSTRAINT UserOpinion_PK PRIMARY KEY (uo_id)
+	,CONSTRAINT usersOpinion_PK PRIMARY KEY (uo_id)
 
-	,CONSTRAINT UserOpinion_user_FK FOREIGN KEY (u_id) REFERENCES user(u_id)
+	,CONSTRAINT usersOpinion_users_FK FOREIGN KEY (u_id) REFERENCES users(u_id)
 )ENGINE=InnoDB;
 
 
@@ -142,7 +142,7 @@ CREATE TABLE billing(
 
 	,CONSTRAINT billing_packagePeriod_FK FOREIGN KEY (pp_id) REFERENCES packagePeriod(pp_id)
 	,CONSTRAINT billing_packageKm0_FK FOREIGN KEY (pk_id) REFERENCES packageKm(pk_id)
-	,CONSTRAINT billing_user1_FK FOREIGN KEY (u_id) REFERENCES user(u_id)
+	,CONSTRAINT billing_users1_FK FOREIGN KEY (u_id) REFERENCES users(u_id)
 	,CONSTRAINT billing_location2_FK FOREIGN KEY (l_id) REFERENCES location(l_id)
 	,CONSTRAINT billing_location_AK UNIQUE (l_id)
 )ENGINE=InnoDB COMMENT "Facturation " ;

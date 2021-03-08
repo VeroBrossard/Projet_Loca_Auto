@@ -9,7 +9,7 @@ html {
   font-size: 100%;
   /*  correctif pour un bug d'Internet Explorer Windows, % obligatoire pour utiliser em ensuite*/
   font-family: Helvetica, Verdana,  sans-serif;
-  background-color:rgb(241, 209, 200);
+  background-color:white;
 }
 
 body {
@@ -17,66 +17,42 @@ body {
   /*fallback, solution de repli (substitution pour les navigateurs anciens) */
   font-size: 0.7em;
   /* ma taille basic des fonts sur PC*/
-  width: 700px;
+  width: 100%;
   margin: auto;
   background-color: white;
   padding-bottom: 30px;
+  /* margin-top: 8vh; */
 }
 
 
-header {
-  padding : 0px;
+#header {
+
   /* //background-image: url("../img/guirlande.jpg");  */
   background-color: white;
   /* background-repeat: no-repeat; */
-  background-size: cover;
+  /* background-size: cover;
   background-position: center;
     /* limité à 1/3 de hauteur de viewport */
-  height:30vh;
-  text-align: center;
-  color: black;
-  text-shadow: 2px 3px 4px wheat;
-  font-size: 6em;
+  /* height:20vh;
+
     /* contexte sur le parent */
-  display: grid;
+  /* display: grid; */
   /*alignement vertical et horizontal des enfants dans leur cellule */
-  place-items: center;
+  /* place-items: center;
+  
+  /* text-align: center;*/
+  /* opacity: 0.7;  */
   /* position:sticky;
   top : 0px; */
   /*: 100vw;*/
   /* limité à 1/3 de hauteur de viewport */
   /* height: 35vh; */
-  /* contexte sur le parent */
-  /* display: grid; */
-  /* alignement vertical et horizontal des enfants dans leur cellule */
-  /* place-items: center;
-  //text-align: center;
-  //color: black;
- // text-shadow: 2px 3px 4px wheat;
-  //font-size: 5em;
-  //background-color: white;
-
- */
-  
  /* background-position-x: center;*/
-  /* opacity: 0.7; */
-}
-
-#headerHosp {
-  background-image: url("../img/colyseum.jpg");
 }
 .header{
+  height:10vh;
   backdrop-filter: blur(2px);
-  text-align: center;
-  color:red;
-  height: 30vh;
-  padding-top: 8vh;
 }
-/* #title1{
-  font-size: 1em;
-  opacity: 1;
-} */
-
 
 #titreExo, #footer{
 width: 70%;
@@ -88,10 +64,30 @@ text-align: center;
 padding-bottom: 20px;
 margin-top: 20px;
 }
-
+#myHomeChoiceImg{
+  background-image: url("../img/fond_auto-ConvertImage_ok.jpg");
+  background-size: cover;
+  text-align: center; 
+  /* background-position: center; */
+  width:100vw;
+  height: 50vh;
+  margin: 0px;
+}
+#myHomeChoiceLocation{
+    /*alignement vertical et horizontal des enfants dans leur cellule */
+  display: grid;
+  place-items: center;
+  color: black;
+  text-shadow: 2px 3px 4px wheat;
+  backdrop-filter: invert(12%);
+  font-size: 6em; 
+  width:100vw;
+  height: 50vh;
+  margin: auto;
+}
 section {
-  width: 80%;
-  padding: 2em 3em;
+  width: 100vw;
+  /* padding: 2em 3em; */
   background-color: rgb(248,240,223);
   margin: auto;
   border: 1px solid black;

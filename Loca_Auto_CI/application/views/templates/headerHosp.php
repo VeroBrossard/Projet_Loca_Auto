@@ -7,10 +7,10 @@
 </head>
 
 <body>
-        <header id="headerHosp"> Hospital
+        <header id="headerHosp"> Hospital headerHosp
               
         </header>
-        <span style="text-align : center;" ><h2><?php echo $title; ?></h2></span>
+        <span style="text-align : center;" ><h2><?php echo $title; ?> Hospital headerHosp</h2></span>
         <section>
                 <!-- <br> Vers PAGE BDD... <br>
         <!-- http://lamanu-formationcomplete/CodeIgniterHospital/news  -->
