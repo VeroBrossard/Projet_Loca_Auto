@@ -19,5 +19,8 @@ class Pages extends CI_Controller {
           $this->load->view('templates/footer', $data);
   }
   
- 
 }
+
+// function hello(){
+//   echo ' hello  ceci est un test de fonction depuis Pages.php ';
+// }

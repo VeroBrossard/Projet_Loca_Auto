@@ -16,7 +16,7 @@ class Users_model extends CI_Model {
 
         }
 
-        $query = $this->db->get_where('users', array('id' => $id));
+        $query = $this->db->get_where('users', array('u_id' => $id));
         return $query->row_array();
 }
 //méthode qui écrit les données dans la base de données. Vous allez utiliser la classe Query Builder pour insérer les informations et utiliser la bibliothèque d'entrée pour obtenir les données publiées
@@ -28,11 +28,11 @@ public function recup_post(){
     
         $data = array(
                 //Cette méthode post() garanti que les données sont nettoyées, vous protégeant des attaques malveillantes des autres
-            'lastname' => $this->input->post('lastname'),
-            'firstname' => $this->input->post('firstname'),
-            'phone' => $this->input->post('phone'),
-            'birthdate' => $this->input->post('birthdate'),
-            'mail' => $this->input->post('mail'),
+            'u_lastname' => $this->input->post('lastname'),
+            'u_firstname' => $this->input->post('firstname'),
+            'u_phone' => $this->input->post('phone'),
+            'u_birthdate' => $this->input->post('birthdate'),
+            'u_mail' => $this->input->post('mail'),
         );
         return $data;
 
@@ -48,7 +48,7 @@ public function set_user()
 public function update_user($id)
 {
         $data =  $this -> recup_post();
-        $this -> db -> where ('id',$id);
+        $this -> db -> where ('u_id',$id);
         return $this->db->update('users', $data);
         echo 'update réalisée par update_user';
         // , array('id' => $id));
@@ -57,7 +57,7 @@ public function update_user($id)
 public function delete_user($id){
         // $this -> db -> where ('id',$id);
         // $this->db->delete('users');
-        $this->db->query("delete from users where id='".$id."'");
+        $this->db->query("delete from users where u_id='".$id."'");
         echo 'delete  réalisé par delete_users';
 }
 

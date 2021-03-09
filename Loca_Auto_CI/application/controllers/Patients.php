@@ -41,9 +41,7 @@ class Patients extends CI_Controller
     $this->load->view('templates/patients_footer');
   }
 
-public function hello(){
-  echo ' hello  ceci est un test de fonction ';
-}
+
 
   //vérifier si le formulaire a été soumis et si les données soumises ont passé les règles de validation.<?php
   public function create($id = NULL)
@@ -109,3 +107,6 @@ public function hello(){
 
     }
 
+   function hello(){
+      echo ' hello  ceci est un test de fonction ';
+    }

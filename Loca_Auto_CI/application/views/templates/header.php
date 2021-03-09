@@ -1,6 +1,6 @@
 <html>
         <head>
-        <link rel="stylesheet" href="<?php echo base_url("application/assets/css/style.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
 
                 <title>CodeIgniter VB header.php</title>
         </head>

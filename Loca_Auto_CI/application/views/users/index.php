@@ -1,5 +1,5 @@
 <div>
-
+<p>depuis index.php ************</p>
 <span><h2><a href="<?php echo site_url('users/create'); ?>">Add NEW USER</a></h2></span>
 </div>
 

@@ -55,11 +55,23 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 // exemple hospital
-// $route['patients/create'] = 'patients/create';
-// $route['patients/(:any)'] = 'patients/view_1Patient/$1';
-// $route['patients'] = 'patients';
+
 // $route['news/create'] = 'news/create';
 // $route['news/(:any)'] = 'news/view_1News/$1';
 // $route['news'] = 'news';
-$route['(:any)'] = 'pages/view/$1';
-$route['default_controller'] = 'pages/view';
+
+
+// $route['users/create'] = 'users/create';
+// $route['users/(:any)'] = 'users/view_1Patient/$1';
+// $route['users'] = 'users';
+// $route['(:any)'] = 'pages/view/$1';
+
+// $route['default_controller'] = 'pages/view';  *******
+// $route['cookies'] = 'cookies'; 
+////$route['cookies/display'] = "cookies/displaycookie"; 
+// $route['cookies/delete'] = "cookies/deletecookie";
+
+// $route['mysession/add'] = 'mysession/add';
+// $route['mysession/(:any)'] = 'mysession';
+
+$route['default_controller'] = 'mysession/index';

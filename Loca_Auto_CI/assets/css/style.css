@@ -1,0 +1,261 @@
+/*structure responsive en
+<header></header>
+<section >
+<div>.autant que necessaire ...</div>
+</section>*/
+
+/* ***** adaptabilité du texte au viewport */
+html {
+  font-size: 100%;
+  /*  correctif pour un bug d'Internet Explorer Windows, % obligatoire pour utiliser em ensuite*/
+  font-family: Helvetica, Verdana,  sans-serif;
+  background-color:blueviolet;
+}
+
+body {
+  background-color:white;
+  /* font-size: 14px; */
+  /*fallback, solution de repli (substitution pour les navigateurs anciens) */
+  font-size: 0.9em;
+  /* ma taille basic des fonts sur PC*/
+  width: 100%;
+  margin: auto;
+  padding-bottom: 30px;
+  /* margin-top: 8vh; */
+}
+
+/*  **********************  */
+.contenair-flex{
+  height: 12vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:space-around;
+  border: 2px solid pink;
+  align-items: center;
+}
+
+.element-flex{
+  font-size : 0.8em;
+  flex: 0 1 20%;  /*  <flex-grow> <flex-shrink>  <flex-basis>  */
+  /* background-color: aqua; */
+  /* border : 1px  solid red; */
+  height: 9vh;
+     /* contexte sur le parent  & alignement vertical et horizontal dans leur cellule */
+  display: grid;
+  place-items: center;
+}
+/* .header{
+  height:10vh;
+  backdrop-filter: blur(2px);
+} */
+
+#header {
+  background-color: lightsalmon;
+
+}
+
+
+#myHomeChoiceImg{
+  background-image: url("../img/fond_auto-ConvertImage_ok.jpg");
+  background-size: cover;
+  text-align: center;
+  background-position: center;
+  width:100vw;
+  height: 50vh;
+  margin: 0px;
+}
+#myHomeChoiceLocation{
+  /*barr de selection location
+    /*alignement vertical et horizontal des enfants dans leur cellule */
+  display: grid;
+  place-items: center;
+  color: black;
+  text-shadow: 2px 3px 4px wheat;
+  backdrop-filter: invert(12%);
+  font-size: 3em;
+  width:100vw;
+  height: 50vh;
+  margin: auto;
+}
+section {
+  width: 100vw;
+  /* padding: 2em 3em; */
+  background-color: rgb(248,240,223);
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 5px 10px 0 5px;
+  margin-top: 3rem;
+  box-shadow: 6px 5px 4px rgba(136, 129, 129, 0.5);
+}
+/* Taille normale des titres sur un ordinateur */
+h1 {
+  /* font-size: 1.5em; */
+  text-align: center;
+}
+#contenairVb{
+  /* pour index.php  */
+  display : inline-flex ;
+  margin: auto;
+}
+table{
+  /* pour view.php & index.php */
+  color:chocolate;
+  font-size:small;
+}
+td{
+  padding: 2px 10px;
+}
+footer{
+  text-align: center;
+ }
+
+.box {
+  position: relative;
+  width: 150px;
+  height: 45px;
+  margin: auto;
+  box-shadow: 6px 5px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin-bottom: 50px;
+  }
+
+  .bouton {
+  margin: 50px 0px;
+  background: rgb(248, 232, 197);
+  padding: 7px 8px ;
+  border: 1px solid black;
+  line-height: 17px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 2px rgba(136, 129, 129, 0.5);
+  transition: 0.2s;
+  text-decoration: none;
+  color: black;
+  }
+
+  .bouton:hover {
+  background-color: rgb(209, 190, 148);
+  transition: 0.2s;
+  }
+
+  .bouton a {
+  color: black;
+  cursor: pointer;
+  font-size: 1.2em;
+  text-decoration: none;
+  }
+
+/*  *************  Media Queries  ************
+Si on utilise un petit écran (que ce soit avec un ordinateur dans
+  une petite fenêtre ou avec un smartphone), la taille des fonts est réduite */
+  /*   ******* query  1 */
+  @media all and (max-device-width: 1050px) {
+    body {
+       font-size: 1.30em;
+    }
+    section{
+      width: auto;
+      padding: 0 2em;
+    }
+    .contenair-flex{
+      height: 15vh;
+      flex-flow: column wrap;
+      /* flex-direction: column; */
+    }
+    .element-flex{
+      font-size: 1em;
+      /*  <flex-grow> <flex-shrink>  <flex-basis>  */
+      /* background-color:greenyellow; */
+      border : 1px  solid red;
+      height: 8vh;
+         /* contexte sur le parent  & alignement vertical et horizontal dans leur cellule */
+    }
+    #myHomeChoiceImg{
+      height: 40vh;
+    }
+    }
+@media all and (max-device-width: 510px){
+    /*   ******* query  2*/
+    body {
+    font-size: 1em;
+  }
+  section{
+    width: auto;
+    padding: 0 2em;
+  }
+  .contenair-flex{
+    height: 15vh;
+    flex-flow: column wrap;
+    /* flex-direction: column; */
+  }
+  .element-flex{
+    font-size: 1.7em;
+    /*  <flex-grow> <flex-shrink>  <flex-basis>  */
+    /* background-color: brown; */
+    border : 1px  solid red;
+    height: 5vh;
+       /* contexte sur le parent  & alignement vertical et horizontal dans leur cellule */
+  }
+  #myHomeChoiceImg{
+    height: 30vh;
+  }
+
+}
+
+
+@media all and (max-device-width: 320px){
+    /*   ******* query  3 */
+  body {
+    font-size: 1.15em;
+  }
+  section{
+    width: auto;
+    padding: 0 1em;
+  }
+  .contenair-flex{
+    height: 24vh;
+    flex-flow: column wrap;
+    /* flex-direction: column; */
+  }
+  .element-flex{
+    font-size: 2.3em;
+    /*  <flex-grow> <flex-shrink>  <flex-basis>  */
+    /* background-color:red; */
+    border : 1px  solid red;
+    height: 5vh;
+       /* contexte sur le parent  & alignement vertical et horizontal dans leur cellule */
+  }
+  #myHomeChoiceImg{
+    height: 30vh;
+  }
+}
+@media print{
+      /*   ******* query  imprimante */
+  body {
+    font-size: 1.15em;
+    color:black;
+  }
+
+}
+/* ppour mémoire   */
+/* header  */
+  /* //background-image: url("../img/guirlande.jpg");  */
+  /* background-color: lightsalmon; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover;
+  background-position: center;
+    /* limité à 1/3 de hauteur de viewport */
+  /* height:20vh;
+
+    /* contexte sur le parent */
+  /* display: grid; */
+  /*alignement vertical et horizontal des enfants dans leur cellule */
+  /* place-items: center;
+
+  /* text-align: center;*/
+  /* opacity: 0.7;  */
+  /* position:sticky;
+  top : 0px; */
+  /*: 100vw;*/
+  /* limité à 1/3 de hauteur de viewport */
+  /* height: 35vh; */
+ /* background-position-x: center;*/

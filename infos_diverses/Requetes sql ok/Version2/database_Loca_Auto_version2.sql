@@ -16,7 +16,8 @@ CREATE TABLE users(
         u_pwd       Varchar (10) NOT NULL ,
         u_phone     Varchar (10) NOT NULL ,
         u_toArchive Bool NOT NULL ,
-        u_birthdate Date NOT NULL
+        u_birthdate Date NOT NULL,
+		u_fonction Varchar (15) NOT NULL DEFAULT 'None'
 	,CONSTRAINT users_PK PRIMARY KEY (u_id)
 )ENGINE=InnoDB;
 
