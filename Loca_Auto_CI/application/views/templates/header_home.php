@@ -33,6 +33,8 @@
                                 <?php
                                 };
                                 ?>
+                                <p>
+                         <a class="bouton" href="<?php echo site_url('locationsSearch/index'); ?>"> Locations</a>
                                 </p>
                         </div>
                         <div class="element-flex">
