@@ -12,7 +12,8 @@
         <header>
                 <div class="contenair-flex">
                         <div class="element-flex">
-                                <p>depuis page header_home.php *****</p>
+                                <p>depuis page header_home.php *** message dans $data **</p>
+                                <?= $title?>
                         </div>
                         <div class="element-flex" style="visibility:hidden" >
                                 <p> barre de nav et logo </p>
@@ -37,6 +38,9 @@
                         <div class="element-flex">
                         <p>
                          <a class="bouton" href="<?php echo site_url('users/create'); ?>">Inscription</a>
+                        </p>
+                        <p>
+                         <a class="bouton" href="<?php echo site_url('carsToRent/index'); ?>"> voitures</a>
                         </p>
                         </div>
                 </div>

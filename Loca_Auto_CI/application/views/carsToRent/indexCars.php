@@ -1,10 +1,11 @@
-<div>
-<p>depuis indexCarsToRent.php ************</p>
-
-</div>
-
+</section>
 <br>
-<div id="contenairCars">
+<section>
+        <div id="contenairCars">
+        <div>
+        <p>depuis indexCars.php ************</p>
+        <?= $title ?>
+        </div>
         <div>
         <table>
          <thead>
@@ -16,24 +17,16 @@
                     <th>year</th>
                     <th>img</th>
                     <th>to_archive</th>
-                    <!-- <th>Tél</th> -->
-                    <th> </th>
                  </tr>
                 </thead>
                 <tbody>
          <?php
         //echo 'ici  page arborescence : views/users/index.php ';
         
-        foreach ($cars as $cars_item): ?>
+        foreach ($carsToRent as $cars_item): ?>
         <!-- <div class="main"> -->
         
                 <tr>
-              
-                    <th>pricePerDay</th>
-                    <th>kmetrage</th>
-                    <th>year</th>
-                    <th>img</th>
-                    <th>to_archive</th>
                         <td><?= $cars_item['ctr_gamme']; ?></td>
                         <td><?= $cars_item['ctr_immatriculation']; ?></td>
                         <td><?= $cars_item['ctr_pricePerDay']; ?></td>
@@ -41,14 +34,14 @@
                         <td><?= $cars_item['ctr_year']; ?></td>
                         <td><?= $cars_item['ctr_img']; ?></td>
                         <td><?= $cars_item['ctr_toArchive']; ?></td>
-                        <td></td>
+                     
                         <!-- <td><a href="<?= site_url('users/'.$cars_item['u_id']); ?>">détails</a></td> -->
                 </tr>
         <?php endforeach; ?>
         
                 </tbody>
-                <tfoot><tr>  <td colspan="5"> ------------------  </td></tr>
-                <tr>  <td colspan="5"> nombre de voitures <?= $total ?> </td>
+                <tfoot><tr>  <td colspan="7"> ------------------  </td></tr>
+                <tr>  <td colspan="7"> nombre de voitures <?= $total ?> </td>
                 </tfoot></tr>
         
               </table>

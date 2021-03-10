@@ -28,7 +28,7 @@ public function recup_post(){
         //Supprime la chaîne passée, en remplaçant tous les espaces par des tirets (-) et s'assure que tout est en minuscules.
        // ex slug  // $phone = url_title($this->input->post('phone'), 'dash', TRUE);
     
-        $data = array(
+       $dataCars = array(
             'u_toArchive' => $this->input->post('toArchive'),
              'u_lastname' => $this->input->post('lastname'),
             'u_firstname' => $this->input->post('firstname'),
@@ -39,23 +39,23 @@ public function recup_post(){
             'u_fonction' => $this->input->post('fonction')
         //    ******  a finir  *** terminer le remplissage après modif de la base 
         );
-        return $data;
+        return $dataCars;
 }
 
 public function set_carToRent()
 {
 
-       $data =  $this -> recup_post();
+       $dataCars =  $this -> recup_post();
 
-    return $this->db->insert('carsToRent', $data);
+    return $this->db->insert('carsToRent', $dataCars);
     echo 'insert réalisé par set_carToRent';
 }
 
 public function update_carToRent($id)
 {
-        $data =  $this -> recup_post();
+        $dataCars =  $this -> recup_post();
         $this -> db -> where ('u_id',$id);
-        return $this->db->update('carsToRent', $data);
+        return $this->db->update('carsToRent', $dataCars);
         echo 'update réalisée par update_carToRent';
         // , array('id' => $id));
 }    

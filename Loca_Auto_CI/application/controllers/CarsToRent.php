@@ -5,21 +5,21 @@ class CarsToRent extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('CarsToRent_model');
+    $this->load->model('carsToRent_model');
     $this->load->helper('url_helper');
   }
 
   // method to view all CarsToRent items 
   public function index()
   { 
-      $data['carsToRent'] = $this->carsToRent_model->get_carsToRent();
+      $dataCars['carsToRent'] = $this->carsToRent_model->get_carsToRent();
   
-      $data['title'] = 'SHOW ALL carsToRent';
-      $data['total'] = count($data['carsToRent']);
+      $dataCars['title'] = 'SHOW ALL carsToRent';
+      $dataCars['total'] = count($dataCars['carsToRent']);
    // echo 'var dump data de puis Patints.php <br>';
      // var_dump($data);
-      $this->load->view('templates/header', $data);
-      $this->load->view('carsToRent/indexCarsToRent', $data);
+      $this->load->view('templates/header', $dataCars);
+      $this->load->view('carsToRent/indexCars', $dataCars);
       $this->load->view('templates/footer');
     
   }
@@ -27,16 +27,16 @@ class CarsToRent extends CI_Controller
   // one for a specific news item
   public function view_1carToRent($id = NULL)
   {
-    $data['carsToRent_item'] = $this->carsToRent_model->get_carsToRent($id);
+    $dataCars['carsToRent_item'] = $this->carsToRent_model->get_carsToRent($id);
 
-    if (empty($data['carsToRent_item'])) {
+    if (empty($dataCars['carsToRent_item'])) {
       show_404();
     }
   //   // $data['title'] = $data['carsToRent_item']['title'] .'dans carsToRent.php by VB';
   //   //$data['title'] = $data['carsToRent_item']['phone'] .'dans carsToRent.php by VB';
-    $data['title'] = ' ONE carsToRent by Id';
-    $this->load->view('templates/header', $data);
-    $this->load->view('carsToRent/viewOneCarToRent', $data);
+    $dataCars['title'] = ' ONE carsToRent by Id';
+    $this->load->view('templates/header', $dataCars);
+    $this->load->view('carsToRent/viewOneCarToRent', $dataCars);
     $this->load->view('templates/footer');
   }
 
@@ -48,14 +48,14 @@ class CarsToRent extends CI_Controller
     // $data['comm'] = ' <b style="color:green;" >carsToRent.php lg 48 comm : tout ok </b>';
     if ($id != NULL){
       //on recupère le carToRent by id
-      $data['carsToRent_item'] = $this->carsToRent_model->get_carsToRent($id);
-      $data['title'] = 'title depuis CarsToRent.php // update a  CarsToRent';
-      if (empty($data['carsToRent_item'])) {
+      $dataCars['carsToRent_item'] = $this->carsToRent_model->get_carsToRent($id);
+      $dataCars['title'] = 'title depuis CarsToRent.php // update a  CarsToRent';
+      if (empty($dataCars['carsToRent_item'])) {
         show_404();
       }
     }
     else{
-      $data['title'] = 'title depuis CarsToRent.php // Create a new carToRent';
+      $dataCars['title'] = 'title depuis CarsToRent.php // Create a new carToRent';
     }
 
     $this->load->helper('form');
@@ -66,24 +66,24 @@ class CarsToRent extends CI_Controller
     if ($this->form_validation->run() === FALSE) {
       
       // $data['comm'] = ' <b style="color:red;" >carsToRent.php comm  lg 68 : problème de validation </b>';
-      $this->load->view('templates/header', $data);
+      $this->load->view('templates/header', $dataCars);
       $this->load->view('carsToRent/createCarsToRent');
       $this->load->view('templates/footer');
     } else {
       
-      $data['comm'] = ' <b style="color:green;" > carsToRent.php comm  lg 74: en route...!!!  </b>';
+      $dataCars['comm'] = ' <b style="color:green;" > carsToRent.php comm  lg 74: en route...!!!  </b>';
      // $id_retour= '';
  
      if ($id != NULL){
       //on fait MAJ le carToRent by id
-      $data['carsToRent_item'] = $this->carsToRent_model->update_carToRent($id);
+      $dataCars['carsToRent_item'] = $this->carsToRent_model->update_carToRent($id);
       $this->load->view('carsToRent/templates/update_success');
       }
       else {
       //on crée l'enregistrement        
       $this->carsToRent_model->set_carToRent();
-      $data['title'] = 'title depuis carsToRent.php  lg 84 // new carToRent create BRAVO ';
-      $this->load->view('templates/header', $data);
+      $dataCars['title'] = 'title depuis carsToRent.php  lg 84 // new carToRent create BRAVO ';
+      $this->load->view('templates/header', $dataCars);
       $this->load->view('carsToRent/templates/create_success');
       $this->load->view('templates/footer');
       }
@@ -99,11 +99,11 @@ class CarsToRent extends CI_Controller
         else{
         // $data['title'] = $data['carsToRent_item']['title'] .'dans carsToRent.php by VB';
         //$data['title'] = $data['carsToRent_item']['phone'] .'dans carsToRent.php by VB';
-        $data['title'] = ' DELETE carsToRent by Id';
-        $data['id_supp'] = $id;
+        $dataCars['title'] = ' DELETE carsToRent by Id';
+        $dataCars['id_supp'] = $id;
         $this->carsToRent_model->delete_carToRent($id);
-        $this->load->view('templates/header', $data);
-        $this->load->view('carsToRent/templates/delete_success', $data);
+        $this->load->view('templates/header', $dataCars);
+        $this->load->view('carsToRent/templates/delete_success', $dataCars);
         $this->load->view('templates/footer');
         }
       }

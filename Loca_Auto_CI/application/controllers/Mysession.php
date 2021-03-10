@@ -10,19 +10,25 @@ class MySession extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->helper('form');
         // $this->session;
+        $this->load->model('carsToRent_model');
+        $this->load->helper('url_helper');
     }
 
-    public function index() {
-        //page d'accueil
-        $data['title'] = ucfirst('bienvenue sur le site'); 
-        $this->load->view('templates/header_home', $data);
-        $this->load->view('pages/home', $data);
-        $this->load->view('users/modale_create', $data);  
-        $this->load->view('modales/modale_view', $data);
-        $this->load->view('templates/footer_home', $data);
-    }
+    // public function index() {
+    //     //page d'accueil
+    //     $data['title'] = ucfirst('bienvenue sur le site'); 
+    //     $this->load->view('templates/header_home', $data);
+    //     $this->load->view('pages/home', $data);
+    //     $this->load->view('carsToRent/indexCars', $dataCars);  
+    //     var_dump($dataCars);
+    //     echo 'page des cars ' .site_url('carsToRent/index') .' <br>';
+    //     $this->load->view('users/modale_create', $data);  
+    //     $this->load->view('modales/modale_view', $data);
+    //     $this->load->view('templates/footer_home', $data);
+    // }
  
     public function add() {
+        // session connexion 
         $uname = $this->input->post('uname');
         $upwd = $this->input->post('upwd');
         $data['title'] = ucfirst('essai d\'affichage var de session');  
@@ -59,7 +65,33 @@ class MySession extends CI_Controller {
 
     //     session_destroy(); 
     // }
- 
+      // method to view all CarsToRent items 
+  public function index()
+  { 
+    $data['title'] = ucfirst('bienvenue sur le site'); 
+      $dataCars['carsToRent'] = $this->carsToRent_model->get_carsToRent();
+  
+      $dataCars['title'] = 'SHOW ALL carsToRent';
+      $dataCars['total'] = count($dataCars['carsToRent']);
+   // echo 'var dump data de puis Patints.php <br>';
+     // var_dump($data);
+     $this->load->view('templates/header_home', $data);
+     $this->load->view('pages/home', $data);
+      $this->load->view('carsToRent/indexCars', $dataCars);
+        $this->load->view('users/modale_create', $data);  
+        $this->load->view('modales/modale_view', $data);
+        $this->load->view('templates/footer_home', $data);
+    
+  }
+    //    
+    //   
+    //    
+    //     $this->load->view('carsToRent/indexCars', $dataCars);  
+    //     var_dump($dataCars);
+    //     echo 'page des cars ' .site_url('carsToRent/index') .' <br>';
+    //     $this->load->view('users/modale_create', $data);  
+    //     $this->load->view('modales/modale_view', $data);
+    //     $this->load->view('templates/footer_home', $data);
 }
 
 
