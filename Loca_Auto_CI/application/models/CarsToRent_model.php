@@ -9,11 +9,23 @@ class CarsToRent_model extends CI_Model {
         public function get_carsToRent($id = FALSE)
 {
         if ($id === FALSE)
-        {
-                $query = $this->db->get('carsToRent');
+        {       //celle qui marche ..
+                // $query = $this->db->get('carsToRent');
+                // return $query->result_array();
+                $this->db->select('*');        
+                $this->db->from('carsToRent');
+                $this->db->join ('carDetails','carDetails.cd_id = carsToRent.cd_id');
+                $query = $this->db->get();
                 return $query->result_array();
+        
                 //echo $query->num_rows();
+//$this->db->select('title, description, length(audio), realname, creationdate, podid');
 
+
+// $this->db->from('podcasts');
+// $this->db->join('users', 'users.userid = podcasts.userid');
+// $this->db->where('users.userid', $this->uri->rsegment(4));
+// $query = $this->db->get();
         }
         else {
         $query = $this->db->get_where('carsToRent', array('u_id' => $id));

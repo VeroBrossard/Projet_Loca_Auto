@@ -141,55 +141,7 @@ class CarsToRent extends CI_Controller
             $this->form_validation->set_rules('birthdate', 'Date de naissance', 'required',
             array('required' => "Voius ne connaissez pas votre date de naissance ?"));
 
-        /*$this->form_validation->set_rules('adress', 'Adresse', 'required',
-            array('required' => "L'adresse doit etre renseignée"));
-        $this->form_validation->set_rules('city', 'city', 'required',
-            array('required' => "La ville doit etre renseignée"));
-        $this->form_validation->set_rules('zipCode', 'zipCode', 'required',
-            array('required' => "Le code postal doit etre renseigné"));
-        $this->form_validation->set_rules('licenceDate', 'Date permis de conduire', 'required',
-            array('required' => "Vous n'avez pas de permis de conduire ?"));*/
-    
-            // if ($this->form_validation->run() === FALSE) {
-            //   $data['title'] = ' <b style="color:red;" >problème de validation </b>';
-            //   $data['comm'] = ' <b style="color:red;" >problème de validation </b>';
-            //   $this->load->view('templates/header', $data);
-            //   $this->load->view('carsToRent/create');
-            //   $this->load->view('templates/footer');
-            // } else {
-            //   if ($id != NULL){
-            //     //on fait MAJ le carToRent by id
-            //     $data['carsToRent_item'] = $this->carsToRent_model->update_carToRent($id);
-            //     $this->load->view('carsToRent/update_success');
-            //     }
-            //     else {
-            //     //on crée l'enregistrement        
-            //     $this->carsToRent_model->set_carToRent();
-            //     $this->load->view('carsToRent/create_success');
-            //     }
-            //   }
-  
-        //   $carToRent = array(
-        //     "lastName" => $this->input->post("lastName"),
-        //     "firstName" => $this->input->post("firstName"),
-        //     "login" => $this->input->post("login"),
-        //     "mail" => $this->input->post("email"),
-        //     "adress" => $this->input->post("adress"),
-        //     "city" => $this->input->post("city"),
-        //     "zipCode" => $this->input->post("zipCode"),
-        //     "licenseDate" => $this->input->post("licenceDate"),
-        //     "id_levelcarToRent" => "2",
-        //   );
 
-          // $this->Inscription_Model->insertClient($carToRent);
-          // $carToRent = $this->Inscription_Model->getcarToRentByLogin($this->input->post("login"));
-          // $carToRentMdp = array("password" => $this->input->post("pass"),"id_carToRent" => $carToRent[0]->id);
-          // $this->Inscription_Model->insertMdp($carToRentMdp);
-    
-          // $this->session->set_carToRentdata(array("login" => $this->input->post("login")));
-          // $this->session->set_carToRentdata(array("password" => $this->input->post("pass")));
-          
-          // redirect(base_url());
           
         }
       }
