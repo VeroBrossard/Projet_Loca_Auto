@@ -7,6 +7,7 @@
     <body>
         <div style="text-align: center" >
             <h1>Welcome <?php echo $this->session->userdata('username'); ?></h1>
+            depuis  sess-form.php<br>
             pwd : <?php echo $this->session->userdata('userpwd'); ?><br>
             <a href="<?php echo site_url('mysession/remove'); ?>">Remove Session</a>
         </div>

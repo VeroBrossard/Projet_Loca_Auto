@@ -48,7 +48,7 @@
  ('RENAULT TWINGO II', 'Voiture', '150 000 - 175 000 kms', '4', 'Essence', 'Manuelle');
  
  
- INSERT INTO cartorent (ctr_year, ctr_gamme, ctr_immatriculation, ctr_pricePerDay, ctr_km, ctr_toArchive, ctr_img, cd_id ) 
+ INSERT INTO carstorent (ctr_year, ctr_gamme, ctr_immatriculation, ctr_pricePerDay, ctr_km, ctr_toArchive, ctr_img, cd_id ) 
  VALUES 
  ('2008', 'gamme2', 'AB-362-UW', 20, 234751, 0,'FORD FOCUS.jpg', 1),
   ('2012', 'gamme3', 'AI-632-FB', 30, 137845, 0,'SKODA FABIA.jpg', 2),

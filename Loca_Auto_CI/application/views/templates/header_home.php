@@ -12,7 +12,7 @@
         <header>
                 <div class="contenair-flex">
                         <div class="element-flex">
-                                <p>depuis page header.php *****</p>
+                                <p>depuis page header_home.php *****</p>
                         </div>
                         <div class="element-flex" style="visibility:hidden" >
                                 <p> barre de nav et logo </p>
@@ -36,8 +36,7 @@
                         </div>
                         <div class="element-flex">
                         <p>
-                        <a href="#id02">Ouvrir la fenêtre modale</a>
-                         <a class="bouton" href="<?php echo site_url('mysession/inscription'); ?>">Inscription</a>
+                         <a class="bouton" href="<?php echo site_url('users/create'); ?>">Inscription</a>
                         </p>
                         </div>
                 </div>

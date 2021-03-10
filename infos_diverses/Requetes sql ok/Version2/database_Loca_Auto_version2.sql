@@ -39,10 +39,10 @@ CREATE TABLE carDetails(
 
 
 #------------------------------------------------------------
-# Table: carToRent
+# Table: carsToRent
 #------------------------------------------------------------
 
-CREATE TABLE carToRent(
+CREATE TABLE carsToRent(
         ctr_id              Int  Auto_increment  NOT NULL ,
         ctr_gamme           Varchar (10) NOT NULL ,
         ctr_immatriculation Varchar (10) NOT NULL ,
@@ -52,9 +52,9 @@ CREATE TABLE carToRent(
         ctr_img             Varchar (30) NOT NULL ,
         ctr_toArchive       Bool NOT NULL ,
         cd_id               Int NOT NULL
-	,CONSTRAINT carToRent_PK PRIMARY KEY (ctr_id)
+	,CONSTRAINT carsToRent_PK PRIMARY KEY (ctr_id)
 
-	,CONSTRAINT carToRent_carDetails_FK FOREIGN KEY (cd_id) REFERENCES carDetails(cd_id)
+	,CONSTRAINT carsToRent_carDetails_FK FOREIGN KEY (cd_id) REFERENCES carDetails(cd_id)
 )ENGINE=InnoDB;
 
 
@@ -130,7 +130,7 @@ CREATE TABLE location(
 
 	,CONSTRAINT location_packagePeriod_FK FOREIGN KEY (pp_id) REFERENCES packagePeriod(pp_id)
 	,CONSTRAINT location_packageKm0_FK FOREIGN KEY (pk_id) REFERENCES packageKm(pk_id)
-	,CONSTRAINT location_carToRent1_FK FOREIGN KEY (ctr_id) REFERENCES carToRent(ctr_id)
+	,CONSTRAINT location_carsToRent1_FK FOREIGN KEY (ctr_id) REFERENCES carsToRent(ctr_id)
 	,CONSTRAINT location_users2_FK FOREIGN KEY (u_id) REFERENCES users(u_id)
 )ENGINE=InnoDB;
 

@@ -6,7 +6,7 @@
     </head>
     <body>
         <div style="text-align: center" >
-        par sess-form.php<br>
+        depuis  sess-form.php<br>
         <?= form_open('mysession/add') ?>
             <!-- <form action="<?php echo site_url('mysession/add') ?>" method="post"> -->
                 <input type="text" placeholder="Enter Name" name="uname">

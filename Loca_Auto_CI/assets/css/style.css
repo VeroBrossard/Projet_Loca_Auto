@@ -3,7 +3,10 @@
 <section >
 <div>.autant que necessaire ...</div>
 </section>*/
-
+.errorFormInscription{
+  color: red;
+  font-style: italic;
+}
 /* ***** adaptabilité du texte au viewport */
 html {
   font-size: 100%;
@@ -24,7 +27,7 @@ body {
   /* margin-top: 8vh; */
 }
 
-/*  **********************  */
+/*  **********  pour responsive   ************  */
 .contenair-flex{
   height: 12vh;
   display: flex;
@@ -48,7 +51,7 @@ body {
   height:10vh;
   backdrop-filter: blur(2px);
 } */
-
+/*   ******  fin   *********  */
 #header {
   background-color: lightsalmon;
 
@@ -79,7 +82,7 @@ body {
 }
 section {
   width: 100vw;
-  /* padding: 2em 3em; */
+  padding: 2em 3em;
   background-color: rgb(248,240,223);
   margin: auto;
   border: 1px solid black;
@@ -143,11 +146,15 @@ footer{
   font-size: 1.2em;
   text-decoration: none;
   }
-
+/*   ****** CarsToRent   *******  */
+.contenairCars{
+color : blueviolet;
+background-color: burlywood;
+}
 /*  *************  Media Queries  ************
 Si on utilise un petit écran (que ce soit avec un ordinateur dans
   une petite fenêtre ou avec un smartphone), la taille des fonts est réduite */
-  /*   ******* query  1 */
+  /*   *******  query  1 */
   @media all and (max-device-width: 1050px) {
     body {
        font-size: 1.30em;

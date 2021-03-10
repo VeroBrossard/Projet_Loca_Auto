@@ -1,22 +1,22 @@
 <?php
-class Users_model extends CI_Model {
+class CarsToRent_model extends CI_Model {
 
         public function __construct()
         {
                 $this->load->database();
         }
-//there are two methods to view all users items (if slug empty) and one for a specific user item (if parametre NOT empty)
-        public function get_users($id = FALSE)
+//there are two methods to view all carsToRent items (if slug empty) and one for a specific carToRent item (if parametre NOT empty)
+        public function get_carsToRent($id = FALSE)
 {
         if ($id === FALSE)
         {
-                $query = $this->db->get('users');
+                $query = $this->db->get('carsToRent');
                 return $query->result_array();
                 //echo $query->num_rows();
 
         }
         else {
-        $query = $this->db->get_where('users', array('u_id' => $id));
+        $query = $this->db->get_where('carsToRent', array('u_id' => $id));
         return $query->row_array();
         }
 }
@@ -42,29 +42,29 @@ public function recup_post(){
         return $data;
 }
 
-public function set_user()
+public function set_carToRent()
 {
 
        $data =  $this -> recup_post();
 
-    return $this->db->insert('users', $data);
-    echo 'insert réalisé par set_user';
+    return $this->db->insert('carsToRent', $data);
+    echo 'insert réalisé par set_carToRent';
 }
 
-public function update_user($id)
+public function update_carToRent($id)
 {
         $data =  $this -> recup_post();
         $this -> db -> where ('u_id',$id);
-        return $this->db->update('users', $data);
-        echo 'update réalisée par update_user';
+        return $this->db->update('carsToRent', $data);
+        echo 'update réalisée par update_carToRent';
         // , array('id' => $id));
 }    
 
-public function delete_user($id){
+public function delete_carToRent($id){
         // $this -> db -> where ('id',$id);
-        // $this->db->delete('users');
-        $this->db->query("delete from users where u_id='".$id."'");
-        echo 'delete  réalisé par delete_user';
+        // $this->db->delete('carsToRent');
+        $this->db->query("delete from carsToRent where u_id='".$id."'");
+        echo 'delete  réalisé par delete_carToRent';
 }
 
 }
