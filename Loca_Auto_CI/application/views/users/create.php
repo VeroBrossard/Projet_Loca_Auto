@@ -29,7 +29,7 @@ echo ' depuis create.php users par id <br><br><br>';
 
 <h2><?php echo $title; ?></h2>
 
-<?php echo validation_errors(); ?>
+<?php   echo $comm; echo validation_errors(); ?>
 
 <!-- <?= $action; ?>  -->
 <?= !empty($users_item['u_id']) ? form_open('users/create/'.$users_item['u_id']) : form_open('users/create'); ?>

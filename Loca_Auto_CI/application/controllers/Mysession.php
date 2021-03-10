@@ -14,9 +14,11 @@ class MySession extends CI_Controller {
 
     public function index() {
         //page d'accueil
-        $data['title'] = ucfirst('bienvenue sur le site');   
+        $data['title'] = ucfirst('bienvenue sur le site'); 
         $this->load->view('templates/header_home', $data);
         $this->load->view('pages/home', $data);
+        $this->load->view('users/modale_create', $data);  
+        $this->load->view('modales/modale_view', $data);
         $this->load->view('templates/footer_home', $data);
     }
  

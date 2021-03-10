@@ -2,6 +2,7 @@
 
 <head>
         <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/modale_style.css"); ?>">
 
         <title>Loca-Auto - Location de voitures - Le Havre</title>
 </head>
@@ -35,6 +36,7 @@
                         </div>
                         <div class="element-flex">
                         <p>
+                        <a href="#id02">Ouvrir la fenêtre modale</a>
                          <a class="bouton" href="<?php echo site_url('mysession/inscription'); ?>">Inscription</a>
                         </p>
                         </div>
