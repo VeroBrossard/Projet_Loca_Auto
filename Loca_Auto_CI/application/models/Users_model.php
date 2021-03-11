@@ -17,9 +17,6 @@ class Users_model extends CI_Model {
                 else {
                 $query = $this->db->get_where('users', array('u_lastname' => $lastname, 'u_phone' => $phone, 'u_pwd' => $pwd));
 
-
-                // , 'u_phone' => $phone, 'u_pwd' => $pwd));
-
                 if (empty($query)) {
                         return false;
                     } else {

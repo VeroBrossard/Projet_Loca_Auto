@@ -41,9 +41,23 @@
                                 </p>
                         </div>
                         <div class="element-flex">
+                        <?php if (isset($this->session->username)) {
+                                        // echo 'session username =  <br>';
+                                        echo '$this->session->username = ' . $this->session->username . '<br>';
+                                ?>
+                                                        <p>
+                         <a class="bouton" href="<?php echo site_url('users/create'); ?>">Modification</a>
+                        </p>
+                        <?php
+                        }
+                        else{
+                         ?>
                         <p>
                          <a class="bouton" href="<?php echo site_url('users/create'); ?>">Inscription</a>
                         </p>
+                        <?php
+                        }
+                        ?>
                         <p>
                          <a class="bouton" href="<?php echo site_url('carsToRent/index'); ?>"> voitures</a>
                         </p>

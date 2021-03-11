@@ -5,8 +5,7 @@
         <title>Connexion user</title>
     </head>
     <body>
-    <p>message d'en haut : <?= $title ?></p>
-depuis sess_form.php <br>
+    <p>message d'en haut : <?= $title ?></p>  depuis *** sess_form.php <br>
         <div style="text-align: center" >
                 <?= form_open('mysession/verifConnexion') ?>
             <!-- <form action="<?php echo site_url('mysession/add') ?>" method="post"> -->

@@ -14,8 +14,9 @@
          
          ?></h2>
          <?php
-         var_dump($this->session->userdata);
-         ?>
+        //  echo "var_dump session->userdata";
+        //  var_dump($this->session->userdata);
+        //  ?>
                
 <section>
         

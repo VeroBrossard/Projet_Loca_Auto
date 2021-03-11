@@ -64,23 +64,30 @@ class MySession extends CI_Controller {
         }
         else{
         $dataConnexion['title'] = "verifConnexion() ** depuis mySession";
-
-        $this->load->view('templates/header', $dataConnexion);
-        $this->load->view('mysession/verifConn', $dataConnexion); 
-        $this->load->view('templates/footer', $dataConnexion);
+//si la requete est OK  alors $uname, $upwd et  $uphone sont OK
+        $ufonction = $dataConnexion['users']['u_fonction'];
+        $dataConnexion =  $this ->setSessionUser($uname,$uphone,$upwd,$ufonction);
+        // $this->load->view('templates/header', $dataConnexion);
+        // $this->load->view('mysession/verifConn', $dataConnexion); 
+        // $this->load->view('templates/footer', $dataConnexion);
         }
-
     }
-    public function setSessionUser(){
+
+
+    public function setSessionUser($uname,$uphone,$upwd,$ufonction){
 //a finir !!!! 
-        $data['title'] = ucfirst('essai affichage var de session');  
+        $dataUser['title'] = ucfirst('essai affichage var de session depuis setSessionUser apres verifConnexion');  
         $this->session->set_userdata('username', $uname);
         $this->session->set_userdata('userphone', $uphone);
-        $this->session->set_userdata('userpwd', $upwd); //uphone
-        $this->load->view('templates/header', $data);
-        $this->load->view('mysession/sess-view', $data);
-        $this->load->view('mysession/user_gestion', $data);
-        $this->load->view('templates/footer', $data);
+        $this->session->set_userdata('userpwd', $upwd);
+        $this->session->set_userdata('ufonction', $ufonction); 
+        
+
+        //dataUser['title'] = "envoi de dataUser  depuis setSessionUser()   <br>";
+        $this->load->view('templates/header', $dataUser);
+        $this->load->view('mysession/sess-view', $dataUser);
+        $this->load->view('mysession/user_gestion', $dataUser);
+        $this->load->view('templates/footer', $dataUser);
     }
  
     public function remove() {

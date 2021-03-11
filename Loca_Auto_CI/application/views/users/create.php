@@ -14,6 +14,38 @@ if (!empty($users_item['u_id'])) {
  echo 'création  possible !.... <br>';
  !empty($users_item['u_id']) ?  "users_item['u_id']  = ". $users_item['u_id'] ."<br>" : "users_item['u_id']  est vide ";
  }
+
+ if (!empty($title)) {
+    echo "depuis create.php " .$title.'<br>';
+    echo 'dataUser = ' .$title. "<br>";
+
+    // echo "var_dump dataUser  version 2";
+    // var_dump($dataUser);
+   
+    echo "var_dump session->userdata";
+    var_dump($this->session->userdata);
+    // echo "var_dump userdata";
+    // var_dump($userdata);
+
+// foreach ($userdata as $session_item)
+// echo $session_item ;
+// endforeach;
+
+
+
+echo '****$this->session->username = ' . $this->session->username . '<br>';
+
+echo 'session paramétrée  !.... <br>';
+    echo 'session paramétrée  !.... <br>';
+   
+ 
+    }
+    else {
+    echo " dataUser  est vide // user non connecté <br>";
+  
+    }
+ 
+
 ?>
 <?php
     echo '<br> errors  or not errors... <br>';
