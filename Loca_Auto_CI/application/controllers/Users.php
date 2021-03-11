@@ -42,19 +42,19 @@ class Users extends CI_Controller
 
 
   
-  // one for a specific user by uname, 
-  public function view_1user_byPhone($id = NULL)
-  {
-     $dataConnexion['users_item'] = $this->users_model->get_users($id);
+  // // one for a specific user by uname, 
+  // public function view_1user_byPhone($id = NULL)
+  // {
+  //    $dataConnexion['users_item'] = $this->users_model->get_users($id);
 
-    if (empty($dataConnexion['users_item'])) {
-      show_404();
-    }
-  //   // $data['title'] = $data['users_item']['title'] .'dans users.php by VB';
-  //   //$data['title'] = $data['users_item']['phone'] .'dans users.php by VB';
-    $dataConnexion['title'] = ' ONE users by Id';
+  //   if (empty($dataConnexion['users_item'])) {
+  //     show_404();
+  //   }
+  // //   // $data['title'] = $data['users_item']['title'] .'dans users.php by VB';
+  // //   //$data['title'] = $data['users_item']['phone'] .'dans users.php by VB';
+  //   $dataConnexion['title'] = ' ONE users by Id';
    
-  }
+  // }
 
   //vérifier si le formulaire a été soumis et si les données soumises 
   //ont passé les règles de validation.<?php

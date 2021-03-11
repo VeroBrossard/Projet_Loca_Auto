@@ -9,17 +9,18 @@ class CarsToRent extends CI_Controller
     $this->load->helper('url_helper');
   }
 
+  
   // method to view all CarsToRent items 
   public function index()
   { 
-      $dataCars['carsToRent'] = $this->carsToRent_model->get_carsToRent();
+      $data_Cars['carsToRent'] = $this->carsToRent_model->get_carsToRent();
   
-      $dataCars['title'] = 'SHOW ALL carsToRent';
-      $dataCars['total'] = count($dataCars['carsToRent']);
+      $data_Cars['title'] = 'SHOW ALL carsToRent';
+      $data_Cars['total'] = count($data_Cars['carsToRent']);
    // echo 'var dump data de puis Patints.php <br>';
      // var_dump($data);
-      $this->load->view('templates/header', $dataCars);
-      $this->load->view('carsToRent/indexCars', $dataCars);
+      $this->load->view('templates/header', $data_Cars);
+      $this->load->view('carsToRent/indexCars', $data_Cars);
       $this->load->view('templates/footer');
     
   }

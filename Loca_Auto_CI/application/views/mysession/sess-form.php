@@ -8,12 +8,12 @@
     <p>message d'en haut : <?= $title ?></p>
 depuis sess_form.php <br>
         <div style="text-align: center" >
-                <?= form_open('mysession/add') ?>
+                <?= form_open('mysession/verifConnexion') ?>
             <!-- <form action="<?php echo site_url('mysession/add') ?>" method="post"> -->
                 <input type="text" placeholder="Enter Name" name="uname">
                 <input type="text" placeholder="Enter PHONE number" name="uphone">
                 <input type="pwd" placeholder="Enter pwd" name="upwd">
-                <button type="submit">Set Name</button>
+                <button type="submit">Me connecter</button>
             </form>
         </div>
     </body>

@@ -5,6 +5,30 @@ class Users_model extends CI_Model {
         {
                 $this->load->database();
         }
+
+
+        public function get_1user($lastname = FALSE,$phone =FALSE, $pwd =FALSE )
+        {
+                if ($lastname === FALSE || $phone === FALSE || $pwd === FALSE)
+                {
+                     return "erreur d'authentification depuis user_model// pas de var à rechercher";
+        
+                }
+                else {
+                $query = $this->db->get_where('users', array('u_lastname' => $lastname));
+
+
+                // , 'u_phone' => $phone, 'u_pwd' => $pwd));
+
+                if (empty($query)) {
+                        return false;
+                    } else {
+                        return $query->row_array();
+                    }
+
+                }
+        }
+        
 //there are two methods to view all users items (if slug empty) and one for a specific user item (if parametre NOT empty)
         public function get_users($id = FALSE)
 {

@@ -6,7 +6,7 @@ class CarsToRent_model extends CI_Model {
                 $this->load->database();
         }
 //there are two methods to view all carsToRent items (if slug empty) and one for a specific carToRent item (if parametre NOT empty)
-        public function get_carsToRent($id = FALSE)
+        public function get_carsToRent_md($id = FALSE)
 {
         if ($id === FALSE)
         {       //celle qui marche ..
