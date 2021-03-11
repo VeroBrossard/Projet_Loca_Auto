@@ -21,21 +21,18 @@ if (!empty($users_item['u_id'])) {
     echo 'that is the question ??? ';
 
 
-    echo "set_value('fonction')=  " .set_value('toArchive')."<br>"; 
-    var_dump(set_value('toArchive'));
-    var_dump($_POST);
+    echo "set_value('fonction')=  " .set_value('fonction')."<br>"; 
+    var_dump(set_value('fonction'));
      ?>
 <section id="form_section">
     <?php if (isset($this->session->username)) {
              // echo 'session ok  client authentifié =  <br>';
-             echo 'cconnexion ok <br>';
         echo '$this->session->username = ' . $this->session->username . '<br>';
      ?>
-      <h1>Welcome <?php echo $this->session->userdata('username'); ?></h1>
    <h2>Formulaire de modification </h2><br>
     <?php
      } else {
-    echo 'PAS de session username <br>'; 
+    // echo 'PAS de session username <br>'; 
   ?>
     <h2>Formulaire d'inscription</h2><br>
     <?php
@@ -65,13 +62,13 @@ if( isset($users_item['u_fonction']) && (($users_item['u_fonction'])== ("Admin" 
 
         <input type="radio" id="Non" name="toArchive" 
         value = "0" <?= (!empty($users_item['u_id']) && ($users_item['u_toArchive'] != "TRUE") )
-        || (set_value('toArchive') != "1" ) 
-        || (set_value('toArchive') == '' ) 
+        || (set_value('fonction') != "1" ) 
+        || (set_value('fonction') == '' ) 
         || (empty(set_value('fonction'))) ? 'checked' : '' ?> "> 
         <label for="Non">Non</label>
     
         <input type="radio" id="Oui" name="toArchive" 
-        value="1" <?= (!empty($users_item['u_id']) && ($users_item['u_toArchive'] == "TRUE")) || (set_value('toArchive') == "1" ) ? "checked" : '' ?>"> <label for="Oui">Oui</label>
+        value="1" <?= (!empty($users_item['u_id']) && ($users_item['u_toArchive'] == "TRUE")) || (set_value('fonction') == "1" ) ? "checked" : '' ?>"> <label for="Oui">Oui</label>
       </div>
     <br />
     

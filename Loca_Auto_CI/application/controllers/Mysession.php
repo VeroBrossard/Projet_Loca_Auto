@@ -7,36 +7,53 @@ class MySession extends CI_Controller {
  
     public function __construct() {
         parent::__construct();
-        $this->load->library('session');
-        $this->load->library('form_validation');
-        $this->load->helper('form');
+        //$this->load->library('session');
+       // $this->load->library('form_validation');
+        //$this->load->helper('form');
         // $this->session;
         $this->load->model('carsToRent_model');
         $this->load->helper('url_helper');
-    }
+      }
+      
+      
+      public function index()
+      { 
+        $data['title'] = ucfirst('bienvenue sur le site'); 
+          $dataCars['carsToRent'] = $this->carsToRent_model->get_carsToRent();
+      
+          $dataCars['title'] = 'SHOW ALL carsToRent';
+          $dataCars['total'] = count($dataCars['carsToRent']);
+       // echo 'var dump data de puis Patints.php <br>';
+         // var_dump($data);
+         $this->load->view('templates/header_home', $data);
+         $this->load->view('pages/home', $data);
+         $this->load->view('carsToRent/indexCars', $dataCars);
+            $this->load->view('users/modale_create', $data);  
+            $this->load->view('modales/modale_view', $data);
+            $this->load->view('templates/footer_home', $data);
+        
+          }
+          
+          public function essaiConnexion() {
+              $data['title'] = ucfirst('essai d\'acces à   par methode connexion');  
+              $this->load->view('templates/header', $data);
+              $this->load->view('mysession/sess-form', $data);
+              $this->load->view('mysession/user_gestion', $data);
+              $this->load->view('templates/footer_home', $data);
+          }
 
-    // public function index() {
-    //     //page d'accueil
-    //     $data['title'] = ucfirst('bienvenue sur le site'); 
-    //     $this->load->view('templates/header_home', $data);
-    //     $this->load->view('pages/home', $data);
-    //     $this->load->view('carsToRent/indexCars', $dataCars);  
-    //     var_dump($dataCars);
-    //     echo 'page des cars ' .site_url('carsToRent/index') .' <br>';
-    //     $this->load->view('users/modale_create', $data);  
-    //     $this->load->view('modales/modale_view', $data);
-    //     $this->load->view('templates/footer_home', $data);
-    // }
- 
     public function add() {
         // session connexion 
         $uname = $this->input->post('uname');
         $upwd = $this->input->post('upwd');
-        $data['title'] = ucfirst('essai d\'affichage var de session');  
+        $uphone  = $this->input->post('uphone');
+        //requete pour infos user
+        $data['title'] = ucfirst('essai affichage var de session');  
         $this->session->set_userdata('username', $uname);
-        $this->session->set_userdata('userpwd', $upwd);
+        $this->session->set_userdata('userphone', $uphone);
+        $this->session->set_userdata('userpwd', $upwd); //uphone
         $this->load->view('templates/header', $data);
-        $this->load->view('mysession/sess-view');
+        $this->load->view('mysession/sess-view', $data);
         $this->load->view('mysession/user_gestion', $data);
         $this->load->view('templates/footer_home', $data);
     }
@@ -48,42 +65,18 @@ class MySession extends CI_Controller {
     }
 
     public function test_user(){
-        $data['title'] = ucfirst('entrée dans test_user() // <br> on passe au test dans la base de onnées');  
+        $data['title'] = ucfirst('entrée dans test_user() // <br> on passe au test dans la base de données');  
 
         $this->load->view('templates/header', $data);
         $this->load->view('pages/about', $data);
         $this->load->view('templates/footer_home', $data);
 
     }
-    public function connexion() {
-        $data['title'] = ucfirst('essai d\'acces à  connexion par function');  
-        $this->load->view('templates/header', $data);
-        $this->load->view('mysession/sess-form');
-        $this->load->view('mysession/user_gestion', $data);
-        $this->load->view('templates/footer_home', $data);
-    }
     // public function destroy(){
 
     //     session_destroy(); 
     // }
       // method to view all CarsToRent items 
-  public function index()
-  { 
-    $data['title'] = ucfirst('bienvenue sur le site'); 
-      $dataCars['carsToRent'] = $this->carsToRent_model->get_carsToRent();
-  
-      $dataCars['title'] = 'SHOW ALL carsToRent';
-      $dataCars['total'] = count($dataCars['carsToRent']);
-   // echo 'var dump data de puis Patints.php <br>';
-     // var_dump($data);
-     $this->load->view('templates/header_home', $data);
-     $this->load->view('pages/home', $data);
-      $this->load->view('carsToRent/indexCars', $dataCars);
-        $this->load->view('users/modale_create', $data);  
-        $this->load->view('modales/modale_view', $data);
-        $this->load->view('templates/footer_home', $data);
-    
-  }
     //    
     //   
     //    

@@ -12,11 +12,14 @@
         <header>
                 <div class="contenair-flex">
                         <div class="element-flex">
-                                <p>depuis page header_home.php *** message dans $data **</p>
-                                <?= $title?>
+                                <p>depuis page header_home.php *** message dans $data **     <?= $title?></p>
+                           
+
                         </div>
-                        <div class="element-flex" style="visibility:hidden" >
-                                <p> barre de nav et logo </p>
+                        <div class="element-flex" >
+                        <!-- style="visibility:hidden"  -->
+                               +logo
+                                <h2>Welcome session???  <?php echo $this->session->userdata('username'); ?>***</h2>
                         </div>
                         <div class="element-flex" >
                         <p>
@@ -29,12 +32,12 @@
                                 } else {
                                         // echo 'PAS de session username <br>'; 
                                         ?>
-                                        <a class="bouton" href="<?php echo site_url('mysession/connexion'); ?>">connexion</a>
+                                        <a class="bouton" href="<?php echo site_url('mysession/essaiConnexion'); ?>">connexion</a>
                                 <?php
                                 };
                                 ?>
                                 <p>
-                         <a class="bouton" href="<?php echo site_url('locationsSearch/index'); ?>"> Locations</a>
+                         <a class="bouton" href="<?php echo site_url('locations/index'); ?>"> Locations</a>
                                 </p>
                         </div>
                         <div class="element-flex">

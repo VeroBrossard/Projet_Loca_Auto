@@ -1,0 +1,83 @@
+p {
+  margin-top: 0px;
+}
+
+#form_section{
+  width: 400px;
+  margin: auto;
+  /* background-color: aquamarine; */
+  text-align: center;
+}
+fieldset {
+width: 300px;
+margin: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+  /* background-color: chocolate; */
+  align-items: center;
+  text-align: center;
+}
+ 
+legend {
+  padding: 0px 13px;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+ 
+.label_form {
+  width: 220px;
+  display: inline-block;
+  vertical-align: top;
+  margin: auto;
+  /* margin: 3px; */
+  text-align: left;
+}
+ 
+em {
+  font-weight: bold;
+  font-style: normal;
+  color: #f00;
+}
+ i{
+   font-style: italic;
+   font-size: smaller;
+ }
+input:focus {
+  background: #eaeaea;
+
+}
+ 
+input, textarea {
+  width: 249px;
+  margin: auto;
+}
+
+ 
+textarea {
+  height: 100px;
+}
+ 
+select {
+  width: 254px;
+}
+ 
+input[type=radio] {
+  width: 10px;
+}
+/* input[type=checkbox] {
+  width: 10px;
+  border:1px solid grey;
+  background-color: deepskyblue;
+} */
+ 
+input[type=submit] {
+  width: 150px;
+  padding: 10px;
+  margin: auto;
+}
+.form_div{
+  background-color: darkorange;
+  /* margin:auto; */
+  /* width: 50px; */
+}
+/* by http://www.enseignement.polytechnique.fr/informatique/profs/Olivier.Serre/Memos/Formulaires_CSS/index.html */

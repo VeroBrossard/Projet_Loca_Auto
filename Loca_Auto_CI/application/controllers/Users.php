@@ -41,6 +41,21 @@ class Users extends CI_Controller
   }
 
 
+  
+  // one for a specific user by uname, 
+  public function view_1user_byPhone($id = NULL)
+  {
+     $dataConnexion['users_item'] = $this->users_model->get_users($id);
+
+    if (empty($dataConnexion['users_item'])) {
+      show_404();
+    }
+  //   // $data['title'] = $data['users_item']['title'] .'dans users.php by VB';
+  //   //$data['title'] = $data['users_item']['phone'] .'dans users.php by VB';
+    $dataConnexion['title'] = ' ONE users by Id';
+   
+  }
+
   //vérifier si le formulaire a été soumis et si les données soumises 
   //ont passé les règles de validation.<?php
   public function create($id = NULL)
@@ -125,7 +140,7 @@ class Users extends CI_Controller
 
 
         $this->form_validation->set_rules('mail', 'e-mail', 'required|is_unique[users.u_mail]|valid_email',
-        array('required' => "L'email doit etre renseigné","is_unique" => "Cet email est deja utilisé","valid_email" => "Ceci n'est pas un email valide"));
+        array('required' => "L'email doit etre renseigné","is_unique" => "Cet email est deja utilisé, vous êtes déjà inscrit. Connectez vous.. ","valid_email" => "Ce n'est pas un email valide"));
         
         $this->form_validation->set_rules('pwd', 'Mot de passe', 'required',
             array('required' => "le mot de passe doit etre renseigné"));
@@ -134,12 +149,12 @@ class Users extends CI_Controller
             array('required' => "Vous n'avez pas rempli ce champ",'matches' => 'les deux mots de passe ne sont pas identiques'));*/
 
         $this->form_validation->set_rules('phone', 'Téléphone', 'required|is_unique[users.u_phone]',
-            array('required' => "Le phone doit etre renseigné au format 0606060606 par exemple.","is_unique" => "Ce numéro de téléphone est deja utilisé"));
+            array('required' => "Le phone doit etre renseigné au format 0606060606.","is_unique" => "Ce numéro de téléphone est deja utilisé, vous êtes déjà inscrit. Connectez vous.. "));
 
             $this->form_validation->set_rules('toArchive', 'A Archiver', 'required',
             array('required' => "toArchive doit etre renseigné"));
             $this->form_validation->set_rules('birthdate', 'Date de naissance', 'required',
-            array('required' => "Voius ne connaissez pas votre date de naissance ?"));
+            array('required' => "Vous ne connaissez pas votre date de naissance ?"));
 
         /*$this->form_validation->set_rules('adress', 'Adresse', 'required',
             array('required' => "L'adresse doit etre renseignée"));

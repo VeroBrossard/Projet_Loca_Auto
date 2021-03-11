@@ -108,6 +108,16 @@ table{
 td{
   padding: 2px 3px;
 }
+/*   *************  formulaires  **********  */
+.form_label{
+  color: red;
+}
+.form_input{
+color:aqua;
+}
+/*   *************  FIN formulaires  **********  */ 
+
+
 footer{
   text-align: center;
  }

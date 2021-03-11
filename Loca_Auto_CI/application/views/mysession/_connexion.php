@@ -9,12 +9,14 @@
 <body>
 
 <p>message d'en haut : <?= $titre ?></p>
+depuis connexion.php <br>
 <div style="text-align: center" >
         <?= form_open('mysession/add') ?>
             <!-- <form action="<?php echo site_url('mysession/add') ?>" method="post"> -->
                 <input type="text" placeholder="Enter Name" name="uname">
+                <input type="text" placeholder="Enter PHONE number" name="uphone">
                 <input type="text" placeholder="Enter Password" name="upwd">
-                <button type="submit">Set Name</button>
+                <button type="submit">Je me connecte</button>
             </form>
         </div>
 </body>
