@@ -27,7 +27,7 @@ if (!empty($users_item['u_id'])) {
     // echo "var_dump userdata";
     // var_dump($userdata);
 
-// foreach ($userdata as $session_item)
+// foreach ($userdata as $session_item):
 // echo $session_item ;
 // endforeach;
 

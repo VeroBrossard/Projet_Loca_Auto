@@ -14,7 +14,6 @@ class MySession extends CI_Controller {
         $this->load->model('carsToRent_model');
         $this->load->model('users_model');
         $this->load->helper('url_helper');
-        //$this->session; 
       }
       
       
@@ -37,25 +36,26 @@ class MySession extends CI_Controller {
         
           }
           
-      public function essaiConnexion() {
-        //appel par  la page d'accueil  (headerhome.php)
-          $data['title'] = ucfirst('essai d\'acces à   par methode connexion');  
-          $this->load->view('templates/header', $data);
-          $this->load->view('mysession/sess-form', $data);
-          $this->load->view('mysession/user_gestion', $data);
-          $this->load->view('templates/footer_home', $data);
-          
-      }
+          public function essaiConnexion() {
+            //appel par  la page d'accueil  (headerhome.php)
+              $data['title'] = ucfirst('essai d\'acces à   par methode connexion');  
+              $this->load->view('templates/header', $data);
+              $this->load->view('mysession/sess-form', $data);
+              $this->load->view('mysession/user_gestion', $data);
+              $this->load->view('templates/footer_home', $data);
+              
+          }
 
-    public function verifConnexion() {    
-          //appel par  sess_form.php après  remplissage des données par user
+    public function verifConnexion() {
+
+                   //appel par  sess_form.php après  remplissage des données par user
         $uname = $this->input->post('uname');
         $upwd = $this->input->post('upwd');
         $uphone  = $this->input->post('uphone');
         //requete pour infos dans table user 
         $dataConnexion['users'] = $this->users_model->get_1user($uname,$uphone, $upwd);
         if(!($dataConnexion['users'])){
-          //si retour Query vide pb
+          //si retour Query vide
           echo "il y a un pb , vous semblez n'être pas inscrit <br>  pwd oublié ??<br>";
           $dataConnexion['title'] = "verifConnexion() *** A ECHOUER  ** depuis mySession";
           $this->load->view('templates/header', $dataConnexion);
@@ -64,10 +64,9 @@ class MySession extends CI_Controller {
         }
         else{
         $dataConnexion['title'] = "verifConnexion() OK depuis mySession";
-        // le user existe bien dans la base 
 //si la requete est OK  alors $uname, $upwd et  $uphone sont OK
-        // $ufonction = $dataConnexion['users']['u_fonction'];
-        $this ->setSessionUser( $dataConnexion );
+        $ufonction = $dataConnexion['users']['u_fonction'];
+        $dataConnexion =  $this ->setSessionUser($uname,$uphone,$upwd,$ufonction);
         // $this->load->view('templates/header', $dataConnexion);
         // $this->load->view('mysession/verifConn', $dataConnexion); 
         // $this->load->view('templates/footer', $dataConnexion);
@@ -75,30 +74,34 @@ class MySession extends CI_Controller {
     }
 
 
-    public function setSessionUser( $dataUser ){
-     
-      //$ufonction = $dataUser['users']['u_fonction'];
-      foreach($dataUser as $key =>$element)
-        {
-          $this->session->set_userdata($key, $element);
-        }
+    public function setSessionUser($uname,$uphone,$upwd,$ufonction){
+//a finir !!!! 
+        $dataUser['title'] = ucfirst('essai affichage var de session depuis setSessionUser apres verifConnexion');  
+
+
+            foreach($this->session->userdata as $key =>$element)
+
+{
+  $this->session->set_userdata($key, $element);
+ 
+}
+
+        // $this->session->set_userdata('username', $uname);
+        // $this->session->set_userdata('userphone', $uphone);
+        // $this->session->set_userdata('userpwd', $upwd);
+        // $this->session->set_userdata('ufonction', $ufonction); 
         
-        //   $this->session->set_userdata('userphone', $dataUser['users']['u_phone']);
-        //  $this->session->set_userdata('userpwd', $dataUser['users']['u_pwd']);
-        // $this->session->set_userdata('ufonction', $dataUser['users']['u_fonction']); 
-        
-        
-        $this->session->ACCES = $dataUser['users']['u_fonction']; //initialisation test de session
-        $dataUser['titleHome'] = "recup de _dataUser  depuis setSessionUser()   <br>";
+
+        //dataUser['title'] = "envoi de dataUser  depuis setSessionUser()   <br>";
         $this->load->view('templates/header', $dataUser);
         $this->load->view('mysession/sess-view', $dataUser);
-        // $this->load->view('mysession/user_gestion', $dataUser);
+        $this->load->view('mysession/user_gestion', $dataUser);
         $this->load->view('templates/footer', $dataUser);
     }
  
     public function remove() {
         // $this->session->unset_userdata('username');
-       session_destroy() ;
+        session_destroy() ;
         redirect('mysession/index');
     }
 

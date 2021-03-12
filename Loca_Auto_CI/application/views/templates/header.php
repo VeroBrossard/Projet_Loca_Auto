@@ -9,8 +9,7 @@
        
 <div>depuis header.php  <h1> H1<?php echo $title; ?></h1></div>
 <h2>Welcome session???  
-        <?php echo 
-         $this->session->username ; 
+        <?php echo   $this->session->username ; 
          
          ?></h2>
          <?php

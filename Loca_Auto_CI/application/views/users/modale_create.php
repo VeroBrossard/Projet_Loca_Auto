@@ -1,5 +1,6 @@
 <!-- <a href="#id02">Ouvrir la fenêtre modale</a> -->
-
+depuis modale_create.php avec id02<br>
+<mark><a href="#id02">Ouvrir la fenêtre modale id02</a></mark>
 <div id="id02" class="modal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -26,7 +27,7 @@
    //     $action = form_open('users/create/'.$users_item['u_id']);
    //     $value_button = "Modify users item";
     }
-   echo ' depuis modale_create.php users par id <br><br><br>';
+   echo ' depuis modale_create.php users par id 02<br><br><br>';
    ?>
    
    

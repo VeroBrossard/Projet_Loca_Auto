@@ -1,5 +1,5 @@
-<a href="#id01">Ouvrir la fenêtre modale</a>
-
+<br><br>depuis modale_view.php avec id01<br>
+<mark><a href="#id01">Ouvrir la fenêtre modale id01</a></mark>
 <div id="id01" class="modal">
   <div class="modal-dialog">
     <div class="modal-content">

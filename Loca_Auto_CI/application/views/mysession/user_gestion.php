@@ -1,5 +1,5 @@
 <?php
-
+echo 'deouis user_gestion.php  <br>';
 if (isset($this->session->username)){
 echo 'la var de session username existe  isset true  ';
 echo '$this->session->username = ' .$this->session->username;
