@@ -35,7 +35,7 @@ window.onclick = function(event) {
   }
 }
 </script> -->
-<script src="<?php echo base_url("assets/js/script_slide_menu.js"); ?>"></script>
+<script src="<?php echo base_url("assets/js/script_modale_menu.js"); ?>"></script>
 </body>
 
 </html>

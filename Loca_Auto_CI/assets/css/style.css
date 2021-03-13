@@ -139,7 +139,7 @@ body {
 /*   ******  fin Home  *********  */
 
 section {
-  width: 100vw;
+  width: 90vw;
   padding: 2em 3em;
   background-color: rgb(248,240,223);
   margin: auto;
@@ -366,7 +366,7 @@ $extra-large : 1200px !default; */
         font-size: 1.2em;
      }
      section{
-       width: auto;
+       width: 90vw;
        padding: 0 2em;
      }
      #myHomeChoiceImg{
@@ -424,7 +424,7 @@ $extra-large : 1200px !default; */
      font-size: 0.7em;
   }
   section{
-    width: auto;
+    width: 90vw;
     padding: 0 2em;
   }
   #myHomeChoiceImg{
