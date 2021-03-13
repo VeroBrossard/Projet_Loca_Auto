@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Codeigniter Session Demo | techbriefers.com</title>
+    <title>sess_view.php</title>
 </head>
 
 <body>
@@ -11,7 +11,7 @@
 
 
     
-        <h1>Welcome <?php echo $this->session->userdata('username'); ?> nom???</h1>
+        <h1>Welcome <?php echo $this->session->users['u_lastname']; ?> nom??? depuis sess-view</h1>
         <?php
 
 echo "<mark>_this->session->ACCES</mark>";

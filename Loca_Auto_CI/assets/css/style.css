@@ -12,7 +12,6 @@ html {
   font-size: 100%;
   /*  correctif pour un bug d'Internet Explorer Windows, % obligatoire pour utiliser em ensuite*/
   font-family: Helvetica, Verdana,  sans-serif;
-  background-color:blueviolet;
 }
 
 body {
@@ -32,9 +31,12 @@ body {
   height: 12vh;
   display: flex;
   flex-flow: row wrap;
-  justify-content:space-around;
+  justify-content:space-between;
+  align-items:flex-start;
   border: 2px solid pink;
-  align-items: center;
+  margin:0px;
+  padding:0px;
+  /* align-items: center; */
 }
 
 .element-flex{
@@ -46,6 +48,15 @@ body {
      /* contexte sur le parent  & alignement vertical et horizontal dans leur cellule */
   display: grid;
   place-items: center;
+}
+
+.minifont{
+ font-size:0.8em;
+ color: #888;
+}
+
+.aCacher{
+  visibility:visible
 }
 /* .header{
   height:10vh;
@@ -211,6 +222,9 @@ Si on utilise un petit écran (que ce soit avec un ordinateur dans
     border : 1px  solid red;
     height: 5vh;
        /* contexte sur le parent  & alignement vertical et horizontal dans leur cellule */
+  }
+  .aCacher{
+    visibility:hidden;
   }
   #myHomeChoiceImg{
     height: 30vh;
