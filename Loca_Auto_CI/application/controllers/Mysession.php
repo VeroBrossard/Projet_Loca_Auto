@@ -87,11 +87,12 @@ class MySession extends CI_Controller {
         //  $this->session->set_userdata('userpwd', $dataUser['users']['u_pwd']);
         // $this->session->set_userdata('ufonction', $dataUser['users']['u_fonction']); 
         
-        
-        $this->session->ACCES = $dataUser['users']['u_fonction']; //initialisation test de session
+         //   ***   initialisation var ACCES
+        $this->session->ACCES = $dataUser['users']['u_fonction'];
         $dataUser['titleHome'] = "recup de _dataUser  depuis setSessionUser()   <br>";
         $this->load->view('templates/header', $dataUser);
-        $this->load->view('mysession/sess-view', $dataUser);
+        $this->load->view('pages/home', $dataUser);
+        //$this->load->view('mysession/sess-view', $dataUser);
         // $this->load->view('mysession/user_gestion', $dataUser);
         $this->load->view('templates/footer', $dataUser);
     }

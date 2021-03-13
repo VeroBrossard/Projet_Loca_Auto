@@ -31,7 +31,8 @@
                                         <a href="#"><i class="fa fa-trash"></i> Annuler </a>
                                 </div>
                         </div>
-                        <div style="width:27%;">&nbsp;</div>
+                        <div style="width:30vw;">&nbsp;</div>
+
                         <div class="contenair-flex ">
                                 <div class="element-flex">
                                         <img id="imgLogoCar" src="<?= base_url('assets/img/logo/logo_mini_ok.jpg'); ?>" alt="Logo LOCA-AUTO">
@@ -41,7 +42,7 @@
 
 
                                         <!-- <?php echo $this->session->users['u_lastname']; ?> -->
-                        <div style="width:30%;">&nbsp;</div>
+                        <div style="width:25vw;">&nbsp;</div>
                         <div class="contenair-flex divACacher" style="width:200px;">  
                                 <div class="element-flex divLogoACacher">
 
