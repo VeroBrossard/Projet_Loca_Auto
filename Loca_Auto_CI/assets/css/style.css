@@ -1,13 +1,21 @@
-/*structure responsive en
+/*  *** structure responsive en
 <header></header>
 <section >
 <div>.autant que necessaire ...</div>
 </section>*/
+
+:root {
+  /* *** Déclaration d'une variable cs / utilisation par  color: var(--main-color);   */
+  --main-color:dimgray; 
+  --red : #f44336; /* text princiapal */
+}
+
 .errorFormInscription{
   color: red;
   font-style: italic;
 }
 /* ***** adaptabilité du texte au viewport */
+/*  **********  pour responsive   (mobile first  ) ************  */
 html {
   font-size: 100%;
   /*  correctif pour un bug d'Internet Explorer Windows, % obligatoire pour utiliser em ensuite*/
@@ -18,66 +26,97 @@ body {
   background-color:white;
   /* font-size: 14px; */
   /*fallback, solution de repli (substitution pour les navigateurs anciens) */
-  font-size: 0.9em;
+  font-size: 1em;
   /* ma taille basic des fonts sur PC*/
-  width: 100%;
+  width: 100vw;
   margin: auto;
   padding-bottom: 30px;
   /* margin-top: 8vh; */
+  color: var(--main-color);
 }
 
-/*  **********  pour responsive   ************  */
+/*  **********  header  ************  */
 .contenair-flex{
-  height: 12vh;
+  height: 8vh;
   display: flex;
+  flex-direction: row-reverse;
   flex-flow: row wrap;
   justify-content:space-between;
-  align-items:flex-start;
-  border: 2px solid pink;
   margin:0px;
   padding:0px;
-  /* align-items: center; */
+  /* align-items: space-between; */
 }
 
 .element-flex{
-  font-size : 0.8em;
-  flex: 0 1 20%;  /*  <flex-grow> <flex-shrink>  <flex-basis>  */
-  /* background-color: aqua; */
-  /* border : 1px  solid red; */
+  
+  font-size : 2em;
+  /* flex: 0 1 20%;   */
+  /*  <flex-grow> <flex-shrink>  <flex-basis>  */
   height: 9vh;
      /* contexte sur le parent  & alignement vertical et horizontal dans leur cellule */
   display: grid;
-  place-items: center;
+  place-items: center;   /* alignement vertical DANS les div*/
 }
 
+.divACacher{
+  /* div  (element-flex) à faire appatraire ou pas (pas tous) */
+  visibility: hidden;
+  /* width:10px; */
+  border-color: orange;
+}
+.divLogoACacher{
+  /* div  des logos (element-flex) à faire appatraire ou pas (pas tous) */
+  visibility: hidden;
+}
+
+.p_iconeLogo{  /* paragraphe  */
+  /* <p>  paragraphe contenant les logos accueil  */
+  padding:0px 15px;
+  /* visibility:hidden; */
+  font-size:0.6em;
+  margin: 0px 5px;
+
+  text-align: center;
+  color: var(--main-color);
+}
+.homeLogo{
+  /* icone du menu gauche */
+  font-size : 80px;
+  margin-top: 20px;
+}
 .minifont{
- font-size:0.8em;
- color: #888;
+  /* texte des icones bare accueil */
+  color: var(--main-color);
+}
+.iconeConn{
+  /* icone connexion accueil rectificatif  */
+     font-size:20px;
+      }
+#imgLogoCar{
+  width: 220px;
 }
 
-.aCacher{
-  visibility:visible
-}
-/* .header{
-  height:10vh;
-  backdrop-filter: blur(2px);
-} */
-/*   ******  fin   *********  */
-#header {
-  background-color: lightsalmon;
-
-}
-
+/*   ******  Home   *********  */
 
 #myHomeChoiceImg{
-  background-image: url("../img/fond_auto-ConvertImage_ok.jpg");
+  background-image: url("../img/fond_auto_ok.jpg");
   background-size: cover;
   text-align: center;
   background-position: center;
   width:100vw;
-  height: 50vh;
-  margin: 0px;
+  margin: auto;
+  /** centrage vertical */
+  height: 25vh;
+  position : relative;
+
+
 }
+
+/*.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;*/
+
 #myHomeChoiceLocation{
   /*barr de selection location
     /*alignement vertical et horizontal des enfants dans leur cellule */
@@ -88,9 +127,17 @@ body {
   backdrop-filter: invert(12%);
   font-size: 3em;
   width:100vw;
-  height: 50vh;
-  margin: auto;
+  /* height: 50vh; */
+    /** centrage vertical */
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
+/*   ******  fin Home  *********  */
+
 section {
   width: 100vw;
   padding: 2em 3em;
@@ -168,99 +215,268 @@ footer{
   }
 /*   ****** CarsToRent   *******  */
 .contenairCars{
-color : blueviolet;
 background-color: burlywood;
 font-size: 12px;
 }
 /*  *************  Media Queries  ************
 Si on utilise un petit écran (que ce soit avec un ordinateur dans
   une petite fenêtre ou avec un smartphone), la taille des fonts est réduite */
-  /*   *******  query  1 */
-  @media all and (max-device-width: 1050px) {
-    body {
-       font-size: 1.30em;
-    }
-    section{
-      width: auto;
-      padding: 0 2em;
-    }
-    .contenair-flex{
-      height: 15vh;
-      flex-flow: column wrap;
-      /* flex-direction: column; */
-    }
-    .element-flex{
-      font-size: 1em;
-      /*  <flex-grow> <flex-shrink>  <flex-basis>  */
-      /* background-color:greenyellow; */
-      border : 1px  solid red;
-      height: 8vh;
-         /* contexte sur le parent  & alignement vertical et horizontal dans leur cellule */
-    }
-    #myHomeChoiceImg{
-      height: 40vh;
-    }
-    }
-@media all and (max-device-width: 510px){
+  /* ***   breakpoints par défaut tu peux aussi t'inspirer de KNACSS
+n'utiliser que du min-width, pour du mobile first.
+$tiny        : 480px !default; // or 'em' if you prefer, of course
+$small       : 576px !default;
+$medium      : 768px !default;
+$large       : 992px !default;
+$extra-large : 1200px !default; */
+  
+/*   ******* query 5 */
+/* *****  Extra small devices (portrait phones, less than 576px) */
+@media all { 
+ /*  a completer */ 
+}
+
+/*   ******* query 4 */
+/* ***** Small devices (landscape phones, 576px and up) */
+@media (min-device-width: 576px) 
+ { 
+  section{
+    width: 90vw;
+    padding: 0 1em;
+  }
+  /*  **********  header  ************  */
+  .contenair-flex{
+    height: 10vh;
+ }  
+  .element-flex{
+      font-size : 2em;
+    height: 9vh;
+  }  
+  .divACacher{
+    /* div  (element-flex) à faire appatraire ou pas (pas tous) */
+    visibility: hidden;
+  }
+  .divLogoACacher{
+    /* div  des logos (element-flex) à faire appatraire ou pas (pas tous) */
+    visibility: hidden;
+  }
+  
+  .p_iconeLogo{  /* paragraphe  */
+    /* <p>  paragraphe contenant les logos accueil  */
+    padding:0px 15px;  
+  }
+  .homeLogo{
+    /* icone du menu gauche */
+    font-size : 60px;
+    margin-top: 10px;
+  }
+  .minifont{
+    /* texte des icones bare accueil */
+    color: var(--main-color);
+  }
+  .iconeConn{
+    /* icone connexion accueil rectificatif  */
+       font-size:20px;
+        }
+  #imgLogoCar{
+    width:180px;
+  }
+ 
+#myHomeChoiceImg{
+  /** centrage vertical */
+  height: 30vh;
+}
+
+#myHomeChoiceLocation{
+  /*barr de selection location
+    /*alignement vertical et horizontal des enfants dans leur cellule */
+  font-size: 3em;
+  width:100vw;
+  /* height: 50vh; */
+}
+
+}
+
+
+
+/*   ******* query  3 */
+/* ***  Medium devices (tablets, 768px and up)  */
+@media (min-device-width: 768px) 
+{ 
+  section{
+    width: 90vw;
+    padding: 0 1em;
+  }
+  /*  **********  header  ************  */
+  .contenair-flex{
+    height: 10vh;
+ }  
+  .element-flex{
+      font-size : 2em;
+    height: 9vh;
+  }  
+  .divACacher{
+    /* div  (element-flex) à faire appatraire ou pas (pas tous) */
+    visibility: visible;
+    width:25vw;
+  }
+  .divLogoACacher{
+    /* div  des logos (element-flex) à faire appatraire ou pas (pas tous) */
+    visibility: visible;
+  }
+  
+  .p_iconeLogo{  /* paragraphe  */
+    /* <p>  paragraphe contenant les logos accueil  */
+    padding:0px 15px;  
+  }
+  .homeLogo{
+    /* icone du menu gauche */
+    font-size : 40px;
+    margin-top: 10px;
+  }
+  .minifont{
+    /* texte des icones bare accueil */
+    color: var(--main-color);
+  }
+  .iconeConn{
+    /* icone connexion accueil rectificatif  */
+       font-size:20px;
+        }
+  #imgLogoCar{
+    width:180px;
+  }
+  #myHomeChoiceImg{
+    /** centrage vertical */
+    height: 30vh;
+  }  
+  #myHomeChoiceLocation{
+    /*barr de selection location
+      /*alignement vertical et horizontal des enfants dans leur cellule */
+    font-size: 3em;
+    width:100vw;
+    /* height: 50vh; */
+  }
+}
+
+
     /*   ******* query  2*/
-    body {
-    font-size: 1em;
+    /*  ***  Large devices (desktops, 992px and up) */
+@media (min-device-width: 992px)   
+    {
+      body {
+        font-size: 1.2em;
+     }
+     section{
+       width: auto;
+       padding: 0 2em;
+     }
+     #myHomeChoiceImg{
+           /* image de fond accueil (home)  */ 
+       height: 40vh;
+     }
+   /*  **********  header  ************  */
+   .contenair-flex{
+     height: 9.5vh;
+     font-size: 1.7em;
+     }
+   .element-flex{
+       height: 9vh;
+   }
+   .divACacher{
+     /* div  (element-flex) à faire appatraire ou pas (pas tous) */
+     justify-content:right;
+     visibility:visible;
+   }
+   .divLogoACacher{
+     /* div  des logos (element-flex) à faire appatraire ou pas (pas tous) */
+     visibility:visible;
+     padding: 0px;
+   }
+   .p_iconeLogo{  /* paragraphe  */
+     /* <p>  paragraphe contenant les logos accueil  */
+     padding:0px 2px;
+     color: var(--main-color);
+   }
+   .homeLogo{
+     /* icone du menu gauche */
+     font-size : 40px;
+   }
+   .minifont{
+     /* texte des icones bare accueil */
+     color: var(--main-color);
+     font-size: 0.2em;  
+   }
+   .iconeConn{
+     /* icone connexion accueil rectificatif  img */
+        font-size:28px;     
+       }
+   #imgLogoCar{
+     width: 120px;
+   }
+  
+  }
+
+  
+/*   *******  query  1 */
+/* *** Extra large devices (large desktops, 1200px and up)  */
+@media (min-device-width: 1200px) 
+ {
+  body {
+     font-size: 0.7em;
   }
   section{
     width: auto;
     padding: 0 2em;
   }
-  .contenair-flex{
-    height: 15vh;
-    flex-flow: column wrap;
-    /* flex-direction: column; */
-  }
-  .element-flex{
-    font-size: 1.7em;
-    /*  <flex-grow> <flex-shrink>  <flex-basis>  */
-    /* background-color: brown; */
-    border : 1px  solid red;
-    height: 5vh;
-       /* contexte sur le parent  & alignement vertical et horizontal dans leur cellule */
-  }
-  .aCacher{
-    visibility:hidden;
-  }
   #myHomeChoiceImg{
-    height: 30vh;
+        /* image de fond accueil (home)  */ 
+    height: 40vh;
   }
-
+/*  **********  header  ************  */
+.contenair-flex{
+  height: 9.5vh;
+  font-size: 1.7em;
+  }
+.element-flex{
+ height: 9vh;
 }
-
-
-@media all and (max-device-width: 320px){
-    /*   ******* query  3 */
-  body {
-    font-size: 1.15em;
-  }
-  section{
-    width: auto;
-    padding: 0 1em;
-  }
-  .contenair-flex{
-    height: 24vh;
-    flex-flow: column wrap;
-    /* flex-direction: column; */
-  }
-  .element-flex{
-    font-size: 2.3em;
-    /*  <flex-grow> <flex-shrink>  <flex-basis>  */
-    /* background-color:red; */
-    border : 1px  solid red;
-    height: 5vh;
-       /* contexte sur le parent  & alignement vertical et horizontal dans leur cellule */
-  }
-  #myHomeChoiceImg{
-    height: 30vh;
-  }
+.divACacher{
+  /* div  (element-flex) à faire appatraire ou pas (pas tous) */
+  justify-content:right;
+  visibility:visible;
 }
+.divLogoACacher{
+  /* div  des logos (element-flex) à faire appatraire ou pas (pas tous) */
+  visibility:visible;
+}
+.p_iconeLogo{  /* paragraphe  */
+  /* <p>  paragraphe contenant les logos accueil  */
+  padding:0px 2px;
+  color: var(--main-color);
+}
+.homeLogo{
+  /* icone du menu gauche */
+  font-size : 30px;
+}
+.minifont{
+  /* texte des icones bare accueil */
+  color: var(--main-color);
+  font-size: 0.4em;  
+}
+.iconeConn{
+  /* icone connexion accueil rectificatif  img */
+     font-size:20px;     
+    }
+#imgLogoCar{
+  width: 120px;
+}
+ }
+
+
+
+
+  /*   ******* query  0 imprimante */
 @media print{
-      /*   ******* query  imprimante */
+
   body {
     font-size: 1.15em;
     color:black;

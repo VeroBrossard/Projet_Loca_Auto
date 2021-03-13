@@ -4,9 +4,14 @@
     <span id="myHomeChoiceLocation">
         barre de choix location 
     </span> 
-  </div><p>depuis /pages/home.php by VB  data _title  est : <?= $title ?> </p><br>
+  </div>
 
 <section>
+<span>depuis /pages/home.php by VB  data _title  est : <?= $title ?> </span>
+<?php
+                                        echo (!empty($_SESSION['ACCES']) ? "Bonjour" .  $this->session->user['firstname'] . " " . $this->session->users['u_lastname'] . "<br>" . $_SESSION['title'] . "<br> " : "Welcome stranger..");
+                                        ?>
+                                        <br><hr>
 
 <?php
 // ***************       Ok pour recup var de session       *********************** //

@@ -65,13 +65,13 @@ padding: 2px 16px;
 }
 
 #headerMD {
-background-color: #5cb85c;
+background-color:var(--main-color);
 font-size: 25px;
 color: white;
 }
 
 #footerMD {
-background-color: #5cb85c;
+background-color: var(--main-color);
 font-size: 20px;
 color: white;
 }

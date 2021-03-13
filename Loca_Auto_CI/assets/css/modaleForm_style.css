@@ -16,7 +16,7 @@ input[type=text], input[type=password] {
 
 /* **  Set a style for all buttons */
 .modaleButton {
-  background-color:#888; /* #4CAF50; */
+  background-color: var(--main-color)  ; /* #4CAF50; */
   color: white;
   padding: 10px 15px;
   margin: 8px 0;
@@ -36,7 +36,7 @@ button:hover {
 .cancelbtn {
   width: auto;
   padding: 10px 15px;
-  background-color: #f44336;
+  background-color: var(--red);
   color: white;
   margin: 8px 0;
   border: none;

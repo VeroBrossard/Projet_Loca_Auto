@@ -14,12 +14,12 @@
 
 <body>
 
-       <header>
+        <header>
                 <!-- ***  nav bar sur le coté  -->
-                <div class="contenair-flex">
+         <div class="contenair-flex">
 
                         <div class="dropdown" style="float:left;">
-                                <button class="dropbtn"><a class="active" href="#"><i class="fa fa-home fa-2x"></i></a></button>
+                                <button class="dropbtn"><a class="active" href="#"><i class="fa fa-home fa-2x  homeLogo"></i></a></button>
                                 <div class="dropdown-content">
                                         <a href="<?php echo site_url('mysession/essaiConnexion'); ?>"><i class="fas fa-sign-in-alt"></i> Connexion</a>
                                         <a href="#"><i class="far fa-edit"></i> Inscription</a>
@@ -31,55 +31,33 @@
                                         <a href="#"><i class="fa fa-trash"></i> Annuler </a>
                                 </div>
                         </div>
-                
-                        <div class="contenair-flex" style="min-width:60%;">
-                                <div style="background-color:red; " class="element-flex minifont aCacher"  >
-                                        <?php
-                                        (!empty($_SESSION['ACCES'])) ?  'message dans $session **' . $_SESSION['title'] . '<br> ' : '';
-                                        ?>
-                                        <!-- style="visibility:hidden"  -->
-                                        <?php if (!empty($_SESSION['ACCES'])) {
-                                        ?>
-                                                <Bonjour <?php echo $this->session->user['firstname'] . '' . $this->session->users['u_lastname']; ?>"
-                                        <?php
-                                        } else {
-                                        ?>
-                                                Welcome stranger.. 
-                                        <?php
-                                        }
-                                        ?>
+                        <div style="width:27%;">&nbsp;</div>
+                        <div class="contenair-flex ">
+                                <div class="element-flex">
+                                        <img id="imgLogoCar" src="<?= base_url('assets/img/logo/logo_mini_ok.jpg'); ?>" alt="Logo LOCA-AUTO">
                                 </div>
-                                <div>
-                                        <img src="<?= base_url('assets/img/logo/logo_mini_ok.jpg'); ?>"  alt="Logo LOCA-AUTO">
 
-                                </div>
-                                <div style="background-color:yellow; " class="element-flex aCacher">
-                                <?php
-                                echo !empty($_SESSION['ACCES']) ? 'ACCES pas vide ' : 'ACCES vide => pas authentifié !! ';
-        //=> renvoie si ACCESest rempli  ou pas 
-
-        ?>
-                                </div>
                         </div>
 
 
-                        <!-- <?php echo $this->session->users['u_lastname']; ?> -->
+                                        <!-- <?php echo $this->session->users['u_lastname']; ?> -->
+                        <div style="width:30%;">&nbsp;</div>
+                        <div class="contenair-flex divACacher" style="width:200px;">  
+                                <div class="element-flex divLogoACacher">
 
-                        <div class="contenair-flex">
-                                <div style="background-color:lightblue; " class="element-flex">
                                         <?php if (!empty($_SESSION['ACCES'])) {
-                                                // *** Admin et simple user connecté  => déconnexion                           
+                                                // *** Admin et simple user connecté  => déconnexion
                                         ?>
-                                                <p>
-                                                        <a class="bouton" href="<?php echo site_url('mysession/remove'); ?>" onclick="return confirm('Etes vous sûre de vouloir vous déconnecter ?');">Déconnexion</a>
+                                                <p class="p_iconeLogo">
+                                                        <a href="<?php echo site_url('mysession/remove'); ?>" onclick="return confirm('Etes vous sûre de vouloir vous déconnecter ?');"></a><br><span class="minifont">Déconnexion</span>
                                                 </p>
                                         <?php
                                         } else {
-                                                //  *** User inconnu ( non connecté ) => connexion   
+                                                //  *** User inconnu ( non connecté ) => connexion
                                         ?>
-                                                <p>
-                                                        <button onclick="document.getElementById('id04').style.display='block'" style="margin-top:2px;">
-                                                                <i class="fas fa-sign-in-alt fa-2x"></i></button><br>
+                                                <p class="p_iconeLogo">
+                                                        <button onclick="document.getElementById('id04').style.display='block'">
+                                                                <i class="fas fa-sign-in-alt iconeConn"></i></button><br>
                                                         <span class="minifont">Connexion</span>
                                                         <!-- <a class="bouton" href="<?php echo site_url('mysession/essaiConnexion'); ?>">Connexion</a> -->
                                                 </p>
@@ -87,39 +65,42 @@
                                         }
                                         ?>
                                 </div>
-                                <span style="width:30px">&nbsp;</span>
-                                <div style="background-color: gold; " class="element-flex">
 
-                                        <?php if (!empty($_SESSION['ACCES']) && $_SESSION['ACCES'] == 'Admin') {
+
+                                <div class="element-flex divLogoACacher">
+
+                                        <?php
+                                        if (!empty($_SESSION['ACCES']) && $_SESSION['ACCES'] == 'Admin') {
                                                 //   *** Admin connecté
                                         ?>
-                                                <p> ****ACCES pas vide et ACCES = admin => vers tout A FINIR <br>
-                                                        <a href="<?php echo site_url('admin...'); ?>">
-                                                                <img src="<?= base_url('assets/img/logo/gear-logo.png'); ?>" width="35em" alt="Admin"></a>
-                                                </p>
+                                <p class="p_iconeLogo"> <br>
+                                        <a href="<?php echo site_url('admin...'); ?>">
+                                                <img src="<?= base_url('assets/img/logo/gear-logo.png'); ?>" width="35em" alt="Admin"></a><br><span class="minifont">Admin</span>
+                                </p>
                                         <?php
                                         } elseif (!empty($_SESSION['ACCES']) && $_SESSION['ACCES'] == 'None') {
                                                 //   ****  simple user connecté
                                         ?>
-                                                <p> ***access pas vide et acces=NOne => vers modification user<br>
-                                                        <a href="<?php echo site_url('paramUser...'); ?>">
-                                                                <i class="fas fa-users-cog fa-2x" style="color:dimgray;"></i> </a>
-                                                </p>
+                        <p class="p_iconeLogo">
+                                <a href="<?php echo site_url('paramUser...'); ?>">
+                                        <i class="fas fa-users-cog fa-2x" style="color:dimgray;"></i> </a><br><span class="minifont">Modifier</span>
+                        </p>
                                         <?php
                                         } else {
-                                                //  *** user inconnu 
-                                        ?>
-                                                <p>
-                                                        <a href="<?php echo site_url('users/create'); ?>" title="inscription">
-                                                                <i class="far fa-edit fa-3x"></i></a><br><span class="minifont">Inscription</span>
-                                                </p> <!-- autres cas  -->
-                                        <?php
-                                        }
-                                        ?>
+                                                //  *** user inconnu
+                        ?>
+                                <p class="p_iconeLogo">
+                                        <a href="<?php echo site_url('users/create'); ?>" title="inscription">
+                                                <i class="far fa-edit iconeConn"></i></a><br><span class="minifont">Inscription</span>
+                                </p> <!-- autres cas  -->
+                        <?php
+                        }
+                        ?>
                                 </div>
+
                         </div>
-                </div>
-        </header> 
+        </div>
+        </header>
 
 
         <!-- <div> <h1> H1<?php echo $title; ?></h1></div> -->
@@ -137,6 +118,7 @@
 
         <!--  Modal Content -->
         <?php
+        // pour fenetre modale enregistrement
         $this->load->view('mysession/sess-form');
         // <?php echo base_url("assets/js/cours.js"); ?
         ?>
