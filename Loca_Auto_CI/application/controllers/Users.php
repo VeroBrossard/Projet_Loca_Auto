@@ -62,7 +62,7 @@ class Users extends CI_Controller
   {
     // $data['comm'] = ' <b style="color:green;" >Users.php lg 48 comm : tout ok </b>';
     if ($id != NULL){
-      //on recupère le user by id
+      //on recupère le user by id dans la BDD
       $data['users_item'] = $this->users_model->get_users($id);
       $data['title'] = 'title depuis Users.php // update a  user';
       if (empty($data['users_item'])) {
@@ -86,7 +86,7 @@ class Users extends CI_Controller
       $this->load->view('templates/footer');
     } else {
       
-      $data['comm'] = ' <b style="color:green;" > Users.php comm  lg 74: en route...!!!  </b>';
+      $data['comm'] = ' <b style="color:green;" > Users.php comm : en route...!!!  </b>';
      // $id_retour= '';
  
      if ($id != NULL){
@@ -97,6 +97,7 @@ class Users extends CI_Controller
       else {
       //on crée l'enregistrement        
       $this->users_model->set_user();
+      
       $data['title'] = 'title depuis Users.php  lg 84 // new user create BRAVO ';
       $this->load->view('templates/header', $data);
       $this->load->view('templates/create_success');
@@ -151,8 +152,8 @@ class Users extends CI_Controller
         $this->form_validation->set_rules('phone', 'Téléphone', 'required|is_unique[users.u_phone]',
             array('required' => "Le phone doit etre renseigné au format 0606060606.","is_unique" => "Ce numéro de téléphone est deja utilisé, vous êtes déjà inscrit. Connectez vous.. "));
 
-            $this->form_validation->set_rules('toArchive', 'A Archiver', 'required',
-            array('required' => "toArchive doit etre renseigné"));
+            // $this->form_validation->set_rules('toArchive', 'A Archiver', 'required',
+            // array('required' => "toArchive doit etre renseigné"));
             $this->form_validation->set_rules('birthdate', 'Date de naissance', 'required',
             array('required' => "Vous ne connaissez pas votre date de naissance ?"));
 

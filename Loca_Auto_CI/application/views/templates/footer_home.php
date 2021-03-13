@@ -20,20 +20,22 @@
         <a class="bouton" href="<?php echo site_url('mysession/'); ?>">retour HOME</a> <br><br>
         <em>&copy; 2021 by VB</em>
 </footer>
-<script>
+
+
+
+
+<!-- <script>
 // Get the modal
 var modal = document.getElementById('id04');
 
-// When the user clicks anywhere outside of the modal, close it
+// When the user clicks anywhere outside of the modal, close it modale connexion
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
-</script>
-<script src="<?php echo base_url("assets/js/cours.js"); ?>"></script>
+</script> -->
 <script src="<?php echo base_url("assets/js/script_slide_menu.js"); ?>"></script>
-<!-- href="<?php echo base_url("assets/js/script_slide_menu.js"); ?>" -->
 </body>
 
 </html>

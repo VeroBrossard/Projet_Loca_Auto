@@ -21,7 +21,9 @@
                         <div class="dropdown" style="float:left;">
                                 <button class="dropbtn"><a class="active" href="#"><i class="fa fa-home fa-2x  homeLogo"></i></a></button>
                                 <div class="dropdown-content">
-                                        <a href="<?php echo site_url('mysession/essaiConnexion'); ?>"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+
+                                <a href=javascript:void(0); onclick="document.getElementById('id04').style.display='block'">
+                                <i class="fas fa-sign-in-alt"></i> Connexion</a>
                                         <a href="#"><i class="far fa-edit"></i> Inscription</a>
                                         <a href="#">Link 3</a>
 

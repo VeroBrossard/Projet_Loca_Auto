@@ -1,5 +1,5 @@
 <?php
-echo ' depuis create.php users par id <br><br><br>';
+echo ' depuis create.php users par id ou pas <br><br><br>';
 
 if (!empty($users_item['u_id'])) {
     
@@ -31,14 +31,8 @@ if (!empty($users_item['u_id'])) {
 // echo $session_item ;
 // endforeach;
 
-
-
-echo '****$this->session->username = ' . $this->session->username . '<br>';
-
-echo 'session paramétrée  !.... <br>';
-    echo 'session paramétrée  !.... <br>';
-   
- 
+echo '**** $this->session->user[firstname] = ' .  $this->session->user['firstname'] . '<br>';
+echo 'session paramétréesi pas vide  !.... <br>'; 
     }
     else {
     echo " dataUser  est vide // user non connecté <br>";
@@ -49,38 +43,44 @@ echo 'session paramétrée  !.... <br>';
 ?>
 <?php
     echo '<br> errors  or not errors... <br>';
-    echo validation_errors();
-    echo 'that is the question ??? ';
+    echo "<mark><big>" . validation_errors() . "</big></mark>";
+    echo 'that is the question ??? <br><br>';
 
 
-    echo "set_value('fonction')=  " .set_value('toArchive')."<br>"; 
+    echo "set_value('fonction')=  " .set_value('toArchive')."<br>";  
     var_dump(set_value('toArchive'));
+
+    echo "varDump _POST " .set_value('toArchive')."<br>"; 
     var_dump($_POST);
      ?>
-<section id="form_section">
-    <?php if (isset($this->session->username)) {
+     
+
+     <section id="form_section">
+    <?php if (isset( $this->session->user['firstname'])) {
              // echo 'session ok  client authentifié =  <br>';
              echo 'cconnexion ok <br>';
-        echo '$this->session->username = ' . $this->session->username . '<br>';
-     ?>
-      <h1>Welcome <?php echo $this->session->userdata('username'); ?></h1>
+        echo ' $this->session->user[firstname] = ' . $this->session->user['firstname'] . '<br>';
+     ?> 
+   <h1>Welcome <?php echo  $this->session->user['firstname'] . '  ' .  $this->session->user['lastname']; ?></h1>
    <h2>Formulaire de modification </h2><br>
     <?php
      } else {
-    echo 'PAS de session username <br>'; 
+    echo 'PAS de session firstname <br>'; 
   ?>
     <h2>Formulaire d'inscription</h2><br>
     <?php
     };
    ?>
     
+
+    <!-- ******    formulaire à remplir  -->
     <!-- <h2> comm depuis create.php <?php echo $comm; ?></h2> -->
 
     
     <?= !empty($users_item['u_id']) ? form_open('users/create/'.$users_item['u_id']) : form_open('users/create'); ?>
     
 <?php
-if( isset($users_item['u_fonction']) && (($users_item['u_fonction'])== ("Admin" || "Employé" || ''))) 
+if( isset($users_item['u_fonction']) && (($users_item['u_fonction'])== ("Admin" || "Employé"))) 
 {
 
     echo "users_item['u_fonction'] =" .$users_item['u_fonction'] . "<br>";
@@ -89,34 +89,35 @@ if( isset($users_item['u_fonction']) && (($users_item['u_fonction'])== ("Admin" 
     <!-- //pour choix action  autorisées-->
     <input type="hidden" name="id" value="<?= !empty($users_item['u_id']) ? $users_item['u_id'] : '' ?>"/>
     <!-- //pour archivage ou pas eq supprssion-->
-    <div class="form_div" style="border:2px;">
-
-
-
-      A&nbsp;archiver&nbsp;? 
-
-        <input type="radio" id="Non" name="toArchive" 
-        value = "0" <?= (!empty($users_item['u_id']) && ($users_item['u_toArchive'] != "TRUE") )
-        || (set_value('toArchive') != "1" ) 
-        || (set_value('toArchive') == '' ) 
-        || (empty(set_value('fonction'))) ? 'checked' : '' ?> "> 
-        <label for="Non">Non</label>
-    
-        <input type="radio" id="Oui" name="toArchive" 
-        value="1" <?= (!empty($users_item['u_id']) && ($users_item['u_toArchive'] == "TRUE")) || (set_value('toArchive') == "1" ) ? "checked" : '' ?>"> <label for="Oui">Oui</label>
-      </div>
-    <br />
-    
-    <div class="form_div">    
+       
+    <!-- <div class="form_div">    
     <span><label for="fonction"> Fonction sur le site : <br> <i>"Admin, Employé ou None" : </i></label></span>
     <span><input type="text" style="width:100px;" name="fonction" pattern="[Em]ployé|[Aa]dmin|[Nn]one" value="<?= !empty($users_item['u_id']) ? $users_item['u_fonction'] :  (empty(set_value('fonction')) ? 'None' : set_value('fonction')); ?>" size="30" /></span>
     </div>
-    <p><?php echo form_error('fonction'); ?></p><br />
-    <?php
+    <p><?php echo form_error('fonction'); ?></p><br /> -->
+  
+  <?php
 }
-else { //connecté pas ADMIN{
-?> 
 
+else { // pas ADMIN ni Employé
+?> 
+ <div class="form_div" style="border:2px solid red; display:none;">
+
+<p>A&nbsp;archiver&nbsp;? </p>
+
+  <input type="radio" id="Non" name="toArchive" value ="0"  checked >   <label for="Non">Non</label>
+
+  <input type="radio" id="Oui" name="toArchive" value="1"> <label for="Oui">Oui</label>
+
+<br><br>
+<p> Fonction ? </p>
+
+  <input type="radio" id="Admin" name="fonction" value ="Admin"  style="display:none;" >  <label for="Admin">Admin</label>
+
+  <input type="radio" id="Employé" name="fonction" value="Employé"> <label for="Employé">Employé</label>
+  
+  <input type="radio" id="None" name="fonction" value="None" checked> <label for="None">None</label>
+</div>
     
     <p><i>Complétez le formulaire. Tous les champs sont <em>obligatoires</em></p>
     <fieldset>

@@ -58,6 +58,7 @@ public function recup_post(){
             'u_phone' => $this->input->post('phone'),
             'u_birthdate' => $this->input->post('birthdate'),
             'u_fonction' => $this->input->post('fonction')
+            
         //    ******  a finir  *** terminer le remplissage après modif de la base 
         );
         return $data;

@@ -1,26 +1,26 @@
-// document.getElementById("btn").addEventListener("click", function(){
-//   document.getElementById("contMenu").style.display = "block";
-// })
 
-// var openedMenu = false;
+// Get the modal
+var modal = document.getElementById('id04');
 
-// function openCloseMenu(){
-//   if (openedMenu == false){
-//     openedMenu = true;
-//     document.getElementById("contMenu").style.width = "200px";
-//   } else {
-//     openedMenu = false;
-//     document.getElementById("contMenu").style.width = "0px";    
-//   }
-// }
-function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
+// When the user clicks anywhere outside of the modal, close it modale connexion
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
 }
+
+
+
+// function myFunction() {
+//   var x = document.getElementById("myDIV");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
+// }
+
+
 // $(document).ready(function(){
 //   //Replie le titre en 400ms lors du clic sur #b1
 //   $("#b1").click(function(){
