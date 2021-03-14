@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="<?php echo base_url("assets/css/modaleForm_style.css"); ?>">
 
         <link rel="stylesheet" href="<?php echo base_url("assets/css/style_slide_menu"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/flip_box_style"); ?>">
         <title>Loca-Auto - Location de voitures - Le Havre</title>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <!-- <script src="<?php echo base_url("assets/js/cours.js"); ?> async></script> -->
@@ -21,16 +22,42 @@
                         <div class="dropdown" style="float:left;">
                                 <button class="dropbtn"><a class="active" href="#"><i class="fa fa-home fa-2x  homeLogo"></i></a></button>
                                 <div class="dropdown-content">
-
+                                <?php
+ if (empty($_SESSION['ACCES']) ) {
+ //<!-- ----   si pas connecté -->
+ ?>
                                 <a href=javascript:void(0); onclick="document.getElementById('id04').style.display='block'">
-                                <i class="fas fa-sign-in-alt"></i> Connexion</a>
-                                        <a href="#"><i class="far fa-edit"></i> Inscription</a>
-                                        <a href="#">Link 3</a>
+                                <a href="#"><i class="fa fa-trash"></i> Accueil </a>
+                                <a href="#"><i class="far fa-edit"></i> Inscription</a>
+                                <a href="#"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+                                <a href="#"><i class="fa fa-search"></i> Rechercher un véhicule</a>
+                                <a href="#"><i class="fa fa-search"></i> Louer un véhicule</a>
+                                <a href="#"><i class="fa fa-envelope"></i> Nos conditions</a>
+                                <a href="#"><i class="fa fa-envelope"></i> Nous contacter</a>
+ <!-- ----   si  connecté -->
+ <?php
+ }
+ if (!empty($_SESSION['ACCES']) ) {
+ //   ****  simple user connecté
+ ?>
+                                <a href="#"><i class="fa fa-trash"></i> Accueil </a>
+                                <a href="#"><i class="far fa-edit"></i> Mon Compte</a>
+                                <a href="#"><i class="fa fa-search"></i> Rechercher un véhicule</a>
+                                <a href="#"><i class="fa fa-search"></i> Louer un véhicule</a>
+                                <a href="#"><i class="fa fa-trash"></i>Annuler une réservation  </a>
+                                <a href="#"><i class="fa fa-envelope"></i> Nos conditions</a>
+                                <a href="#"><i class="fa fa-envelope"></i> Nous contacter</a>
+                                <a href="#"><i class="fas fa-sign-in-alt"></i> Déconnexion</a>
 
-                                        <a href="#"><i class="fa fa-search"></i> Search</a>
-                                        <a href="#"><i class="fa fa-envelope"></i> Contact Us</a>
-                                        <a href="#"><i class="fa fa-globe"></i> Globe</a>
-                                        <a href="#"><i class="fa fa-trash"></i> Annuler </a>
+                                <?php
+ }
+ if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin'|| $_SESSION['ACCES'] == 'Employé')) {
+//   *** Admin ou employé connecté
+ ?>
+                                 <a href="#"><i class="far fa-edit"></i> Admin</a>
+        <?php
+        }
+        ?>
                                 </div>
                         </div>
                         <div style="width:30vw;">&nbsp;</div>
@@ -72,8 +99,8 @@
                                 <div class="element-flex divLogoACacher">
 
                                         <?php
-                                        if (!empty($_SESSION['ACCES']) && $_SESSION['ACCES'] == 'Admin') {
-                                                //   *** Admin connecté
+                                        if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin'|| $_SESSION['ACCES'] == 'Employé')) {
+                                                //   *** Admin ou employé connecté
                                         ?>
                                 <p class="p_iconeLogo"> <br>
                                         <a href="<?php echo site_url('admin...'); ?>">

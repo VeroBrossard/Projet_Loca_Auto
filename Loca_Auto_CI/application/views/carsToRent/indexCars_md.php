@@ -1,6 +1,21 @@
 </section>
 <br>
 <section>
+        <h1>Voir toutes les voitures à louer</h1>
+        <div>
+                <div class="flip-box">
+                        <div class="flip-box-inner">
+                                <div class="flip-box-front">
+                                        <h2>Front Side</h2>
+                                        cooucou devant
+                                </div>
+                                <div class="flip-box-back">
+                                        <h2>Back Side</h2>
+                                        coucou derriere
+                                </div>
+                        </div>
+                </div>
+        </div>
         <div class="contenairCars">
                 <div>
                         <p>depuis indexCars.php ************</p>
