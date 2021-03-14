@@ -21,10 +21,10 @@
         <em>&copy; 2021 by VB</em>
 </footer>
 
-
-
-
-<!-- <script>
+<!-- <?php
+// $this->load->view('modales/connexion_modale');
+?> -->
+<!-- <scrip>
 // Get the modal
 var modal = document.getElementById('id04');
 
@@ -34,8 +34,9 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-</script> -->
-<script src="<?php echo base_url("assets/js/script_modale_menu.js"); ?>"></script>
+</scrip> -->
+<!-- <script type = 'text/javascript' src="<?php echo base_url("assets/js/script_modale03.js"); ?>"></script>
+<script type = 'text/javascript' src="<?php echo base_url("assets/js/script_modale04.js"); ?>"></script> -->
 </body>
 
 </html>

@@ -30,15 +30,17 @@ class MySession extends CI_Controller {
          $this->load->view('templates/header_home', $data);
          $this->load->view('pages/home', $data);
          $this->load->view('carsToRent/indexCars_md', $dataCars);
-         //c'estjuste l'adresse du répertoire 
-            $this->load->view('users/modale_create', $data);  
-            $this->load->view('modales/modale_view', $data);
-            $this->load->view('templates/footer_home', $data);
-        
-          }
+         $this->load->view('templates/footer_home', $data);
+        //  $this->load->view('modales/user_param_modale');
+         $this->load->view('modales/connexion_modale');
+         
+        }
+        //c'estjuste l'adresse du répertoire 
+        // $this->load->view('users/modale_create', $data);  
+        // $this->load->view('modales/modale_view', $data);
           
       public function essaiConnexion() {
-        //appel par  la page d'accueil  (headerhome.php)
+        //appel par la page d'accueil  (headerhome.php)??
           $data['title'] = ucfirst('essai d\'acces à   par methode connexion');  
           $this->load->view('templates/header', $data);
           $this->load->view('mysession/sess-form', $data);
@@ -82,19 +84,17 @@ class MySession extends CI_Controller {
         {
           $this->session->set_userdata($key, $element);
         }
-        
-        //   $this->session->set_userdata('userphone', $dataUser['users']['u_phone']);
-        //  $this->session->set_userdata('userpwd', $dataUser['users']['u_pwd']);
         // $this->session->set_userdata('ufonction', $dataUser['users']['u_fonction']); 
         
          //   ***   initialisation var ACCES
         $this->session->ACCES = $dataUser['users']['u_fonction'];
         $dataUser['titleHome'] = "recup de _dataUser  depuis setSessionUser()   <br>";
-        $this->load->view('templates/header', $dataUser);
+
+        $this->load->view('templates/header_home', $dataUser);
         $this->load->view('pages/home', $dataUser);
         //$this->load->view('mysession/sess-view', $dataUser);
         // $this->load->view('mysession/user_gestion', $dataUser);
-        $this->load->view('templates/footer', $dataUser);
+        $this->load->view('templates/footer_home', $dataUser);
     }
  
     public function remove() {

@@ -62,8 +62,7 @@
                                                         <button onclick="document.getElementById('id04').style.display='block'">
                                                                 <i class="fas fa-sign-in-alt iconeConn"></i></button><br>
                                                         <span class="minifont">Connexion</span>
-                                                        <!-- <a class="bouton" href="<?php echo site_url('mysession/essaiConnexion'); ?>">Connexion</a> -->
-                                                </p>
+                                                       </p>
                                         <?php
                                         }
                                         ?>
@@ -93,8 +92,9 @@
                                                 //  *** user inconnu
                         ?>
                                 <p class="p_iconeLogo">
-                                        <a href="<?php echo site_url('users/create'); ?>" title="inscription">
-                                                <i class="far fa-edit iconeConn"></i></a><br><span class="minifont">Inscription</span>
+                                <!-- <button onclick="document.getElementById('id03').style.display='block'"> -->
+                                                <i class="far fa-edit iconeConn"></i></button><br>
+                                                <span class="minifont">Inscription</span>
                                 </p> <!-- autres cas  -->
                         <?php
                         }
@@ -121,8 +121,15 @@
 
         <!--  Modal Content -->
         <?php
-        // pour fenetre modale enregistrement
-        $this->load->view('mysession/sess-form');
+
+
+
+        // *****   pour fenetre modale enregistrement
+        // $this->load->view('modales/connexion_modale');
+        // $this->load->view('modales/user_param_modale');
+
+
+
         // <?php echo base_url("assets/js/cours.js"); ?
         ?>
 

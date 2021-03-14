@@ -1,5 +1,20 @@
+
+    
+
+
+<!-- depuis *** connexion_modale.php.php <br> -->
+<!-- The Modal -->
+<div id="id03" class="modal">
+    <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <?= !empty($users_item['u_id']) ? form_open('users/create/'.$users_item['u_id'], array('class' => 'modal-content animate')) 
+    : form_open('users/create', array('class' => 'modal-content animate')); ?>
+    
+
+
+
 <?php
-echo ' depuis create.php users par id ou pas <br><br><br>';
+//  ex create.php
+echo ' depuis user_param_modale.php <br><br><br>';
 
 if (!empty($users_item['u_id'])) {
     
@@ -16,7 +31,7 @@ if (!empty($users_item['u_id'])) {
  }
 
  if (!empty($title)) {
-    echo "depuis create.php " .$title.'<br>';
+    echo "depuis  depuis user_param_modal.php " .$title.'<br>';
     echo 'dataUser = ' .$title. "<br>";
 
     // echo "var_dump dataUser  version 2";
@@ -55,7 +70,7 @@ echo 'session paramétréesi pas vide  !.... <br>';
      ?>
      
 
-     <section id="form_section">
+  
     <?php if (isset( $this->session->user['firstname'])) {
              // echo 'session ok  client authentifié =  <br>';
              echo 'cconnexion ok <br>';
@@ -71,13 +86,8 @@ echo 'session paramétréesi pas vide  !.... <br>';
     <?php
     };
    ?>
-    
-
     <!-- ******    formulaire à remplir  -->
     <!-- <h2> comm depuis create.php <?php echo $comm; ?></h2> -->
-
-    
-    <?= !empty($users_item['u_id']) ? form_open('users/create/'.$users_item['u_id']) : form_open('users/create'); ?>
     
 <?php
 if( isset($users_item['u_fonction']) && (($users_item['u_fonction'])== ("Admin" || "Employé"))) 
@@ -98,69 +108,85 @@ if( isset($users_item['u_fonction']) && (($users_item['u_fonction'])== ("Admin" 
   
   <?php
 }
+//partie autorisée aussii aux pas ADMIN ni Employés
+     ?> 
+          <div class="form_div" style="border:2px solid red; display:none;">
 
-else { // pas ADMIN ni Employé
-?> 
- <div class="form_div" style="border:2px solid red; display:none;">
+          <p>A&nbsp;archiver&nbsp;? </p>
 
-<p>A&nbsp;archiver&nbsp;? </p>
+            <input type="radio" id="Non" name="toArchive" value ="0"  checked >   <label for="Non">Non</label>
 
-  <input type="radio" id="Non" name="toArchive" value ="0"  checked >   <label for="Non">Non</label>
+            <input type="radio" id="Oui" name="toArchive" value="1"> <label for="Oui">Oui</label>
 
-  <input type="radio" id="Oui" name="toArchive" value="1"> <label for="Oui">Oui</label>
+          <br><br>
+          <p> Fonction ? </p>
 
-<br><br>
-<p> Fonction ? </p>
+            <input type="radio" id="Admin" name="fonction" value ="Admin"  style="display:none;" >  <label for="Admin">Admin</label>
 
-  <input type="radio" id="Admin" name="fonction" value ="Admin"  style="display:none;" >  <label for="Admin">Admin</label>
+            <input type="radio" id="Employé" name="fonction" value="Employé"> <label for="Employé">Employé</label>
+            
+            <input type="radio" id="None" name="fonction" value="None" checked> <label for="None">None</label>
+          </div>
 
-  <input type="radio" id="Employé" name="fonction" value="Employé"> <label for="Employé">Employé</label>
+          //  ********************************
+
+          <div class="imgcontainer">
+                  <img src="<?= base_url('assets/img/logo/logo_mini_ok.jpg'); ?>" class="avatar" alt="Logo">
+
+                  <p><i>Complétez le formulaire. Tous les champs sont <em>obligatoires</em></p>
+                  
+                  <legend>Vos infos:</legend>
+                  <div class="container">
+
   
-  <input type="radio" id="None" name="fonction" value="None" checked> <label for="None">None</label>
-</div>
     
-    <p><i>Complétez le formulaire. Tous les champs sont <em>obligatoires</em></p>
-    <fieldset>
-    <legend>Vos infos:</legend>
-    
-            <label class="label_form" for="lastname">Nom</label>
+            <label class="label_form" for="lastname"><b>Nom</b></label><br>
             <input type="text" name="lastname" placeholder="ex: DUPONT" autofocus="" required="" value="<?= !empty($users_item['u_id']) ? $users_item['u_lastname'] : set_value('lastname'); ?>" size="30" />
             <p><?php echo form_error('lastname'); ?></p><br />
-    
-            <label class="label_form" for="firstname">Prénom</label>
+   
+            <label class="label_form" for="firstname"><b>Prénom</b></label><br>
             <input type="text" name="firstname" required="" value="<?= !empty($users_item['u_id']) ? $users_item['u_firstname'] : set_value('firstname'); ?>" size="30" />
             <p><?php echo form_error('firstname'); ?></p><br />
-    
-            <label class="label_form" for="birthdate">Date naissance</label>
+            <br>
+            <label class="label_form" for="birthdate"><b>Date naissance</b></label>
             <input type="date" name="birthdate" required=""  value="<?= !empty($users_item['u_id']) ? $users_item['u_birthdate'] : set_value('birthdate'); ?>"/>
             <p><?php echo form_error('birthdate'); ?></p><br />
     
-            <label class="label_form" for="phone">Tel : <i>10chiffres</i></label>
+            <label class="label_form" for="phone"><b>Tel : </b><i>10chiffres</i></label><br>
             <!-- // type="tel": bascule le clavier sur un smartphone -->
             <input type="tel" name="phone"  placeholder="0xxxxxxxxx" pattern="[0-9]{10}" required="" value="<?= !empty($users_item['u_id']) ? $users_item['u_phone'] : set_value('phone');?>" size="10" />
             <p><?php echo form_error('phone'); ?></p><br />
     
-            <label class="label_form" for="email">mail</label>
+            <label class="label_form" for="email"><b>mail</b></label><br>
             <input type="email" name="mail" placeholder="xxxxx.xxxx@xxxxxx.xxx" required="" pattern="[a-zA-Z0-9_-\.]+@{1}[a-zA-Z0-9]+(\.){1}[a-zA-Z0-9]{3,4}" value="<?= !empty($users_item['u_id']) ? $users_item['u_mail'] : set_value('mail');?>" size="50" />
-            <p><?php echo form_error('mail'); ?></p><br />
-<!--  [A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})  -->
-            <label class="label_form" for="pwd">mot de passe</label>
+            <p><?php echo form_error('mail'); ?></p><br />    
+             <!--  [A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})  -->
+            <label class="label_form" for="pwd"><b>mot de passe</b></label><br>
             <input type="password" name="pwd" required="" value="<?= !empty($users_item['u_id']) ? $users_item['u_pwd'] : set_value('pwd'); ?>" size="10" />
             <p><?php echo form_error('pwd'); ?></p><br />
     
-    </fieldset>
-    <?php
-}
-?>
-<!-- si connecté (users_item['u_id'] pas vide ) sinon  modification de la table  -->
 
-        <input type="submit" name="submit" value="<?= !empty($users_item['u_id']) ? "Modify users item" : "Create users item" ?>" onclick="return confirm('Avez-vous rempli tous les champs???');" /><br />
+<!-- si connecté (users_item['u_id'] pas vide ) sinon  modification de la table  -->
+            <button class="modaleButton" type="submit">M'inscrire</button>
+        <label>   <input type="checkbox" checked="checked" name="remember"> Remember me     </label>
+    </div>
+
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw"> <a href="#">password oublié ?</a></span>
+    </div>
+    </form>
+
+
+<!-- 
+        <input type="submit" name="submit" value="<?= !empty($users_item['u_id']) ? "Modify users item" : "Create users item" ?>" onclick="return confirm('Avez-vous rempli tous les champs???');" /><br /> -->
     
-        <?= form_close() ?>
+        <!-- <?= form_close() ?> -->
     
     <!-- La méthode confirm() affiche une boîte de dialogue avec un message et deux boutons (OK et Annuler). Cette méthode envoie l'url pour traitement (true) si l’utilisateur clique sur OK, sinon (false) l'url n'est pas crée. -->
     
-</section>
+
 
 
     <!--voir  validation en HTML : https://developer.mozilla.org/fr/docs/Learn/Forms/Form_validation -->
@@ -168,3 +194,6 @@ else { // pas ADMIN ni Employé
     <!--  regex mail : https://openclassrooms.com/forum/sujet/regex-pour-email-94939 -->
                 <!-- "[a-zA-Z0-9._-]*@[a-zA-Z0-9_-]*.[a-zA-Z]{3,4}"  -->
                 <!-- ^[a-zA-Z0-9._-]*.[a-zA-Z0-9._-]*@[a-zA-Z0-9_-]*.[a-zA-Z0-9_-]{3,4} -->
+
+                    <!-- </div>
+   
