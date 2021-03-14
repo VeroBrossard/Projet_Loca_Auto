@@ -17,47 +17,47 @@
 
         <header>
                 <!-- ***  nav bar sur le coté  -->
-         <div class="contenair-flex">
+                <div class="contenair-flex">
 
                         <div class="dropdown" style="float:left;">
                                 <button class="dropbtn"><a class="active" href="#"><i class="fa fa-home fa-2x  homeLogo"></i></a></button>
                                 <div class="dropdown-content">
-                                <?php
- if (empty($_SESSION['ACCES']) ) {
- //<!-- ----   si pas connecté -->
- ?>
-                                <a href=javascript:void(0); onclick="document.getElementById('id04').style.display='block'">
-                                <a href="#"><i class="fa fa-trash"></i> Accueil </a>
-                                <a href="#"><i class="far fa-edit"></i> Inscription</a>
-                                <a href="#"><i class="fas fa-sign-in-alt"></i> Connexion</a>
-                                <a href="#"><i class="fa fa-search"></i> Rechercher un véhicule</a>
-                                <a href="#"><i class="fa fa-search"></i> Louer un véhicule</a>
-                                <a href="#"><i class="fa fa-envelope"></i> Nos conditions</a>
-                                <a href="#"><i class="fa fa-envelope"></i> Nous contacter</a>
- <!-- ----   si  connecté -->
- <?php
- }
- if (!empty($_SESSION['ACCES']) ) {
- //   ****  simple user connecté
- ?>
-                                <a href="#"><i class="fa fa-trash"></i> Accueil </a>
-                                <a href="#"><i class="far fa-edit"></i> Mon Compte</a>
-                                <a href="#"><i class="fa fa-search"></i> Rechercher un véhicule</a>
-                                <a href="#"><i class="fa fa-search"></i> Louer un véhicule</a>
-                                <a href="#"><i class="fa fa-trash"></i>Annuler une réservation  </a>
-                                <a href="#"><i class="fa fa-envelope"></i> Nos conditions</a>
-                                <a href="#"><i class="fa fa-envelope"></i> Nous contacter</a>
-                                <a href="#"><i class="fas fa-sign-in-alt"></i> Déconnexion</a>
+                                        <?php
+                                        if (empty($_SESSION['ACCES'])) {
+                                                //<!-- ----   si pas connecté -->
+                                        ?>
+                                                <a href=javascript:void(0); onclick="document.getElementById('id04').style.display='block'">
+                                                        <a href="#"><i class="fa fa-trash"></i> Accueil </a>
+                                                        <a href="#"><i class="far fa-edit"></i> Inscription</a>
+                                                        <a href="#"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+                                                        <a href="#"><i class="fa fa-search"></i> Rechercher un véhicule</a>
+                                                        <a href="#"><i class="fa fa-search"></i> Louer un véhicule</a>
+                                                        <a href="#"><i class="fa fa-envelope"></i> Nos conditions</a>
+                                                        <a href="#"><i class="fa fa-envelope"></i> Nous contacter</a>
+                                                        <!-- ----   si  connecté -->
+                                                <?php
+                                        }
+                                        if (!empty($_SESSION['ACCES'])) {
+                                                //   ****  simple user connecté
+                                                ?>
+                                                        <a href="#"><i class="fa fa-trash"></i> Accueil </a>
+                                                        <a href="#"><i class="far fa-edit"></i> Mon Compte</a>
+                                                        <a href="#"><i class="fa fa-search"></i> Rechercher un véhicule</a>
+                                                        <a href="#"><i class="fa fa-search"></i> Louer un véhicule</a>
+                                                        <a href="#"><i class="fa fa-trash"></i>Annuler une réservation </a>
+                                                        <a href="#"><i class="fa fa-envelope"></i> Nos conditions</a>
+                                                        <a href="#"><i class="fa fa-envelope"></i> Nous contacter</a>
+                                                        <a href="#"><i class="fas fa-sign-in-alt"></i> Déconnexion</a>
 
-                                <?php
- }
- if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin'|| $_SESSION['ACCES'] == 'Employé')) {
-//   *** Admin ou employé connecté
- ?>
-                                 <a href="#"><i class="far fa-edit"></i> Admin</a>
-        <?php
-        }
-        ?>
+                                                <?php
+                                        }
+                                        if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin' || $_SESSION['ACCES'] == 'Employé')) {
+                                                //   *** Admin ou employé connecté
+                                                ?>
+                                                        <a href="#"><i class="far fa-edit"></i> Admin</a>
+                                                <?php
+                                        }
+                                                ?>
                                 </div>
                         </div>
                         <div style="width:30vw;">&nbsp;</div>
@@ -70,9 +70,9 @@
                         </div>
 
 
-                                        <!-- <?php echo $this->session->users['u_lastname']; ?> -->
+                        <!-- <?php echo $this->session->users['u_lastname']; ?> -->
                         <div style="width:25vw;">&nbsp;</div>
-                        <div class="contenair-flex divACacher" style="width:200px;">  
+                        <div class="contenair-flex divACacher" style="width:200px;">
                                 <div class="element-flex divLogoACacher">
 
                                         <?php if (!empty($_SESSION['ACCES'])) {
@@ -89,7 +89,7 @@
                                                         <button onclick="document.getElementById('id04').style.display='block'">
                                                                 <i class="fas fa-sign-in-alt iconeConn"></i></button><br>
                                                         <span class="minifont">Connexion</span>
-                                                       </p>
+                                                </p>
                                         <?php
                                         }
                                         ?>
@@ -99,54 +99,41 @@
                                 <div class="element-flex divLogoACacher">
 
                                         <?php
-                                        if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin'|| $_SESSION['ACCES'] == 'Employé')) {
+                                        if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin' || $_SESSION['ACCES'] == 'Employé')) {
                                                 //   *** Admin ou employé connecté
                                         ?>
-                                <p class="p_iconeLogo"> <br>
-                                        <a href="<?php echo site_url('admin...'); ?>">
-                                                <img src="<?= base_url('assets/img/logo/gear-logo.png'); ?>" width="35em" alt="Admin"></a><br><span class="minifont">Admin</span>
-                                </p>
+                                                <p class="p_iconeLogo"> <br>
+                                                        <a href="<?php echo site_url('admin...'); ?>">
+                                                                <img src="<?= base_url('assets/img/logo/gear-logo.png'); ?>" width="35em" alt="Admin"></a><br><span class="minifont">Admin</span>
+                                                </p>
                                         <?php
                                         } elseif (!empty($_SESSION['ACCES']) && $_SESSION['ACCES'] == 'None') {
                                                 //   ****  simple user connecté
                                         ?>
-                        <p class="p_iconeLogo">
-                                <a href="<?php echo site_url('paramUser...'); ?>">
-                                        <i class="fas fa-users-cog fa-2x" style="color:dimgray;"></i> </a><br><span class="minifont">Modifier</span>
-                        </p>
+                                                <p class="p_iconeLogo">
+                                                        <a href="<?php echo site_url('paramUser...'); ?>">
+                                                                <i class="fas fa-users-cog fa-2x" style="color:dimgray;"></i> </a><br><span class="minifont">Modifier</span>
+                                                </p>
                                         <?php
                                         } else {
                                                 //  *** user inconnu
-                        ?>
-                                <p class="p_iconeLogo">
-                                <button onclick="document.getElementById('id03').style.display='block'">
-                                                <i class="far fa-edit iconeConn"></i></button><br>
-                                                <span class="minifont">Inscription</span>
-                                </p> <!-- autres cas  -->
-                        <?php
-                        }
-                        ?>
+                                        ?>
+                                                <p class="p_iconeLogo">
+                                                        <button onclick="document.getElementById('id03').style.display='block'">
+                                                                <i class="far fa-edit iconeConn"></i></button><br>
+                                                        <span class="minifont">Inscription</span>
+                                                </p> <!-- autres cas  -->
+                                        <?php
+                                        }
+                                        ?>
                                 </div>
 
                         </div>
-        </div>
+                </div>
         </header>
 
 
-        <!-- <div> <h1> H1<?php echo $title; ?></h1></div> -->
 
-
-        <!-- Button to open the modal login form -->
-        <!-- <button onclick="document.getElementById('id04').style.display='block'">Login</button> -->
-
-        <!-- The Modal -->
-        <!-- <div id="id04" class="modal">
-                <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span> -->
-
-        <!-- 
-                <form class="modal-content animate" action="/action_page.php"> -->
-
-        <!--  Modal Content -->
         <?php
 
 
@@ -155,49 +142,9 @@
         // $this->load->view('modales/connexion_modale');
         // $this->load->view('modales/user_param_modale');
 
-
-
-        // <?php echo base_url("assets/js/cours.js"); ?
         ?>
 
-        <!-- <div class="imgcontainer">
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
-    </div>
 
-    <div class="container">
-      <label for="uname"><b>namee</b></label>
-      <input type="text" placeholder="Enter name" name="uname" required>
 
-      <label for="psw"><b>Password</b></label>name
-      <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form> -->
         </div>
-<!-- 
-        <div id="id03" class="modal">
-    <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
- coucou de la div 033333333333333333333
- <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
-        <span class="psw"> <a href="#">password oublié ?</a></span>
-    </div>
- 
-
-    
-    <div id="id04" class="modal">
-    <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
- coucou de la div 04444444444444444444444444
- <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
-        <span class="psw"> <a href="#">password oublié ?</a></span>
-    </div>
- -->
-

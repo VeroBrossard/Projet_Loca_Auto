@@ -213,11 +213,7 @@ footer{
   font-size: 1.2em;
   text-decoration: none;
   }
-/*   ****** CarsToRent   *******  */
-.contenairCars{
-background-color: burlywood;
-font-size: 12px;
-}
+
 /*  *************  Media Queries  ************
 Si on utilise un petit écran (que ce soit avec un ordinateur dans
   une petite fenêtre ou avec un smartphone), la taille des fonts est réduite */
@@ -228,10 +224,20 @@ $small       : 576px !default;
 $medium      : 768px !default;
 $large       : 992px !default;
 $extra-large : 1200px !default; */
+
+/* 
+@media only screen and (min-width:1220px) { 
+  .Cards{ display: inline-block; vertical-align: middle; } 
+} 
+
+@media only screen and (max-width:1220px) { 
+  .Cards { display: block; }
+} */
   
 /*   ******* query 5 */
 /* *****  Extra small devices (portrait phones, less than 576px) */
 @media all { 
+  .Cards { display: inline-block; vertical-align: middle; } 
  /*  a completer */ 
 }
 
@@ -239,6 +245,7 @@ $extra-large : 1200px !default; */
 /* ***** Small devices (landscape phones, 576px and up) */
 @media (min-device-width: 576px) 
  { 
+  .Cards{ display: inline-block; vertical-align: middle; } 
   section{
     width: 90vw;
     padding: 0 1em;
@@ -301,7 +308,9 @@ $extra-large : 1200px !default; */
 /*   ******* query  3 */
 /* ***  Medium devices (tablets, 768px and up)  */
 @media (min-device-width: 768px) 
+
 { 
+  .Cards{ display: inline-block; vertical-align: middle; } 
   section{
     width: 90vw;
     padding: 0 1em;
@@ -362,6 +371,7 @@ $extra-large : 1200px !default; */
     /*  ***  Large devices (desktops, 992px and up) */
 @media (min-device-width: 992px)   
     {
+      .Cards { display: block; }
       body {
         font-size: 1.2em;
      }
@@ -420,6 +430,7 @@ $extra-large : 1200px !default; */
 /* *** Extra large devices (large desktops, 1200px and up)  */
 @media (min-device-width: 1200px) 
  {
+  .Cards { display: block; }
   body {
      font-size: 0.7em;
   }
