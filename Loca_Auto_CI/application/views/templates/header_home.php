@@ -92,7 +92,7 @@
                                                 //  *** user inconnu
                         ?>
                                 <p class="p_iconeLogo">
-                                <!-- <button onclick="document.getElementById('id03').style.display='block'"> -->
+                                <button onclick="document.getElementById('id03').style.display='block'">
                                                 <i class="far fa-edit iconeConn"></i></button><br>
                                                 <span class="minifont">Inscription</span>
                                 </p> <!-- autres cas  -->
@@ -156,3 +156,21 @@
     </div>
   </form> -->
         </div>
+<!-- 
+        <div id="id03" class="modal">
+    <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+ coucou de la div 033333333333333333333
+ <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw"> <a href="#">password oublié ?</a></span>
+    </div>
+ 
+
+    
+    <div id="id04" class="modal">
+    <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+ coucou de la div 04444444444444444444444444
+ <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
+        <span class="psw"> <a href="#">password oublié ?</a></span>
+    </div>
+ -->
+

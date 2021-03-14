@@ -1,10 +1,9 @@
 <!-- <p>message d'en haut : <?= $title ?></p>  -->
 
-  <!-- "depuis *** connexion_modale.php.php <br> "; -->
-
-
+<!-- "depuis *** connexion_modale.php.php <br> "; -->
 <!-- The Modal -->
-    <div id="id04" class="modal">
+<div id="id04" class="modal">
+    o
     <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
     <!-- <div style="text-align: center"> -->
     <?= form_open('mysession/verifConnexion', array('class' => 'modal-content animate')) ?>
@@ -34,3 +33,22 @@
     </div>
     </form>
     <!-- </div> -->
+
+
+
+    <!-- 
+        <input type="submit" name="submit" value="<?= !empty($users_item['u_id']) ? "Modify users item" : "Create users item" ?>" onclick="return confirm('Avez-vous rempli tous les champs???');" /><br /> -->
+
+    <!-- <?= form_close() ?> -->
+
+    <!-- La méthode confirm() affiche une boîte de dialogue avec un message et deux boutons (OK et Annuler). Cette méthode envoie l'url pour traitement (true) si l’utilisateur clique sur OK, sinon (false) l'url n'est pas crée. -->
+
+
+
+
+    <!--voir  validation en HTML : https://developer.mozilla.org/fr/docs/Learn/Forms/Form_validation -->
+    <!-- CSS  by http://www.enseignement.polytechnique.fr/informatique/profs/Olivier.Serre/Memos/Formulaires_CSS/index.html -->
+    <!--  regex mail : https://openclassrooms.com/forum/sujet/regex-pour-email-94939 -->
+    <!-- "[a-zA-Z0-9._-]*@[a-zA-Z0-9_-]*.[a-zA-Z]{3,4}"  -->
+    <!-- ^[a-zA-Z0-9._-]*.[a-zA-Z0-9._-]*@[a-zA-Z0-9_-]*.[a-zA-Z0-9_-]{3,4} -->
+</div>

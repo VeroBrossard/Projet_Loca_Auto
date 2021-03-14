@@ -31,8 +31,8 @@ class MySession extends CI_Controller {
          $this->load->view('pages/home', $data);
          $this->load->view('carsToRent/indexCars_md', $dataCars);
          $this->load->view('templates/footer_home', $data);
-        //  $this->load->view('modales/user_param_modale');
          $this->load->view('modales/connexion_modale');
+         $this->load->view('modales/user_param_modale');
          
         }
         //c'estjuste l'adresse du répertoire 

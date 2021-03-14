@@ -37,6 +37,3 @@ window.onclick = function(event) {
 </scrip> -->
 <!-- <script type = 'text/javascript' src="<?php echo base_url("assets/js/script_modale03.js"); ?>"></script>
 <script type = 'text/javascript' src="<?php echo base_url("assets/js/script_modale04.js"); ?>"></script> -->
-</body>
-
-</html>
