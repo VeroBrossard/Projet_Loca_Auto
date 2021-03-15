@@ -2,9 +2,9 @@
 
 <!-- "depuis *** connexion_modale.php.php <br> "; -->
 <!-- The Modal -->
-<div id="id04" class="modal">
+<div id="id_form_conn" class="modal">
     o
-    <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <span onclick="document.getElementById('id_form_conn').style.display='none'" class="close" title="Close Modal">&times;</span>
     <!-- <div style="text-align: center"> -->
     <?= form_open('mysession/verifConnexion', array('class' => 'modal-content animate')) ?>
 
@@ -30,7 +30,7 @@
 
 
     <div class="container" style="background-color:#f1f1f1">
-        <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="document.getElementById('id_form_conn').style.display='none'" class="cancelbtn">Cancel</button>
         <span class="psw"> <a href="#">password oublié ?</a></span>
     </div>
     </form>

@@ -319,7 +319,7 @@ $extra-large : 1200px !default; */
   }
   /*  **********  header  ************  */
   .contenair-flex{
-    height: 10vh;
+    height: 12vh;
  }  
   .element-flex{
       font-size : 2em;
@@ -446,7 +446,7 @@ $extra-large : 1200px !default; */
   }
 /*  **********  header  ************  */
 .contenair-flex{
-  height: 9.5vh;
+  height: 14vh;
   font-size: 1.7em;
   }
 .element-flex{

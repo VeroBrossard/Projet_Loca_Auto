@@ -1,7 +1,7 @@
 <!-- depuis *** connexion_modale.php.php <br> -->
 <!-- The Modal -->
-<div id="id03" class="modal">
-  <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+<div id="id_form_user" class="modal">
+  <span onclick="document.getElementById('id_form_user').style.display='none'" class="close" title="Close Modal">&times;</span>
   <?= !empty($users_item['u_id']) ? form_open('users/create/' . $users_item['u_id'], array('class' => 'modal-content animate'))
     : form_open('users/create', array('class' => 'modal-content animate')); ?>
 
@@ -90,7 +90,7 @@
 
 
   <div class="container" style="background-color:#f1f1f1">
-    <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+    <button type="button" onclick="document.getElementById('id_form_user').style.display='none'" class="cancelbtn">Cancel</button>
     <span class="psw"> <a href="#">password oublié ?</a></span>
   </div>
   </form>

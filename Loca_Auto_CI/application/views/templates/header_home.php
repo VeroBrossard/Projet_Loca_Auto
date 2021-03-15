@@ -26,10 +26,11 @@
                                         if (empty($_SESSION['ACCES'])) {
                                                 //<!-- ----   si pas connecté -->
                                         ?>
-                                                <a href=javascript:void(0); onclick="document.getElementById('id04').style.display='block'">
+
                                                         <a href="#"><i class="fa fa-trash"></i> Accueil </a>
-                                                        <a href="#"><i class="far fa-edit"></i> Inscription</a>
-                                                        <a href="#"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+                                                        <a href=javascript:void(0); onclick="document.getElementById('id_form_user').style.display='block'"><i class="far fa-edit"></i> Inscription</a>
+                                                        <a href=javascript:void(0); onclick="document.getElementById('id_form_conn').style.display='block'"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+
                                                         <a href="#"><i class="fa fa-search"></i> Rechercher un véhicule</a>
                                                         <a href="#"><i class="fa fa-search"></i> Louer un véhicule</a>
                                                         <a href="#"><i class="fa fa-envelope"></i> Nos conditions</a>
@@ -86,7 +87,7 @@
                                                 //  *** User inconnu ( non connecté ) => connexion
                                         ?>
                                                 <p class="p_iconeLogo">
-                                                        <button onclick="document.getElementById('id04').style.display='block'">
+                                                        <button onclick="openConn()">
                                                                 <i class="fas fa-sign-in-alt iconeConn"></i></button><br>
                                                         <span class="minifont">Connexion</span>
                                                 </p>
@@ -103,8 +104,8 @@
                                                 //   *** Admin ou employé connecté
                                         ?>
                                                 <p class="p_iconeLogo"> <br>
-                                                        <a href="<?php echo site_url('admin...'); ?>">
-                                                                <img src="<?= base_url('assets/img/logo/gear-logo.png'); ?>" width="35em" alt="Admin"></a><br><span class="minifont">Admin</span>
+                                                        <a href="<?php echo site_url('mysession/admin'); ?>">
+                                                                <img src="<?= base_url('assets/img/logo/gear-logo.png'); ?>" width="25em" alt="Admin"></a><br><span class="minifont">Admin</span>
                                                 </p>
                                         <?php
                                         } elseif (!empty($_SESSION['ACCES']) && $_SESSION['ACCES'] == 'None') {
@@ -119,7 +120,7 @@
                                                 //  *** user inconnu
                                         ?>
                                                 <p class="p_iconeLogo">
-                                                        <button onclick="document.getElementById('id03').style.display='block'">
+                                                        <button onclick="openForm()">
                                                                 <i class="far fa-edit iconeConn"></i></button><br>
                                                         <span class="minifont">Inscription</span>
                                                 </p> <!-- autres cas  -->
@@ -138,7 +139,7 @@
 
 
 
-        // *****   pour fenetre modale enregistrement
+        // *****   pour fenetre modale enregistrement dans home.php
         // $this->load->view('modales/connexion_modale');
         // $this->load->view('modales/user_param_modale');
 

@@ -51,7 +51,7 @@ echo !empty($_SESSION['ACCES']) ? 'ACCES pas vide' : 'ACCES vide !! ';
 ?> -->
 <!-- <scrip>
 // Get the modal
-var modal = document.getElementById('id04');
+var modal = document.getElementById('id_form_conn');
 
 // When the user clicks anywhere outside of the modal, close it modale connexion
 window.onclick = function(event) {
@@ -60,5 +60,5 @@ window.onclick = function(event) {
   }
 }
 </scrip> -->
-<!-- <script type = 'text/javascript' src="<?php echo base_url("assets/js/script_modale03.js"); ?>"></script>
-<script type = 'text/javascript' src="<?php echo base_url("assets/js/script_modale04.js"); ?>"></script> -->
+<script type = 'text/javascript' src="<?php echo base_url("assets/js/script_modale_id_form_user.js"); ?>"></script>
+<!-- <script type = 'text/javascript' src="<?php echo base_url("assets/js/script_modale_id_form_conn.js"); ?>"></script>  -->

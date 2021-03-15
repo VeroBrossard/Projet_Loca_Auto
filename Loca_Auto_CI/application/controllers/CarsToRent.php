@@ -26,20 +26,20 @@ class CarsToRent extends CI_Controller
   }
 
   // one for a specific news item
-  public function view_1carToRent($id = NULL)
-  {
-    $dataCars['carsToRent_item'] = $this->carsToRent_model->get_carsToRent($id);
+  // public function view_1carToRent($id = NULL)
+  // {
+  //   $dataCars['carsToRent_item'] = $this->carsToRent_model->get_carsToRent($id);
 
-    if (empty($dataCars['carsToRent_item'])) {
-      show_404();
-    }
-  //   // $data['title'] = $data['carsToRent_item']['title'] .'dans carsToRent.php by VB';
-  //   //$data['title'] = $data['carsToRent_item']['phone'] .'dans carsToRent.php by VB';
-    $dataCars['title'] = ' ONE carsToRent by Id';
-    $this->load->view('templates/header', $dataCars);
-    $this->load->view('carsToRent/viewOneCarToRent', $dataCars);
-    $this->load->view('templates/footer');
-  }
+  //   if (empty($dataCars['carsToRent_item'])) {
+  //     show_404();
+  //   }
+  // //   // $data['title'] = $data['carsToRent_item']['title'] .'dans carsToRent.php by VB';
+  // //   //$data['title'] = $data['carsToRent_item']['phone'] .'dans carsToRent.php by VB';
+  //   $dataCars['title'] = ' ONE carsToRent by Id';
+  //   $this->load->view('templates/header', $dataCars);
+  //   $this->load->view('carsToRent/viewOneCarToRent', $dataCars);
+  //   $this->load->view('templates/footer');
+  // }
 
 
   //vérifier si le formulaire a été soumis et si les données soumises 
@@ -102,7 +102,7 @@ class CarsToRent extends CI_Controller
         //$data['title'] = $data['carsToRent_item']['phone'] .'dans carsToRent.php by VB';
         $dataCars['title'] = ' DELETE carsToRent by Id';
         $dataCars['id_supp'] = $id;
-        $this->carsToRent_model->delete_carToRent($id);
+        $this->carsToRent_model->delete_1car($id);
         $this->load->view('templates/header', $dataCars);
         $this->load->view('carsToRent/templates/delete_success', $dataCars);
         $this->load->view('templates/footer');
@@ -145,6 +145,41 @@ class CarsToRent extends CI_Controller
 
           
         }
+
+           //  one for a specific car item
+    public function view_1Car($id = NULL)
+    {
+      var_dump($id);
+      $data['cars_item'] = $this->carsToRent_model->get_carsToRent_md($id);
+  
+      if (empty($data['cars_item'])) {
+        show_404();
+        // echo 'show_404();';
+      }
+  
+      // $data['title'] = $data['patients_item']['title'] .'dans Patients.php by VB';
+      //$data['title'] = $data['patients_item']['phone'] .'dans Patients.php by VB';
+      $data['title'] = ' Car unique by Id';
+      // $this->load->view('templates/header_admin', $data);
+      $this->load->view('admin/viewOneCarToRent', $data);
+      // $this->load->view('templates/footer', $data);
+    }
+    // public function delete_1patient($id = NULL){      
+    //   if ($id == NULL){  
+    //     show_404();
+    //   }
+    //   else{
+    //   // $data['title'] = $data['patients_item']['title'] .'dans Patients.php by VB';
+    //   //$data['title'] = $data['patients_item']['phone'] .'dans Patients.php by VB';
+    //   $data['title'] = ' DELETE Patients by Id';
+    //   $data['id_supp'] = $id;
+    //   $this->patients_model->delete_patient($id);
+    //   $this->load->view('templates/headerHosp', $data);
+    //   $this->load->view('patients/delete_success', $data);
+    //   $this->load->view('templates/patients_footer');
+    //   }
+    // }
+
       }
     
     

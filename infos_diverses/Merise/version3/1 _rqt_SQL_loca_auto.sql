@@ -4,6 +4,7 @@
 CREATE DATABASE IF NOT EXISTS `loca-auto` CHARACTER SET 'utf8';
 USE `loca-auto`;
 
+
 #------------------------------------------------------------
 # Table: users
 #------------------------------------------------------------
@@ -15,9 +16,9 @@ CREATE TABLE users(
         u_mail      Varchar (50) NOT NULL ,
         u_pwd       Varchar (10) NOT NULL ,
         u_phone     Varchar (20) NOT NULL ,
+		u_fonction    Varchar (20) NOT NULL ,
         u_toArchive Bool NOT NULL ,
-        u_birthdate Date NOT NULL,
-		u_fonction Varchar (20) NOT NULL DEFAULT 'None'
+        u_birthdate Date NOT NULL
 	,CONSTRAINT users_PK PRIMARY KEY (u_id)
 )ENGINE=InnoDB;
 
@@ -71,17 +72,17 @@ CREATE TABLE packagePeriod(
 
 
 #------------------------------------------------------------
-# Table: usersOpinion
+# Table: UsersOpinion
 #------------------------------------------------------------
 
-CREATE TABLE usersOpinion(
+CREATE TABLE UsersOpinion(
         uo_id    Int  Auto_increment  NOT NULL ,
         uo_stars Int NOT NULL ,
         uo_comm  Text NOT NULL ,
         u_id     Int NOT NULL
-	,CONSTRAINT usersOpinion_PK PRIMARY KEY (uo_id)
+	,CONSTRAINT UsersOpinion_PK PRIMARY KEY (uo_id)
 
-	,CONSTRAINT usersOpinion_users_FK FOREIGN KEY (u_id) REFERENCES users(u_id)
+	,CONSTRAINT UsersOpinion_users_FK FOREIGN KEY (u_id) REFERENCES users(u_id)
 )ENGINE=InnoDB;
 
 
@@ -110,10 +111,21 @@ CREATE TABLE packageKm(
 
 
 #------------------------------------------------------------
-# Table: location
+# Table: locationState
 #------------------------------------------------------------
 
-CREATE TABLE location(
+CREATE TABLE locationState(
+        ls_id        Int  Auto_increment  NOT NULL ,
+        ls_statement Varchar (25) NOT NULL
+	,CONSTRAINT locationState_PK PRIMARY KEY (ls_id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: locations
+#------------------------------------------------------------
+
+CREATE TABLE locations(
         l_id             Int  Auto_increment  NOT NULL ,
         l_startDate      Date NOT NULL ,
         l_endDate        Date NOT NULL ,
@@ -121,17 +133,19 @@ CREATE TABLE location(
         l_plannedKm      Int NOT NULL ,
         l_realKm         Int NOT NULL ,
         l_chosenOptions  Varchar (20) NOT NULL ,
-        l_Billing        Bool NOT NULL ,
+        l_toArchive      Bool NOT NULL ,
         pp_id            Int NOT NULL ,
         pk_id            Int NOT NULL ,
         ctr_id           Int NOT NULL ,
-        u_id             Int NOT NULL
-	,CONSTRAINT location_PK PRIMARY KEY (l_id)
+        u_id             Int NOT NULL ,
+        ls_id            Int NOT NULL
+	,CONSTRAINT locations_PK PRIMARY KEY (l_id)
 
-	,CONSTRAINT location_packagePeriod_FK FOREIGN KEY (pp_id) REFERENCES packagePeriod(pp_id)
-	,CONSTRAINT location_packageKm0_FK FOREIGN KEY (pk_id) REFERENCES packageKm(pk_id)
-	,CONSTRAINT location_carsToRent1_FK FOREIGN KEY (ctr_id) REFERENCES carsToRent(ctr_id)
-	,CONSTRAINT location_users2_FK FOREIGN KEY (u_id) REFERENCES users(u_id)
+	,CONSTRAINT locations_packagePeriod_FK FOREIGN KEY (pp_id) REFERENCES packagePeriod(pp_id)
+	,CONSTRAINT locations_packageKm0_FK FOREIGN KEY (pk_id) REFERENCES packageKm(pk_id)
+	,CONSTRAINT locations_carsToRent1_FK FOREIGN KEY (ctr_id) REFERENCES carsToRent(ctr_id)
+	,CONSTRAINT locations_users2_FK FOREIGN KEY (u_id) REFERENCES users(u_id)
+	,CONSTRAINT locations_locationState3_FK FOREIGN KEY (ls_id) REFERENCES locationState(ls_id)
 )ENGINE=InnoDB;
 
 
@@ -140,13 +154,13 @@ CREATE TABLE location(
 #------------------------------------------------------------
 
 CREATE TABLE billing(
-        b_id           Int  Auto_increment  NOT NULL ,
-        b_rentPrice 	Float NOT NULL,
-        l_id           Int NOT NULL
+        b_id     Int  Auto_increment  NOT NULL ,
+        b_amount Float NOT NULL ,
+        l_id     Int NOT NULL
 	,CONSTRAINT billing_PK PRIMARY KEY (b_id)
 
-	,CONSTRAINT billing_location_FK FOREIGN KEY (l_id) REFERENCES location(l_id)
-	,CONSTRAINT billing_location_AK UNIQUE (l_id)
+	,CONSTRAINT billing_locations_FK FOREIGN KEY (l_id) REFERENCES locations(l_id)
+	,CONSTRAINT billing_locations_AK UNIQUE (l_id)
 )ENGINE=InnoDB COMMENT "Facturation " ;
 
 
@@ -160,6 +174,6 @@ CREATE TABLE completer(
 	,CONSTRAINT completer_PK PRIMARY KEY (o_id,l_id)
 
 	,CONSTRAINT completer_options_FK FOREIGN KEY (o_id) REFERENCES options(o_id)
-	,CONSTRAINT completer_location0_FK FOREIGN KEY (l_id) REFERENCES location(l_id)
+	,CONSTRAINT completer_locations0_FK FOREIGN KEY (l_id) REFERENCES locations(l_id)
 )ENGINE=InnoDB COMMENT "Liste des Options dont (assurance)" ;
 

@@ -64,19 +64,9 @@
                                                 </div>
                                         </div>
                                 </div>
-                                <?php
-                                if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin' || $_SESSION['ACCES'] == 'Employé')) {
-                                        //   *** Admin ou employé connecté
-                                ?>
-                                        <td><?= $cars_item['ctr_immatriculation']; ?></td>
-                                        <td><?= $cars_item['ctr_toArchive']; ?></td>
-                                        <td><?= $cars_item['cd_mileage']; ?></td> -->
-
-                                        <!-- <td><a href="<?= site_url('users/' . $cars_item['u_id']); ?>">détails</a></td> -->
-                                        <!-- </tr> -->
-                        <?php
-                                }
-                        endforeach; ?>
+<?php
+                        endforeach; 
+                        ?>
 
                         <td colspan="7"> nombre de voitures <?= $total ?> </td>
 

@@ -18,18 +18,15 @@ class CarsToRent_model extends CI_Model {
                 $query = $this->db->get();
                 return $query->result_array();
         
-                //echo $query->num_rows();
-//$this->db->select('title, description, length(audio), realname, creationdate, podid');
-
-
-// $this->db->from('podcasts');
-// $this->db->join('users', 'users.userid = podcasts.userid');
-// $this->db->where('users.userid', $this->uri->rsegment(4));
-// $query = $this->db->get();
         }
         else {
-        $query = $this->db->get_where('carsToRent', array('u_id' => $id));
-        return $query->row_array();
+        // $query = $this->db->get_where('carsToRent', array('ctr_id' => $id));
+                $this->db->select('*')
+                        ->from('carsToRent')
+                        ->where('ctr_id',$id)
+                        ->join ('carDetails','carDetails.cd_id = carsToRent.cd_id');
+                $query =  $this->db->get();
+                return $query->row_array();
         }
 }
 //méthode qui écrit les données dans la base de données. Vous allez utiliser la classe Query Builder pour insérer les informations et utiliser la bibliothèque d'entrée pour obtenir les données publiées
@@ -72,11 +69,14 @@ public function update_carToRent($id)
         // , array('id' => $id));
 }    
 
-public function delete_carToRent($id){
-        // $this -> db -> where ('id',$id);
-        // $this->db->delete('carsToRent');
-        $this->db->query("delete from carsToRent where u_id='".$id."'");
-        echo 'delete  réalisé par delete_carToRent';
-}
+// public function delete_1car($id){
+//         // $this -> db -> where ('ctr_id',$id);
+//         // $this->db->delete('carsToRent');
+//         //verification de présence dans les locations  ou en cours
+//         $dataDelete = $this->get_carsToRent_md($id);
+
+//         $this->db->query("delete from carsToRent where ctr_id='".$id."'");
+//         echo 'delete  réalisé par delete_carToRent';
+// }
 
 }
