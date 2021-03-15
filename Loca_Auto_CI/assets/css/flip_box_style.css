@@ -1,10 +1,13 @@
-/* **** The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+/* **** The flip box container - set the width and height to whatever you want.
+/* **** We have added the border property to demonstrate that the flip itself goes 
+/*   *** out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-box {
   background-color: transparent;
-  width: 300px;
-  height: 200px;
+  width:700px; /* doit rester fixe pour le wrap */
+  height: 450px;
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  font-size:35px;
 }
 
 /* **** This container is needed to position the front and back side */
@@ -15,6 +18,7 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  padding : 5px 0px; 
 }
 
 /* ****Do an horizontal flip when you move the mouse over the flip box container */
@@ -33,13 +37,14 @@
 
 /* **** Style the front side */
 .flip-box-front {
-  /* background-color: #bbb; */
+  background-color: silver;
   color: black;
+/* padding-bottom :55px; */
 }
 
 /* **** Style the back side */
 .flip-box-back {
-  background-color: dodgerblue;
+  background-color: var(--main-color);
   color: white;
   transform: rotateY(180deg);
 }
@@ -47,15 +52,95 @@
 /*   ****** CarsToRent   *******  */
 .contenairCars{
   display: flex;
-  justify-content: space-around;
-  /* flex-wrap: wrap; */
+  align-items: center;
+  justify-content: center;
   background-color: burlywood;
+  padding: 10vw 20vw;  
+  /* pour pseudo centrage horizontal */
+}
+
+  .carCard{
+    width: 32vh;
+    /* padding-top: 2vh; */
   }
 
-  /* @media only screen and (min-width:1220px) {  */
-    .block { display: inline-block; vertical-align: middle; justify-content: space-around;} 
-/* }  */
+  .block { 
+    display: inline-block; 
+    padding : 13px; /* marges autour des cartes */
+  } 
+.logoCars{
+  height:30px;
+}
+  /* ***   breakpoints par défaut tu peux aussi t'inspirer de KNACSS  */
+/* n'utiliser que du min-width, pour du mobile first. */
+/* $tiny        : 480px !default; // or 'em' if you prefer, of course */
+@media all {
 
-/* @media only screen and (max-width:1220px) { 
-    .block { display: block; }
-} */
+}
+/* $small       : 576px !default; */
+@media (min-device-width: 576px) {
+  .contenairCars{
+    padding: 1vw 20vw;  
+    /* pour pseudo centrage horizontal */
+  }
+  .flip-box {
+    width: 500px; /* doit rester fixe pour le wrap */
+    height: 350px;
+    font-size: 30px;
+  }
+  .block { 
+    display: inline-block; 
+    padding : 5px; /* marges autour des cartes */
+  } 
+
+}
+
+/* $medium      : 768px !default; */
+@media (min-device-width: 768px) {
+  .contenairCars{
+    padding: 1vw 7vw;  
+    /* pour pseudo centrage horizontal */
+  }
+  .flip-box {
+    width: 350px; /* doit rester fixe pour le wrap */
+    height: 280px;
+    font-size: 20px;
+  }
+  .block { 
+    display: inline-block; 
+    padding : 2px; /* marges autour des cartes */
+  } 
+
+}
+/* $large       : 992px !default; */
+@media (min-device-width: 992px) {
+  .contenairCars{
+    padding: 3vw 7vw;  
+    /* pour pseudo centrage horizontal */
+  }
+  .flip-box {
+    width: 280px; /* doit rester fixe pour le wrap */
+    height: 230px;
+    font-size: 17px;
+  }
+  .block { 
+    display: inline-block; 
+    padding : 5px; /* marges autour des cartes */
+  } 
+}
+/* $extra-large : 1200px !default;  */
+@media (min-device-width: 1200px) {
+  .contenairCars{
+    padding: 3vw 4vw;  
+    /* pour pseudo centrage horizontal */
+  }
+  .flip-box {
+    width: 250px; /* doit rester fixe pour le wrap */
+    height: 210px;
+    font-size: 15px;
+  }
+  .block { 
+    display: inline-block; 
+    padding : 5px; /* marges autour des cartes */
+  } 
+}

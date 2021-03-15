@@ -1,67 +1,86 @@
 </section>
 <br>
 <section>
-        <h1>Voir toutes les voitures à louer</h1>
+        <h1>Nos voitures </h1>
 
         <div class="contenairCars">
 
-                        <div>
+                <!-- <div>
                                 <img id="imgLogoCar" src="<?= base_url('assets/img/cars/voiture.jpg'); ?>" alt="Logo LOCA-AUTO">
                                 <p>depuis indexCars.php ************</p>
                                 <?= $title ?>
-                        </div>
-                        <div>
+                        </div> -->
+                <div>
 
-                                <?php
-                                //echo 'ici  page arborescence : views/users/index.php ';
+                        <?php
 
-                                foreach ($carsToRent as $cars_item) :
-                                ?>
-                                        <!-- <div class="main"> -->
+                        foreach ($carsToRent as $cars_item) :
+                        ?>
+                                <div class="block">
+                                        <div class="flip-box">
+                                                <div class="flip-box-inner">
+                                                        <div class="flip-box-front" >
+                <!-- style="background-image: url(" <?php echo base_url("assets/img/"); ?>voiture.jpg")" width="270px" -->
+                                                        <?= $cars_item['cd_brandSerie']; ?><br>
+                                                              <img class="carCard" src="<?= base_url('assets/img/cars/'); ?><?= $cars_item['ctr_img']; ?>" alt="car LOCA-AUTO" ><br>
 
-                                        <!-- <tr> -->
-                                        <div class="block">
-                                                <div class="flip-box">
-                                                        <div class="flip-box-inner">
-                                                                <div class="flip-box-front" style="background-image: url(" <?php echo base_url("assets/img/"); ?>voiture.jpg")" width="270px">
-                                                                        <h2>Front Side</h2>
-                                                                       <img src="<?= base_url('assets/img/cars/'); ?>voiture.jpg" alt="Logo LOCA-AUTO" width="200px"><br>
+                                                         
+           <img class="logoCars" src="<?= base_url('assets/img/logo/'); ?>seats.jpg" alt="car LOCA-AUTO" > <?= $cars_item['cd_seats']; ?>
+         <?php
+           if ( $cars_item['cd_energy'] == 'Diesel'){
+          ?>
+            <img class="logoCars" src="<?= base_url('assets/img/logo/'); ?>gasoil.jpg" alt="car LOCA-AUTO" >
+        <?php
+        }
+        if ( $cars_item['cd_energy'] == 'Electrique'){
+         ?>  
+        <img class="logoCars" src="<?= base_url('assets/img/logo/'); ?>electric.jpg" alt="car LOCA-AUTO" >  
+        <?php
+        }
 
-                                                                        <?= $cars_item['ctr_gamme']; ?>
-                                                                        <?= $cars_item['cd_brandSerie']; ?>
-                                                                        <?= $cars_item['cd_type']; ?>
-                                                                        <?= $cars_item['cd_seats']; ?>
-                                                                        <?= $cars_item['cd_energy']; ?>
-                                                                        <?= $cars_item['cd_gearbox']; ?>
-                                                                        <?= $cars_item['ctr_img']; ?>
-                                                                </div>
-                                                                <div class="flip-box-back">
-                                                                        <h2>Back Side</h2>
-                                                                        coucou derriere
-                                                                        <?= $cars_item['ctr_km']; ?>
-                                                                        <?= $cars_item['ctr_year']; ?>
-                                                                        <?= $cars_item['ctr_pricePerDay']; ?>
-                                                                </div>
+        if ( $cars_item['cd_energy'] == 'Essence'){
+                
+        ?>  
+               <img class="logoCars" src="<?= base_url('assets/img/logo/'); ?>essence.jpg" alt="car LOCA-AUTO" >  
+        <?php
+        }
+               
+        ?>                                  
+                                <?= $cars_item['cd_energy']; ?>
+
+ <img class="logoCars" src="<?= base_url('assets/img/logo/'); ?>gearbox.jpg" alt="car LOCA-AUTO" >                     
+
+                                <?= $cars_item['cd_gearbox']; ?>
+                                                                
+                                                        </div>
+                                                        <div class="flip-box-back"><br>
+
+                                                                <?= $cars_item['cd_type']; ?><br><br>
+                                                                <?= $cars_item['ctr_gamme']; ?><br>
+                                                                de <?= $cars_item['ctr_year']; ?>
+                                                                avec <?= $cars_item['ctr_km']; ?>km <br>
+                                                                à partir de  <?= $cars_item['ctr_pricePerDay']; ?> €/jr.
                                                         </div>
                                                 </div>
                                         </div>
-                                        <?php
-                                        if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin' || $_SESSION['ACCES'] == 'Employé')) {
-                                                //   *** Admin ou employé connecté
-                                        ?>
+                                </div>
+                                <?php
+                                if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin' || $_SESSION['ACCES'] == 'Employé')) {
+                                        //   *** Admin ou employé connecté
+                                ?>
                                         <td><?= $cars_item['ctr_immatriculation']; ?></td>
                                         <td><?= $cars_item['ctr_toArchive']; ?></td>
                                         <td><?= $cars_item['cd_mileage']; ?></td> -->
 
                                         <!-- <td><a href="<?= site_url('users/' . $cars_item['u_id']); ?>">détails</a></td> -->
                                         <!-- </tr> -->
-                                <?php 
-                                        }
+                        <?php
+                                }
                         endforeach; ?>
 
-                                <td colspan="7"> nombre de voitures <?= $total ?> </td>
+                        <td colspan="7"> nombre de voitures <?= $total ?> </td>
 
-                        </div>
-                
+                </div>
+
         </div>
 </section>

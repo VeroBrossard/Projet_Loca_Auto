@@ -7,19 +7,21 @@
     <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
     <!-- <div style="text-align: center"> -->
     <?= form_open('mysession/verifConnexion', array('class' => 'modal-content animate')) ?>
+
     <div class="imgcontainer">
         <img src="<?= base_url('assets/img/logo/logo_mini_ok.jpg'); ?>" class="avatar" alt="Logo">
     </div>
     <div class="container">
         <label for="uname"><b>Nom</b></label><br>
         <input type="text" placeholder="Entrez votre NOM" name="uname" required><br>
-
+        <p><?php echo form_error('uname'); ?></p><br />
         <label for="uphone"><b>Téléphone </b><i>(10 chiffres)</i></label><br>
         <input type="text" placeholder="Entrez votre n° de téléphone" name="uphone" required><br>
-
+        <p><?php echo form_error('uphone'); ?></p>
         <label for="upwd"><b>Password</b></label><br>
         <input type="password" placeholder="Entrez Mot de passe" name="upwd" required><br>
-
+        <p><?php echo form_error('pwd'); ?></p>
+        
         <button class="modaleButton" type="submit">Me connecter</button>
         <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
