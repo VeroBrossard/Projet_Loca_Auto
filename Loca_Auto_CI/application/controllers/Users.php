@@ -80,9 +80,9 @@ class Users extends CI_Controller
 
     if ($this->form_validation->run() === FALSE) {
       
-      // $data['comm'] = ' <b style="color:red;" >Users.php comm  lg 68 : problème de validation </b>';
+      $data['comm'] = ' <b style="color:red;" >Users.php comm  lg 68 : problème de validation </b>';
       $this->load->view('templates/header', $data);
-      $this->load->view('users/create');
+      $this->load->view('users/create',$data);
       $this->load->view('templates/footer');
     } else {
       
@@ -97,7 +97,7 @@ class Users extends CI_Controller
       else {
       //on crée l'enregistrement        
       $this->users_model->set_user();
-
+      $data['comm'] = 'title depuis Users.php  lg 84 // new user create BRAVO ';
       $data['title'] = 'title depuis Users.php  lg 84 // new user create BRAVO ';
       $this->load->view('templates/header_home', $data);
       $this->load->view('pages/home');  // i/o creatsuccess

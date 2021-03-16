@@ -48,7 +48,8 @@
                                                         <a href="#"><i class="fa fa-trash"></i>Annuler une réservation </a>
                                                         <a href="#"><i class="fa fa-envelope"></i> Nos conditions</a>
                                                         <a href="#"><i class="fa fa-envelope"></i> Nous contacter</a>
-                                                        <a href="#"><i class="fas fa-sign-in-alt"></i> Déconnexion</a>
+                                                        <a href="<?php echo site_url('mysession/remove'); ?>" onclick="return confirm('Etes vous sûre de vouloir vous déconnecter ?');"> 
+                                                       <i class="fas fa-sign-in-alt"></i> Déconnexion</a>
 
                                                 <?php
                                         }
@@ -79,8 +80,8 @@
                                         <?php if (!empty($_SESSION['ACCES'])) {
                                                 // *** Admin et simple user connecté  => déconnexion
                                         ?>
-                                                <p class="p_iconeLogo">
-                                                        <a href="<?php echo site_url('mysession/remove'); ?>" onclick="return confirm('Etes vous sûre de vouloir vous déconnecter ?');"></a><br><span class="minifont">Déconnexion</span>
+                                                <p class="p_iconeLogo" style="font-size:30px; padding-top:10px;">
+                                                <a href="<?php echo site_url('mysession/remove'); ?>" onclick="return confirm('Etes vous sûre de vouloir vous déconnecter ?');"> <i class="fas fa-sign-in-alt"></i> </a><br> <span class="minifont">Déconnexion</span>
                                                 </p>
                                         <?php
                                         } else {
@@ -103,9 +104,9 @@
                                         if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin' || $_SESSION['ACCES'] == 'Employé')) {
                                                 //   *** Admin ou employé connecté
                                         ?>
-                                                <p class="p_iconeLogo"> <br>
+                                                <p class="p_iconeLogo" style="padding-top:10px;"> 
                                                         <a href="<?php echo site_url('mysession/admin'); ?>">
-                                                                <img src="<?= base_url('assets/img/logo/gear-logo.png'); ?>" width="25em" alt="Admin"></a><br><span class="minifont">Admin</span>
+                                                                <img src="<?= base_url('assets/img/logo/gear-logo.png'); ?>" width="30em" alt="Admin"></a><br><span class="minifont">Admin</span>
                                                 </p>
                                         <?php
                                         } elseif (!empty($_SESSION['ACCES']) && $_SESSION['ACCES'] == 'None') {

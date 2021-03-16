@@ -1,5 +1,5 @@
 <?php
-echo ' depuis create.php users par id ou pas <br><br><br>';
+echo " depuis create.php users ". $comm . "par id ou pas <br><br><br>";
 
 if (!empty($users_item['u_id'])) {
     
