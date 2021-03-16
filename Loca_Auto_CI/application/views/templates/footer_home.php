@@ -15,9 +15,9 @@ echo !empty($_SESSION['ACCES']) ? 'ACCES pas vide' : 'ACCES vide !! ';
 //echo $_SESSION['ACCES'] ;
 //echo $_SESSION['title'] ;
 ?> -->
-
+<!-- 
 <br><br>
-        <a class= "bouton" href="<?php echo site_url('mysession/remove'); ?>" onclick="return confirm('Etes vous sûre de vouloir vous déconnecter ?');"> <mark>Remove Session</mark></a>
+        <a class= "bouton" href="<?php echo site_url('mysession/remove'); ?>" onclick="return confirm('Etes vous sûre de vouloir vous déconnecter ?');"> <mark>Remove Session</mark></a> -->
 
 <!-- <p><a href="<?php echo site_url('users'); ?>">vers BDD // Table  userS</a></p> -->
     <!-- http://lamanu-formationcomplete/CodeIgniterHospital/news  -->
