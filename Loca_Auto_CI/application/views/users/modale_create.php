@@ -31,7 +31,7 @@ depuis modale_create.php avec id02<br>
    ?>
    
    
-   <h2><?php echo $title; ?></h2>
+   <!-- <h2><?php echo $title; ?></h2> -->
    
    <?php echo validation_errors(); ?>
    

@@ -50,32 +50,32 @@ class MySession extends CI_Controller
     $this->load->view('templates/footer_home', $data);
   }
 
-  public function verifConnexion()
-  {
-    //appel par  sess_form.php après  remplissage des données par user
-    $uname = $this->input->post('uname');
-    $upwd = $this->input->post('upwd');
-    $uphone  = $this->input->post('uphone');
-    //requete pour infos dans table user 
-    $dataConnexion['users'] = $this->users_model->get_1user($uname, $uphone, $upwd);
-    if (!($dataConnexion['users'])) {
-      //si retour Query vide pb
-      echo "il y a un pb , vous semblez n'être pas inscrit <br>  pwd oublié ??<br>";
-      $dataConnexion['title'] = "verifConnexion() *** A ECHOUER  ** depuis mySession";
-      $this->load->view('templates/header', $dataConnexion);
-      $this->load->view('mysession/echec_verifConn', $dataConnexion);
-      $this->load->view('templates/footer', $dataConnexion);
-    } else {
-      $dataConnexion['title'] = "verifConnexion() OK depuis mySession";
-      // le user existe bien dans la base 
-      //si la requete est OK  alors $uname, $upwd et  $uphone sont OK
-      // $ufonction = $dataConnexion['users']['u_fonction'];
-      $this->setSessionUser($dataConnexion);
-      // $this->load->view('templates/header', $dataConnexion);
-      // $this->load->view('mysession/verifConn', $dataConnexion); 
-      // $this->load->view('templates/footer', $dataConnexion);
+public function verifConnexion() {
+
+                   //appel par  sess_form.php après  remplissage des données par user
+        $uname = $this->input->post('uname');
+        $upwd = $this->input->post('upwd');
+        $uphone  = $this->input->post('uphone');
+        //requete pour infos dans table user 
+        $dataConnexion = $this->users_model->get_1user($uname,$uphone, $upwd);
+        if(!($dataConnexion)){
+          //si retour Query vide
+          echo "il y a un pb , vous semblez n'être pas inscrit <br>  pwd oublié ??<br>";
+          $dataConnexion['title'] = "verifConnexion() *** A ECHOUER  ** depuis mySession";
+          $this->load->view('templates/header', $dataConnexion);
+          $this->load->view('mysession/echec_verifConn', $dataConnexion); 
+          $this->load->view('templates/footer', $dataConnexion);
+        }
+        else{
+        $dataConnexion['title'] = "verifConnexion() OK depuis mySession";
+//si la requete est OK  alors $uname, $upwd et  $uphone sont OK
+        // $ufonction = $dataConnexion['users']['u_fonction'];
+        $dataConnexion =  $this ->setSessionUser( $dataConnexion);
+        // $this->load->view('templates/header', $dataConnexion);
+        // $this->load->view('mysession/verifConn', $dataConnexion); 
+        // $this->load->view('templates/footer', $dataConnexion);
+        }
     }
-  }
 
 
   public function setSessionUser($dataUser)
@@ -88,7 +88,7 @@ class MySession extends CI_Controller
     // $this->session->set_userdata('ufonction', $dataUser['users']['u_fonction']); 
 
     //   ***   initialisation var ACCES
-    $this->session->ACCES = $dataUser['users']['u_fonction'];
+    $this->session->ACCES = $dataUser['u_fonction'];
     $dataUser['titleHome'] = "recup de _dataUser  depuis setSessionUser()   <br>";
 
     $this->load->view('templates/header_home', $dataUser);

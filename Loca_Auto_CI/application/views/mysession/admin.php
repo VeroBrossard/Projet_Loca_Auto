@@ -12,7 +12,7 @@
         <select id="uimmatriculation" name="uimmatriculation" style="width: 500px;background-color:gold;">
           <!--  **** faire requete sur immat ici -->
           <?php foreach ($carsToRent as $cars_item) : ?>
-          <option value="<?= $cars_item['ctr_immatriculation']; ?>"> id(<?= $cars_item['ctr_id']; ?>)<?= $cars_item['cd_brandSerie']; ?>  <?= $cars_item['cd_type']; ?>  <?= $cars_item['ctr_immatriculation']; ?></option>
+          <option value="<?= $cars_item['ctr_immatriculation']; ?>"> id(<?= $cars_item['ctr_id']; ?>) --  <?= $cars_item['cd_brandSerie']; ?> -- <?= $cars_item['cd_type']; ?>  --  <?= $cars_item['ctr_immatriculation']; ?></option>
           <?php endforeach; ?>
 
         </select>
@@ -36,33 +36,17 @@
     </form>
 
 
-
-
-
-
-    *********************  a finir   *******
+    <!-- *********************  a finir   ******* -->
     <!-- <a href="<?= site_url('carsToRent/view_1car/' . $cars_item['ctr_id']); ?>">détails</a> -->
 
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
 <section>
         <h1>Voir toutes les voitures à louer</h1>
         <div class="contenairCars">
-                <div>
+                <!-- <div>
                         <p>depuis indexCars.php ************</p>
                         <?= $title ?>
-                </div>
+                </div> -->
                 <div>
                         <table>
                                 <thead>

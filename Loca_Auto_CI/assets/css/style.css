@@ -95,7 +95,6 @@ body {
 #imgLogoCar{
   width: 220px;
 }
-
 /*   ******  Home   *********  */
 
 #myHomeChoiceImg{
@@ -107,11 +106,12 @@ body {
   margin: auto;
   /** centrage vertical */
   height: 25vh;
-  position : relative;
-
-
+  position : relative; 
 }
 
+#choiceBarr{
+  width:75vw;
+}
 /*.container {
   display: flex;
   align-items: center;
@@ -141,7 +141,7 @@ body {
 section {
   width: 90vw;
   padding: 2em 3em;
-  background-color: rgb(248,240,223);
+  background-color: white;
   margin: auto;
   border: 1px solid black;
   border-radius: 5px 10px 0 5px;
@@ -442,7 +442,7 @@ $extra-large : 1200px !default; */
   }
   #myHomeChoiceImg{
         /* image de fond accueil (home)  */ 
-    height: 40vh;
+    height: 45vh;
   }
 /*  **********  header  ************  */
 .contenair-flex{

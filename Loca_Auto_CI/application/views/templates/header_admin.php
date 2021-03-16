@@ -5,14 +5,14 @@
                 <title>Private.php</title>
         </head>
         <body>
-        <header id="header"><span class="header">depuis header_admin.php </span></header> <br>
+        <!-- <header id="header"><span class="header">depuis header_admin.php </span></header> <br> -->
        
-<div> <h1> H1<?php echo $title; ?></h1></div>
-<h2>Welcome <?php echo $this->session->users['u_firstname']; ?></h2>
-         <?php
+<div> <h1><?php echo $title; ?></h1></div>
+<!-- <h2>Welcome <?php echo $this->session->users['u_firstname']; ?></h2> -->
+         <!-- <?php
          echo "var_dump session->userdata";
          var_dump($this->session->userdata);
-         ?>
+         ?> -->
                
 <section>
         

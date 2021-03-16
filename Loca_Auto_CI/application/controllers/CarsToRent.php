@@ -154,7 +154,7 @@ class CarsToRent extends CI_Controller
   
       if (empty($data['cars_item'])) {
         show_404();
-        // echo 'show_404();';
+        echo 'show_404()';
       }
   
       // $data['title'] = $data['patients_item']['title'] .'dans Patients.php by VB';

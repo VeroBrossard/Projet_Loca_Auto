@@ -1,0 +1,74 @@
+
+============================
+BDD : Loca-Auto
+============================
+0	u_id	U_ID	Auto_increment			false
+1	u_lastname	U_LASTNAME	Varchar	30		false
+2	u-firstaname	U-FIRSTANAME	Varchar	30		false
+3	u_mail	U_MAIL	Varchar	50		false
+4	u_pwd	U_PWD	Varchar	10		false
+5	u_phone	U_PHONE	Varchar	10		false
+6	u_toArchive	U_TOARCHIVE	Bool			false
+7	ct_id	CT_ID	Auto_increment			false
+8	ct_category	CT_CATEGORY	Varchar	10		false
+9	ct_trade	CT_TRADE	Varchar	10		false
+10	ctr_id	CTR_ID	Auto_increment			false
+11	ctr_gamme	CTR_GAMME	Varchar	10		false
+12	ctr_immatriculation	CTR_IMMATRICULATION	Varchar	10		false
+13	ctr_pricePerDay	CTR_PRICEPERDAY	Decimal			false
+14	ctr_km	CTR_KM	Int			false
+15	ctr_year	CTR_YEAR	Int			false
+16	ctr_img	CTR_IMG	Varchar	30		false
+17	ctr_toArchive	CTR_TOARCHIVE	Bool			false
+18	l_id	L_ID	Auto_increment			false
+19	l_startDate	L_STARTDATE	Date			false
+20	l_endDate	L_ENDDATE	Date			false
+21	l_realReturnDate	L_REALRETURNDATE	Date			false
+22	cd_id	CD_ID	Auto_increment			false
+23	cd_brandSerie	CD_BRANDSERIE	Varchar	30		false
+24	cd_type	CD_TYPE	Varchar	12		false
+25	cd_seats	CD_SEATS	Int			false
+26	cd_gearbox	CD_GEARBOX	Varchar	15		false
+27	cd_energy	CD_ENERGY	Varchar	10		false
+28	p_id	P_ID	Auto_increment			false
+29	p_period	P_PERIOD	Varchar	15		false
+30	p_costByPeriod	P_COSTBYPERIOD	Decimal			false
+31	b_id	B_ID	Auto_increment			false
+32	b_durationRent	B_DURATIONRENT	Int			false
+33	uo_id	UO_ID	Auto_increment			false
+34	uo_stars	UO_STARS	Int			false
+35	uo_comm	UO_COMM	Text			false
+36	o_id	O_ID	Auto_increment			false
+37	o_prestation	O_PRESTATION	Varchar	15		false
+38	o_pricePrestation	O_PRICEPRESTATION	Decimal			false
+39	o_insurance	O_INSURANCE	Varchar	15		false
+40	o_priceInsurance	O_PRICEINSURANCE	Decimal			false
+41	l_plannedKm	L_PLANNEDKM	Int			false
+42	l_realKm	L_REALKM	Int			false
+43	p_dayPeriod	P_DAYPERIOD	Varchar	15		false
+44	p_kmPackage	P_KMPACKAGE	Varchar	15		false
+45	p_kmPackageCost	P_KMPACKAGECOST	Decimal			false
+46	pp_id	PP_ID	Auto_increment			false
+47	pp_dayPeriod	PP_DAYPERIOD	Varchar	15		false
+48	pp_costByPeriod	P_COSTBYPERIOD	Decimal			false
+49	pk_id	PK_ID	Auto_increment			false
+50	pk_kmPackage	L	Varchar	15		false
+51	pk_kmPackageCost	PK_KMPACKAGECOST	Decimal			false
+52	i_chosenOptions	I_CHOSENOPTIONS	Varchar	15		false
+53	l_chosenOptions	I_CHOSENOPTIONS	Varchar	15		false
+54	cd_mileage	CD_MILEAGE	Varchar	25		false
+55	u_birthdate	U_BIRTHDATE	Date			false
+56	pp_ratePerPeriod	P_RATEPERPERIOD	Decimal			false
+57	o_pricePrestation	O_PRICEPRESTATION	Float			false
+58	ctr_pricePerDay	CTR_PRICEPERDAY	Float			false
+59	pp_ratePerPeriod	P_RATEPERPERIOD	Float			false
+60	pk_kmPackageCost	PK_KMPACKAGECOST	Float			false
+61	u-firstname	U-FIRSTANAME	Varchar	30		false
+62	l_devis	L_DEVIS	Bool			false
+63	l_aFacturer	L_AFACTURER	Bool			false
+64	l_Billing	L_BILLING	Bool			false
+65	l_toArchive	L_TOARCHIVE	Bool			false
+66	b_amount	B_DURATIONRENT	Int			false
+67	ls_id	LS_ID	Auto_increment			false
+68	ls_statement	LS_STATEMENT	Varchar	25		false
+69	b_amount	B_DURATIONRENT	Float			false

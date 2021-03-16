@@ -1,10 +1,10 @@
 </section><br>
-<span>depuis /pages/home.php by VB  data _title  est : <?= $title ?> </span>
-<?php
-                                        echo (!empty($_SESSION['ACCES']) ? "Bonjour" .  $this->session->user['firstname'] . " " . $this->session->users['u_lastname'] . "<br>" . $_SESSION['title'] . "<br> " : "Welcome stranger..");
-                                        ?>
+<!-- <span>depuis /footer_home by VB  data _title  est : <?= $title ?> </span> -->
+<!-- <?php
+echo (!empty($_SESSION['ACCES']) ? "Bonjour" .  $this->session->user['firstname'] . " " . $this->session->users['u_lastname'] . "<br>" . $_SESSION['title'] . "<br> " : "Welcome stranger..");
+?> -->
                                         <br><hr>
-
+<!-- 
 <?php
 // ***************       Ok pour recup var de session       *********************** //
 //  $this->session->users['u_mail'])  => renvoie  la var de session u_mail 
@@ -14,31 +14,31 @@ echo !empty($_SESSION['ACCES']) ? 'ACCES pas vide' : 'ACCES vide !! ';
 //=> renvoie si ACCESest défini ou pas
 //echo $_SESSION['ACCES'] ;
 //echo $_SESSION['title'] ;
-?>
-/// partie à voir plus tard
+?> -->
 
 <br><br>
         <a class= "bouton" href="<?php echo site_url('mysession/remove'); ?>" onclick="return confirm('Etes vous sûre de vouloir vous déconnecter ?');"> <mark>Remove Session</mark></a>
-<p><a href="<?php echo site_url('users'); ?>">vers BDD // Table  userS</a></p>
+
+<!-- <p><a href="<?php echo site_url('users'); ?>">vers BDD // Table  userS</a></p> -->
     <!-- http://lamanu-formationcomplete/CodeIgniterHospital/news  -->
 
-<?= hello() ?>
+<!-- <?= hello() ?> -->
 
 <hr />
 <footer><br>
-        <p>
+        <!-- <p>
                 <a class="bouton" href="<?php echo site_url('locations/index'); ?>"> Locations</a>
         </p>
         <p>
                 <a class="bouton" href="<?php echo site_url('carsToRent/index'); ?>"> voitures</a>
-        </p>
-        <?php
-        echo 'appel de fonction hello() depuis footer_home';
-        hello();
+        </p> -->
+        <!-- <?php
+        // echo 'appel de fonction hello() depuis footer_home';
+        // hello();
 
         //$cookie= get_cookie('remember_me');  
         //var_dump($cookie);      
-        ?>
+        ?> -->
         <br>
         <!-- <a href="JavaScript:window.close()">Close</a> -->
         <!-- <a href="javascript:history.go(-1)">Retour</a> <br><br> -->

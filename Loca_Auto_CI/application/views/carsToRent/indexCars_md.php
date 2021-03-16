@@ -5,11 +5,6 @@
 
         <div class="contenairCars">
 
-                <!-- <div>
-                                <img id="imgLogoCar" src="<?= base_url('assets/img/cars/voiture.jpg'); ?>" alt="Logo LOCA-AUTO">
-                                <p>depuis indexCars.php ************</p>
-                                <?= $title ?>
-                        </div> -->
                 <div>
 
                         <?php
@@ -67,6 +62,7 @@
 <?php
                         endforeach; 
                         ?>
+                        <br><br><br>
 
                         <td colspan="7"> nombre de voitures <?= $total ?> </td>
 
