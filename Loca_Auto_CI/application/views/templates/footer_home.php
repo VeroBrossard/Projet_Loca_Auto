@@ -1,5 +1,5 @@
 </section><br>
-<!-- <span>depuis /footer_home by VB  data _title  est : <?= $title ?> </span> -->
+
 <!-- <?php
 echo (!empty($_SESSION['ACCES']) ? "Bonjour" .  $this->session->user['firstname'] . " " . $this->session->users['u_lastname'] . "<br>" . $_SESSION['title'] . "<br> " : "Welcome stranger..");
 ?> -->
@@ -22,13 +22,13 @@ echo !empty($_SESSION['ACCES']) ? 'ACCES pas vide' : 'ACCES vide !! ';
 <!-- <p><a href="<?php echo site_url('users'); ?>">vers BDD // Table  userS</a></p> -->
     <!-- http://lamanu-formationcomplete/CodeIgniterHospital/news  -->
 
-<!-- <?= hello() ?> -->
+ <?= hello() ?> 
 
 <hr />
 <footer><br>
         <!-- <p>
                 <a class="bouton" href="<?php echo site_url('locations/index'); ?>"> Locations</a>
-        </p>
+        </p> -->
         <p>
                 <a class="bouton" href="<?php echo site_url('carsToRent/index'); ?>"> voitures</a>
         </p> -->

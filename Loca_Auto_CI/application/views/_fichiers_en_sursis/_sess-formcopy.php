@@ -1,5 +1,5 @@
 <!-- <p>message d'en haut : <?= $title ?></p>  -->
-<!-- depuis *** sess_form.php <br> -->
+<h2>Depuis sess_formcopy.php modale 04</h2>
 <!-- The Modal -->
     <div id="id04" class="modal">
     <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>

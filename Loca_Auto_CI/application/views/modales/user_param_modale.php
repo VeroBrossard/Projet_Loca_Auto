@@ -7,9 +7,10 @@
 
   <?php
   if (isset($users_item['u_fonction']) && (($users_item['u_fonction']) == ("Admin" || "Employé"))) {
-
+    
     echo "users_item['u_fonction'] =" . $users_item['u_fonction'] . "<br>";
-  ?>
+    ?>
+    <h2> LEWEL Depuis user_param_modale  modale id_form_user avec test</h2> 
     <!-- *******   partie admin  *********    -->
     <!-- //pour choix action  autorisées-->
     <input type="hidden" name="id" value="<?= !empty($users_item['u_id']) ? $users_item['u_id'] : '' ?>" />
@@ -20,6 +21,7 @@
   }
   //partie autorisée aussi aux pas ADMIN ni Employés
   ?>
+  <h2> LEWEL Depuis user_param_modale  modale id_form_user sans test </h2> 
   <div class="form_div" style="border:2px solid red; display:none;">
 
     <p>A&nbsp;archiver&nbsp;? </p>

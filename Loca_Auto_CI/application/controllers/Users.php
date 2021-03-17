@@ -82,7 +82,7 @@ class Users extends CI_Controller
       
       $data['comm'] = ' <b style="color:red;" >Users.php comm  lg 68 : problème de validation </b>';
       $this->load->view('templates/header', $data);
-      $this->load->view('users/create',$data);
+      $this->load->view('users/create',$data);  //retour à page l'unscription
       $this->load->view('templates/footer');
     } else {
       

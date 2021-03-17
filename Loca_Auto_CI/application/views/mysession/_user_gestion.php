@@ -1,3 +1,5 @@
+<h2>Depuis mysession/user_gestion </h2>
+
 <?php
 echo 'deouis user_gestion.php  <br>';
 if (isset($this->session->username)){
@@ -11,7 +13,7 @@ else {
 };
 
 if (!empty($this->session->username)){
-  echo 'la var de session username pas vide !empty true  ';
+ // LEWEL echo 'la var de session username pas vide !empty true  ';
     
   }
   else {
@@ -23,3 +25,5 @@ if (!empty($this->session->username)){
 
 
 <h2><?php echo $title; ?></h2>
+<h2>depuis user_gestion</h2>
+<br><hr>

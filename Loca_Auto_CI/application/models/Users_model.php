@@ -9,6 +9,7 @@ class Users_model extends CI_Model {
 
         public function get_1user($lastname = FALSE,$phone =FALSE, $pwd =FALSE )
         {
+                //faire verif des données users  LEWEL
                 if ($lastname === FALSE || $phone === FALSE || $pwd === FALSE)
                 {
                      return "erreur d'authentification depuis user_model// pas de var à rechercher";

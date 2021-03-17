@@ -27,11 +27,12 @@
                                                 //<!-- ----   si pas connecté -->
                                         ?>
 
-                                                        <a href="#"><i class="fa fa-trash"></i> Accueil </a>
+                                                        <a href="<?php echo site_url('mysession/'); ?>"><i class="fa fa-trash"></i> Accueil </a>
+                                                        <!-- LEWEL faire renvoie de données si recherche en cours -->
                                                         <a href=javascript:void(0); onclick="document.getElementById('id_form_user').style.display='block'"><i class="far fa-edit"></i> Inscription</a>
                                                         <a href=javascript:void(0); onclick="document.getElementById('id_form_conn').style.display='block'"><i class="fas fa-sign-in-alt"></i> Connexion</a>
 
-                                                        <a href="#"><i class="fa fa-search"></i> Rechercher un véhicule</a>
+                                                        <a href="<?php echo site_url('carsToRent/'); ?>"><i class="fa fa-search"></i> Rechercher un véhicule</a>
                                                         <a href="#"><i class="fa fa-search"></i> Louer un véhicule</a>
                                                         <a href="#"><i class="fa fa-envelope"></i> Nos conditions</a>
                                                         <a href="#"><i class="fa fa-envelope"></i> Nous contacter</a>
@@ -61,6 +62,7 @@
                                         }
                                                 ?>
                                 </div>
+ <!-- ***  fin de  <div class="dropdown-content">  -->
                         </div>
                         <div style="width:30vw;">&nbsp;</div>
 
@@ -70,8 +72,8 @@
                                 </div>
 
                         </div>
-
-
+<!--  LEWEL message de bienvenue ??  voir user_welcome.php -->
+ <p class="minifont">Bienvenue xxx</p>
                         <!-- <?php echo $this->session->users['u_lastname']; ?> -->
                         <div style="width:25vw;">&nbsp;</div>
                         <div class="contenair-flex divACacher" style="width:200px;">

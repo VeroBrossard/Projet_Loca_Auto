@@ -22,17 +22,16 @@ class MySession extends CI_Controller
 
   public function index()
   {
-    $data['title'] = ucfirst('bienvenue sur le site');
-    $dataCars['carsToRent'] = $this->carsToRent_model->get_carsToRent_md();
+       $dataAllCars['carsToRent'] = $this->carsToRent_model->get_carsToRent_md();
     //directement epuis carsToRent_model.php
-    $dataCars['title'] = 'SHOW ALL carsToRent';
-    $dataCars['total'] = count($dataCars['carsToRent']);
+    $dataAllCars['title'] = 'SHOW ALL carsToRent<br> de $dataAllCars';
+    $dataAllCars['total'] = count($dataAllCars['carsToRent']);
     // echo 'var dump data de puis Patints.php <br>';
     // var_dump($data);
-    $this->load->view('templates/header_home', $data);
-    $this->load->view('pages/home', $data);
-    $this->load->view('carsToRent/indexCars_md', $dataCars);
-    $this->load->view('templates/footer_home', $data);
+    $this->load->view('templates/header_home',$dataAllCars);
+    $this->load->view('pages/home');
+    // $this->load->view('carsToRent/indexCars_md', $dataCars);
+    $this->load->view('templates/footer_home');
     $this->load->view('modales/connexion_modale');
     $this->load->view('modales/user_param_modale');
   }
@@ -40,19 +39,19 @@ class MySession extends CI_Controller
   // $this->load->view('users/modale_create', $data);  
   // $this->load->view('modales/modale_view', $data);
 
-  public function essaiConnexion()
-  {
-    //appel par la page d'accueil  (headerhome.php)??
-    $data['title'] = ucfirst('essai d\'acces à   par methode connexion');
-    $this->load->view('templates/header', $data);
-    $this->load->view('mysession/sess-form', $data);
-    $this->load->view('mysession/user_gestion', $data);
-    $this->load->view('templates/footer_home', $data);
-  }
+  // public function essaiC_onnexion()
+  // {
+  //   //appel par la page d'accueil  (headerhome.php)??
+  //   $data['title'] = ucfirst('essai d\'acces à   par methode connexion');
+  //   $this->load->view('templates/header', $data);
+  //   // $this->load->view('mysession/sess-form', $data);
+  //   $this->load->view('mysession/user_gestion', $data);
+  //   $this->load->view('templates/footer_home', $data);
+  // }
 
 public function verifConnexion() {
-
-                   //appel par  sess_form.php après  remplissage des données par user
+//faire verification des données LEWEL
+//appel par  connexion__moale.php (ex sess_form.php) après  remplissage des données par user
         $uname = $this->input->post('uname');
         $upwd = $this->input->post('upwd');
         $uphone  = $this->input->post('uphone');

@@ -2,7 +2,9 @@
 
 <!-- "depuis *** connexion_modale.php.php <br> "; -->
 <!-- The Modal -->
+
 <div id="id_form_conn" class="modal">
+
     
     <span onclick="document.getElementById('id_form_conn').style.display='none'" class="close" title="Close Modal">&times;</span>
     <!-- <div style="text-align: center"> -->
@@ -12,6 +14,7 @@
         <img src="<?= base_url('assets/img/logo/logo_mini_ok.jpg'); ?>" class="avatar" alt="Logo">
     </div>
     <div class="container">
+    <h2>LEWEL Depuis connexion_modale.php  (modale  avec id_form_conn)</h2>
         <label for="uname"><b>Nom</b></label><br>
         <input type="text" placeholder="Entrez votre NOM" name="uname" required><br>
         <p><?php echo form_error('uname'); ?></p><br />
