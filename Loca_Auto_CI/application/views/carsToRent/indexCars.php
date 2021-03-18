@@ -13,6 +13,16 @@ echo '<br> errors  or not errorsdans la location... <br>';
 echo validation_errors(); 
 echo 'that is the question ??? ';
  ?> 
+
+<div style="margin:auto;">
+        <div class="logoGammeDiv">
+                <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme1.png'); ?>" alt="Logo gamme">
+                <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme2.png'); ?>" alt="Logo gamme">
+                <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme3.png'); ?>" alt="Logo gamme">
+                <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme4.png'); ?>" alt="Logo gamme">
+        </div>
+
+</div>
  <br>depuis form_carsToRent.php<br>
 <?php echo form_open('carsToRent/researchCars') ?>
 <!-- , array('onsubmit' => "return confirm('Etes vous sûr de valider?')" ) -->

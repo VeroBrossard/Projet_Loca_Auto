@@ -14,13 +14,15 @@ class CarsToRent_model extends CI_Model {
 // ON locations.ctr_id=carstorent.ctr_id
 // join cardetails
 // ON carstorent.cd_id=cardetails.cd_id;
+
                 $this->db->select('*, l_startDate,l_endDate, cd_brandSerie, ctr_gamme , carsToRent.ctr_id');        
                 $this->db->from('carsToRent');
                 $this->db->join ('carDetails','carDetails.cd_id = carsToRent.cd_id');
                 $this->db->join ('locations','carsToRent.ctr_id = locations.ctr_id', 'left');
-            
+                !empty($gamme)? $this->db->where('ctr_gamme',$gamme) :'';
                 $query = $this->db->get();
                 return $query->result_array();
+
 
                 //LEWEL voir par param différents
                 // $query = $this->db->get_where('carsToRent', array('ctr_gamme' => $gamme));
