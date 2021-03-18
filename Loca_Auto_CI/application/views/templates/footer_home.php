@@ -31,7 +31,7 @@ echo !empty($_SESSION['ACCES']) ? 'ACCES pas vide' : 'ACCES vide !! ';
         </p> -->
         <p>
                 <a class="bouton" href="<?php echo site_url('carsToRent/index'); ?>"> voitures</a>
-        </p> -->
+        </p> 
         <!-- <?php
         // echo 'appel de fonction hello() depuis footer_home';
         // hello();
@@ -44,6 +44,7 @@ echo !empty($_SESSION['ACCES']) ? 'ACCES pas vide' : 'ACCES vide !! ';
         <!-- <a href="javascript:history.go(-1)">Retour</a> <br><br> -->
         <a class="bouton" href="<?php echo site_url('mysession/'); ?>">retour HOME</a> <br><br>
         <em>&copy; 2021 by VB</em>
+        <a  class="bouton" href="<?php echo site_url('mysession/remove'); ?>" onclick="return confirm('Etes vous sûre de vouloir vous déconnecter ?');">  <i class="fas fa-sign-in-alt"></i> Déconnexion</a>
 </footer>
 
 <!-- <?php

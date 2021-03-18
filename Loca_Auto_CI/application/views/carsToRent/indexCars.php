@@ -23,18 +23,21 @@
         <br>depuis form_carsToRent.php<br>
         <?php echo form_open('carsToRent/researchCars') ;
         
-        echo 'ugamme demandée = ' . $this->session->userdata['ugamme'] .'<br>';
+        echo (!empty($this->session->userdata['ugamme'])? 'demande dejà  envoyée  et ugamme demandée = ' . $this->session->userdata['ugamme'] .'<br>':'formulaire pas encore envoyé <br>');
+        //($gammes) est le résultt de la query sur les gammes
         ?>
         <!-- , array('onsubmit' => "return confirm('Etes vous sûr de valider?')" ) -->
 
 
      
-        <label for="ugamme">Gamme:</label><br>
+        <label for="ugamme">Choisir une GAMME:</label><br>
         <select type="text" name="ugamme" id="ugamme" width="15" title="GAMME">
+                <option value="" >GAMME</option>
                 <?php
+
                 foreach ($gammes as $gamme_item) :
                 ?>
-                <option value="<?= $gamme_item['ctr_gamme'] ?>" <?= ($gamme_item['ctr_gamme'] ==   $this->session->userdata['ugamme'])? 'selected':''; ?>> <?= $gamme_item['ctr_gamme'] ?></option>
+                <option value="<?= $gamme_item['ctr_gamme'] ?>" <?= (!empty($this->session->userdata['ugamme']) && $gamme_item['ctr_gamme'] ==   $this->session->userdata['ugamme'])? 'selected':''; ?>> <?= $gamme_item['ctr_gamme'] ?></option>
                 <?php
                 endforeach;
                 ?>

@@ -24,7 +24,7 @@ class CarsToRent extends CI_Controller
       $this->load->view('templates/header_home', $data_Cars);
       // $this->load->view('carsToRent/form_carsToRent', $data_Cars);
       $this->load->view('carsToRent/indexCars', $data_Gammes);
-      $this->load->view('templates/footer_home');
+      $this->load->view('templates/footer_cars');
     
   }
 
@@ -40,8 +40,9 @@ class CarsToRent extends CI_Controller
       $this->load->view('templates/header_home', $dataSearch);
       // $this->load->view('carsToRent/form_carsToRent', $data_Cars);
       $this->load->view('carsToRent/form_carsToRent', $dataSearch);
-      $this->load->view('templates/footer_home');
-  
+      $this->load->view('templates/footer_cars');
+      $this->session->unset_userdata('session_name');
+
   }
 
   public function form_research_validation()
@@ -113,6 +114,6 @@ class CarsToRent extends CI_Controller
     
       function hello()
       {
-        echo " hello  ceci est un test de fonction  hello() depuis CarsToRent.php";
-        echo '<a class="bouton" href="' .site_url('carsToRent/index') .'"> voitures</a>';
+        echo " hello  ceci est un test de fonction  hello() depuis CarsToRent.php <br>";
+        echo '<a class="bouton" href="' .site_url('carsToRent/index') .'"> Modifer le choix</a>';
       }
