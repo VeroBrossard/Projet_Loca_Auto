@@ -101,39 +101,35 @@
 
 
                                 <div class="element-flex divLogoACacher">
-                                <p class="p_iconeLogo" style="padding-top:10px;"> 
-                                                        <a href="<?php echo site_url('gestion/index'); ?>">
-                                                                <img src="<?= base_url('assets/img/logo/gear-logo.png'); ?>" width="30em" alt="Admin"></a><br><span class="minifont">Gestion</span>
-                                                </p>
 
                                         <?php
-                                        if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin' || $_SESSION['ACCES'] == 'Employé')) {
-                                                //   *** Admin ou employé connecté
+                                        // if (!empty($_SESSION['ACCES']) && ($_SESSION['ACCES'] == 'Admin' || $_SESSION['ACCES'] == 'Employé')) {
+                                        //         //   *** Admin ou employé connecté
                                         ?>
                                                 <p class="p_iconeLogo" style="padding-top:10px;"> 
                                                         <a href="<?php echo site_url('mysession/admin'); ?>">
                                                                 <img src="<?= base_url('assets/img/logo/gear-logo.png'); ?>" width="30em" alt="Admin"></a><br><span class="minifont">Admin</span>
                                                 </p>
-                                        <?php
-                                        } elseif (!empty($_SESSION['ACCES']) && $_SESSION['ACCES'] == 'None') {
-                                                //   ****  simple user connecté
-                                        ?>
+                                        <!-- <?php
+                                        // } elseif (!empty($_SESSION['ACCES']) && $_SESSION['ACCES'] == 'None') {
+                                                // //   ****  simple user connecté
+                                        ?> -->
                                                 <p class="p_iconeLogo">
                                                         <a href="<?php echo site_url('paramUser...'); ?>">
                                                                 <i class="fas fa-users-cog fa-2x" style="color:dimgray;"></i> </a><br><span class="minifont">Modifier</span>
                                                 </p>
-                                        <?php
-                                        } else {
-                                                //  *** user inconnu
-                                        ?>
+                                        <!-- <?php
+                                        // } else {
+                                        //         //  *** user inconnu
+                                        ?> -->
                                                 <p class="p_iconeLogo">
                                                         <button onclick="openForm()">
                                                                 <i class="far fa-edit iconeConn"></i></button><br>
                                                         <span class="minifont">Inscription</span>
                                                 </p> <!-- autres cas  -->
-                                        <?php
-                                        }
-                                        ?>
+                                        <!-- <?php
+                                        // }
+                                        ?> -->
                                 </div>
 
                         </div>
