@@ -14,14 +14,16 @@ class CarsToRent extends CI_Controller
   // method to view all CarsToRent items 
   public function index()
   { 
+      $data_Gammes['gammes'] = $this->carsToRent_model->get_gammes_md(); //pour liste de choix form
       $data_Cars['carsToRent'] = $this->carsToRent_model->get_carsToRent_md(); //view all carsToRent items 
       $data_Cars['title'] = 'SHOW ALL carsToRent <br> de data_Cars';
       $data_Cars['total'] = count($data_Cars['carsToRent']);
+      
    // echo 'var dump data de puis Patints.php <br>';
      // var_dump($data);
       $this->load->view('templates/header_home', $data_Cars);
       // $this->load->view('carsToRent/form_carsToRent', $data_Cars);
-      $this->load->view('carsToRent/indexCars', $data_Cars);
+      $this->load->view('carsToRent/indexCars', $data_Gammes);
       $this->load->view('templates/footer_home');
     
   }
@@ -30,7 +32,7 @@ class CarsToRent extends CI_Controller
 //LEWEL faire vérifications  données transmises
 
      $ugamme = $this->input->post('ugamme');
- 
+     $this->session->set_userdata('ugamme', $ugamme); //pour ecriture dans form si retour
      $dataSearch['essai']= "depuis researchCars() de CTR et ugamme =" .$ugamme;
      $dataSearch['ugamme']= $ugamme;
       echo "essai depuis researchCars";
@@ -112,4 +114,5 @@ class CarsToRent extends CI_Controller
       function hello()
       {
         echo " hello  ceci est un test de fonction  hello() depuis CarsToRent.php";
+        echo '<a class="bouton" href="' .site_url('carsToRent/index') .'"> voitures</a>';
       }

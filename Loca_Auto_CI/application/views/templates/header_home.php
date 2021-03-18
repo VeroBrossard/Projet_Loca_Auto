@@ -73,7 +73,7 @@
 
                         </div>
 <!--  LEWEL message de bienvenue ??  voir user_welcome.php -->
- <p class="minifont">Bienvenue xxx</p>
+ <p class="minifont">Bienvenue <?php echo $this->session->users['u_lastname']; ?></p>
                         <!-- <?php echo $this->session->users['u_lastname']; ?> -->
                         <div style="width:25vw;">&nbsp;</div>
                         <div class="contenair-flex divACacher" style="width:200px;">

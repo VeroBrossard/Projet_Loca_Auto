@@ -7,6 +7,16 @@ class CarsToRent_model extends CI_Model {
                 
         }
 
+        public function get_gammes_md(){
+        $this->db->select('ctr_gamme');
+        $this->db->from('carsToRent');
+        $this->db->group_by('ctr_gamme'); 
+        $this->db->order_by('ctr_gamme', 'ASC'); 
+        $query = $this->db->get(); 
+        return $query->result_array();   
+        }
+
+        
         public function researchCars_md($gamme){
 // recherche de voitures à louer
 // select *, l_startDate,l_endDate, cd_brandSerie,ctr_gamme from carstorent

@@ -2,21 +2,13 @@
 
 echo ' depuis form_carsToRent.php <br><br>';
 echo (isset($essai) ? '<span style="color:red">' . $essai . ' et ' . $ugamme . '</span>' : 'pas de essai');
-
-
+echo "_vardump _carsToRent";
+//var_dump($carsToRent);
 
 echo '<br> errors  or not errorsdans la location... <br>';
 echo validation_errors();
-echo 'that is the question ??? ';
-?>
-<br>resultats depuis form_carsToRent.php<br>
+echo 'that is the question ??? <br>';
 
-
-<?php
-echo form_close();
-?>
-
-<?php
 
 foreach ($carsToRent as $cars_item) :
 ?>
@@ -32,12 +24,6 @@ foreach ($carsToRent as $cars_item) :
                  <?= $cars_item['ctr_id']; ?><br>
                     <?= $cars_item['l_startDate']; ?> à <?= $cars_item['l_endDate']; ?>
                 </div>
-
-
-
-
-
-
 
                 <div class="flip-box-back"><br>
 

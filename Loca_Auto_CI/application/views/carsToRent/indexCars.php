@@ -2,62 +2,80 @@
 <br>
 
 <section>
-<?php
+      
 
-echo ' depuis indexCars.php<br>';
-echo (isset($dataCars)? "<h1>". $essai. "</h1>" .  $title:'pas de datacars');
+        <?php
 
+        echo '<br> errors  or not errorsdans la location... <br>';
+        echo validation_errors();
+        echo 'that is the question ??? ';
+        ?>
 
+        <div style="margin:auto;">
+                <div class="logoGammeDiv">
+                        <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme1.png'); ?>" alt="Logo gamme">
+                        <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme2.png'); ?>" alt="Logo gamme">
+                        <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme3.png'); ?>" alt="Logo gamme">
+                        <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme4.png'); ?>" alt="Logo gamme">
+                </div>
 
-echo '<br> errors  or not errorsdans la location... <br>'; 
-echo validation_errors(); 
-echo 'that is the question ??? ';
- ?> 
-
-<div style="margin:auto;">
-        <div class="logoGammeDiv">
-                <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme1.png'); ?>" alt="Logo gamme">
-                <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme2.png'); ?>" alt="Logo gamme">
-                <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme3.png'); ?>" alt="Logo gamme">
-                <img class="logoGamme" src="<?= base_url('assets/img/logo/gamme4.png'); ?>" alt="Logo gamme">
         </div>
+        <br>depuis form_carsToRent.php<br>
+        <?php echo form_open('carsToRent/researchCars') ;
+        
+        echo 'ugamme demandée = ' . $this->session->userdata['ugamme'] .'<br>';
+        ?>
+        <!-- , array('onsubmit' => "return confirm('Etes vous sûr de valider?')" ) -->
 
-</div>
- <br>depuis form_carsToRent.php<br>
-<?php echo form_open('carsToRent/researchCars') ?>
-<!-- , array('onsubmit' => "return confirm('Etes vous sûr de valider?')" ) -->
+
+     
+        <label for="ugamme">Gamme:</label><br>
+        <select type="text" name="ugamme" id="ugamme" width="15" title="GAMME">
+                <?php
+                foreach ($gammes as $gamme_item) :
+                ?>
+                <option value="<?= $gamme_item['ctr_gamme'] ?>" <?= ($gamme_item['ctr_gamme'] ==   $this->session->userdata['ugamme'])? 'selected':''; ?>> <?= $gamme_item['ctr_gamme'] ?></option>
+                <?php
+                endforeach;
+                ?>
+        </select> <br>
 
 
-    <label for="ugamme">Gamme</label>
-    <input type="text" name="ugamme"  size="10" />
-    <p><?php echo form_error('gamme'); ?></p><br />
+        <!-- 
+    <label for="uStartloc">Date naissance</label>
+    <input type="date" name="ustartloc" value="<?= !empty($users_item['ctr_id']) ? $users_item['uStartloc'] : set_value('ustartloc'); ?>"/>
+    <p><?php echo form_error('uStartloc'); ?></p><br />
 
-    <!-- <label for="firstname">Prénom</label>
+    <label for="uEndloc">Date naissance</label>
+    <input type="date" name="uEndloc" value="<?= !empty($users_item['u_id']) ? $users_item['uEndloc'] : set_value('uEndloc'); ?>"/>
+    <p><?php echo form_error('uEndloc'); ?></p><br /> -->
+
+        <!-- <label for="firstname">Prénom</label>
     <input type="text" name="firstname" value="<?= !empty($users_item['u_id']) ? $users_item['u_firstname'] : set_value('firstname'); ?>" size="30" />
     <p><?php echo form_error('firstname'); ?></p><br /> -->
-<!-- 
+        <!-- 
     <label for="birthdate">Date naissance</label>
     <input type="date" name="birthdate" value="<?= !empty($users_item['u_id']) ? $users_item['u_birthdate'] : set_value('birthdate'); ?>"/>
     <p><?php echo form_error('birthdate'); ?></p><br /> -->
-<!-- 
+        <!-- 
     <label for="phone">Tel</label>
-    <input type="phone" name="phone" value="<?= !empty($users_item['u_id']) ? $users_item['u_phone'] : set_value('phone');?>" size="10" />
+    <input type="phone" name="phone" value="<?= !empty($users_item['u_id']) ? $users_item['u_phone'] : set_value('phone'); ?>" size="10" />
     <p><?php echo form_error('phone'); ?></p><br /> -->
-    
-    <!-- <label for="email">mail</label>
-    <input type="email" name="mail" value="<?= !empty($users_item['u_id']) ? $users_item['u_mail'] : set_value('mail');?>" size="50" />
+
+        <!-- <label for="email">mail</label>
+    <input type="email" name="mail" value="<?= !empty($users_item['u_id']) ? $users_item['u_mail'] : set_value('mail'); ?>" size="50" />
     <p><?php echo form_error('mail'); ?></p><br /> -->
 
-    <!-- <label for="pwd">mot de passe</label>
+        <!-- <label for="pwd">mot de passe</label>
     <input type="password" name="pwd" value="<?= !empty($users_item['u_id']) ? $users_item['u_pwd'] : set_value('pwd'); ?>" size="10" />
     <p><?php echo form_error('pwd'); ?></p><br /> -->
-    
 
-    <input type="submit" name="submit" <br />
-    
-<?php 
-echo form_close();
- ?>
+
+        <input type="submit" name="submit" <br />
+
+        <?php
+        echo form_close();
+        ?>
 </section>
 <section>
         <h1>Nos voitures </h1>
