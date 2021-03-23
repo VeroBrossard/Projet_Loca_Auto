@@ -1,5 +1,5 @@
 </section><br>
-
+depuis footer_home.php <br>
 <!-- <?php
 echo (!empty($_SESSION['ACCES']) ? "Bonjour" .  $this->session->user['firstname'] . " " . $this->session->users['u_lastname'] . "<br>" . $_SESSION['title'] . "<br> " : "Welcome stranger..");
 ?> -->

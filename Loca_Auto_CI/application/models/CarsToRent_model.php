@@ -41,32 +41,15 @@ class CarsToRent_model extends CI_Model {
         }
 
 
-        public function recup_post(){
-                $this->load->helper('url');
-        
-                //Supprime la chaîne passée, en remplaçant tous les espaces par des tirets (-) et s'assure que tout est en minuscules.
-               // ex slug  // $phone = url_title($this->input->post('phone'), 'dash', TRUE);
-            
-               $dataPOST = array(
-                //     'u_toArchive' => $this->input->post('toArchive'),
-                //      'u_lastname' => $this->input->post('lastname'),
-                //     'u_firstname' => $this->input->post('firstname'),
-                //     'u_mail' => $this->input->post('mail'),
-                //     'u_pwd' => $this->input->post('pwd'),
-                //     'u_phone' => $this->input->post('phone'),
-                //     'u_birthdate' => $this->input->post('birthdate'),
-                //     'u_fonction' => $this->input->post('fonction')
-                        'ctr_gamme' => $this->input-> post('gamme'),
-                //    ******  a finir  *** terminer le remplissage après modif de la base 
-                );
-                return $dataPOST;
-        }
+        // public function recup_post(){
+        //         $this->load->helper('url');
+
 
 
 
 
 //there are two methods to view all carsToRent items (if slug empty) and one for a specific carToRent item (if parametre NOT empty)
-        public function get_carsToRent_md($id = FALSE)
+        public function get_carsToRent_md($id = FALSE) //
 {
         if ($id === FALSE)
         {       //celle qui marche ..
@@ -75,6 +58,7 @@ class CarsToRent_model extends CI_Model {
                 $this->db->select('*');        
                 $this->db->from('carsToRent');
                 $this->db->join ('carDetails','carDetails.cd_id = carsToRent.cd_id');
+                $this->db->order_by('ctr_gamme', 'DESC');
                 $query = $this->db->get();
                 return $query->result_array();
         
@@ -94,18 +78,16 @@ class CarsToRent_model extends CI_Model {
 
 public function set_carToRent()
 {
-
-       $dataCars =  $this -> recup_post();
-
-    return $this->db->insert('carsToRent', $dataCars);
+     //  $dataCars =  $this -> recup_post();
+   // return $this->db->insert('carsToRent', $dataCars);
     echo 'insert réalisé par set_carToRent';
 }
 
-public function update_carToRent($id)
+public function update_carToRent($id,$dataCar)
 {
-        $dataCars =  $this -> recup_post();
-        $this -> db -> where ('u_id',$id);
-        return $this->db->update('carsToRent', $dataCars);
+        // $dataCars =  $this -> recup_post();
+        $this -> db -> where ('ctr_id',$id);
+        return $this->db->update('carsToRent', $dataCar);
         echo 'update réalisée par update_carToRent';
         // , array('id' => $id));
 }    
@@ -120,4 +102,52 @@ public function update_carToRent($id)
 //         echo 'delete  réalisé par delete_carToRent';
 // }
 
+public function researchDetails_md($id){
+        // recherche des carDétails sur une voiture pour gestion
+ 
+        
+                        $this->db->select('*');        
+                        $this->db->from('carDetails');
+                        $this->db->join ('carsToRent','carDetails.cd_id = carsToRent.cd_id');
+                        $this->db->where('ctr_id',$id);
+                        $query = $this->db->get();
+                        return $query->result_array();
+        
+        
+                        //LEWEL voir par param différents
+                        // $query = $this->db->get_where('carsToRent', array('ctr_gamme' => $gamme));
+                        // return $query->result_array();
+        
+                }
+                
+public function view_Gammes_md(){
+        // recherche des différentes gammes 
+        
+                        $this->db->select('ctr_gamme');        
+                        $this->db->from('carsToRent');
+                        $this->db->distinct();
+                        $this->db->order_by('ctr_gamme', 'ASC');
+                        $query = $this->db->get();
+                        return $query->result_array();
+        
+                }
+
+public function researchModeles_md(){
+        // recherche des modeles voitures pour gestion
+       
+                        $this->db->select('*, ctr_gamme');        
+                        $this->db->from('carDetails');
+                        $this->db->join ('carsToRent','carDetails.cd_id = carsToRent.cd_id');
+                        //$this->db->where('ctr_id',$id);
+                        $this->db->order_by('cd_brandSerie ASC');
+                        $query = $this->db->get();
+                        return $query->result_array();
+        
+        
+                        //LEWEL voir par param différents
+                        // $query = $this->db->get_where('carsToRent', array('ctr_gamme' => $gamme));
+                        // return $query->result_array();
+        
+                }
+                                
 }

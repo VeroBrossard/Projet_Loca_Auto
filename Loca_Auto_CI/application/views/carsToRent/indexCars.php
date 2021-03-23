@@ -5,7 +5,7 @@
       
 
         <?php
-
+        echo "depuis indexCars.php ";
         echo '<br> errors  or not errorsdans la location... <br>';
         echo validation_errors();
         echo 'that is the question ??? ';
@@ -81,6 +81,7 @@
         ?>
 </section>
 <section>
+<?= "depuis indexCars.php "?>
         <h1>Nos voitures </h1>
 
         <div class="contenairCars">
@@ -134,7 +135,8 @@
                                                                 <?= $cars_item['ctr_gamme']; ?><br>
                                                                 de <?= $cars_item['ctr_year']; ?>
                                                                 avec <?= $cars_item['ctr_km']; ?>km <br>
-                                                                à partir de <?= $cars_item['ctr_pricePerDay']; ?> €/jr.
+                                                                à partir de <?= $cars_item['ctr_pricePerDay']; ?> €/jr.<br><br>
+                                                                <?= $cars_item['ctr_immatriculation']; ?>
                                                         </div>
                                                 </div>
                                         </div>

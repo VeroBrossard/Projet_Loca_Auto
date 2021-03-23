@@ -4,8 +4,7 @@
         <!-- <script src="https://use.fontawesome.com/951d321079.js"></script> -->
         <script src="https://kit.fontawesome.com/07d23712a0.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="<?php echo base_url("assets/css/style.css"); ?>">
-        <link rel="stylesheet" href="<?php echo base_url("assets/css/modaleForm_style.css"); ?>">
-
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/form_style.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("assets/css/style_slide_menu"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("assets/css/flip_box_style"); ?>">
         <title>Loca-Auto - Location de voitures - Le Havre</title>
@@ -16,6 +15,7 @@
 <body>
 
         <header>
+        depuis header_gestion.php<br>
                 <!-- ***  nav bar sur le coté  -->
                 <div class="contenair-flex">
 
@@ -136,8 +136,7 @@
                 </div>
         </header>
 
-
-
+<section>
         <?php
 
 

@@ -64,6 +64,7 @@
                                 </div>
  <!-- ***  fin de  <div class="dropdown-content">  -->
                         </div>
+                        <?= $title ?> <!-- a supprimer LEWEL -->
                         <div style="width:30vw;">&nbsp;</div>
 
                         <div class="contenair-flex ">

@@ -17,6 +17,8 @@ class Gestion_model extends CI_Model {
                 $this->db->select('*');        
                 $this->db->from('locations');
                 $this->db->join ('carsToRent','carsToRent.ctr_id = locations.ctr_id');
+                $this->db->join ('carDetails','carDetails.cd_id = carsToRent.cd_id');
+                $this->db->join ('locationStatement','locationStatement.ls_id = locations.ls_id');
                 $query = $this->db->get();
                 return $query->result_array();
         
@@ -31,6 +33,20 @@ class Gestion_model extends CI_Model {
                 return $query->row_array();
         }
 }
+
+
+// public function view_Gammes_md(){
+//         // recherche des différentes gammes 
+        
+//                         $this->db->select('ctr_gamme');        
+//                         $this->db->from('carsToRent');
+//                         $this->db->distinct();
+//                         $this->db->order_by('ctr_gamme', 'ASC');
+//                         $query = $this->db->get();
+//                         return $query->result_array();
+        
+//                 }
+
 }
  function hello(){
       echo "message depuis  controller Gestion.php" ;  

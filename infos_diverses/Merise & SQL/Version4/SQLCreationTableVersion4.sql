@@ -1,24 +1,26 @@
 #------------------------------------------------------------
 #        Script MySQL.
 #------------------------------------------------------------
+
 CREATE DATABASE IF NOT EXISTS `loca-auto` CHARACTER SET 'utf8';
 USE `loca-auto`;
-
 
 #------------------------------------------------------------
 # Table: users
 #------------------------------------------------------------
 
 CREATE TABLE users(
-        u_id        Int  Auto_increment  NOT NULL ,
-        u_lastname  Varchar (30) NOT NULL ,
-        u_firstname Varchar (30) NOT NULL ,
-        u_mail      Varchar (50) NOT NULL ,
-        u_pwd       Varchar (10) NOT NULL ,
-        u_phone     Varchar (20) NOT NULL ,
-		u_fonction    Varchar (20) NOT NULL ,
-        u_toArchive Bool NOT NULL ,
-        u_birthdate Date NOT NULL
+        u_id          Int  Auto_increment  NOT NULL ,
+        u_lastname    Varchar (30) NOT NULL ,
+        u_firstname   Varchar (30) NOT NULL ,
+        u_mail        Varchar (50) NOT NULL ,
+        u_pwd         Varchar (10) NOT NULL ,
+        u_phone       Varchar (20) NOT NULL ,
+        u_toArchive   Bool DEFAULT 0 ,
+        u_birthdate   Date NOT NULL ,
+        u_fonction    Varchar (20) DEFAULT "None" ,
+         u_adress      Text NOT NULL ,
+        u_licenceDate Date DEFAULT "9999/12/31"
 	,CONSTRAINT users_PK PRIMARY KEY (u_id)
 )ENGINE=InnoDB;
 
@@ -33,7 +35,8 @@ CREATE TABLE carDetails(
         cd_type       Varchar (12) NOT NULL ,
         cd_seats      Int NOT NULL ,
         cd_gearbox    Varchar (15) NOT NULL ,
-        cd_energy     Varchar (10) NOT NULL 
+        cd_energy     Varchar (10) NOT NULL ,
+		cd_toArchive   Bool DEFAULT 0 
 	,CONSTRAINT carDetails_PK PRIMARY KEY (cd_id)
 )ENGINE=InnoDB;
 
@@ -50,7 +53,7 @@ CREATE TABLE carsToRent(
         ctr_km              Int NOT NULL ,
         ctr_year            Int NOT NULL ,
         ctr_img             Varchar (30) NOT NULL ,
-        ctr_toArchive       Bool NOT NULL ,
+        ctr_toArchive       Bool DEFAULT 0 ,
         cd_id               Int NOT NULL
 	,CONSTRAINT carsToRent_PK PRIMARY KEY (ctr_id)
 
@@ -110,13 +113,13 @@ CREATE TABLE packageKm(
 
 
 #------------------------------------------------------------
-# Table: locationState
+# Table: locationStatement
 #------------------------------------------------------------
 
-CREATE TABLE locationState(
+CREATE TABLE locationStatement(
         ls_id        Int  Auto_increment  NOT NULL ,
-        ls_statement Varchar (25) NOT NULL
-	,CONSTRAINT locationState_PK PRIMARY KEY (ls_id)
+        ls_statement Varchar (40) NOT NULL
+	,CONSTRAINT locationStatement_PK PRIMARY KEY (ls_id)
 )ENGINE=InnoDB;
 
 
@@ -126,41 +129,27 @@ CREATE TABLE locationState(
 
 CREATE TABLE locations(
         l_id             Int  Auto_increment  NOT NULL ,
+        l_realReturnDate Date NOT NULL ,
+        l_realKm         Int NOT NULL ,
+        l_toArchive      Bool DEFAULT 0 ,
+        l_billingAmount  Float DEFAULT 999999 ,
+        l_statement      Varchar (40) DEFAULT "A SUIVRE" ,
         l_startDate      Date NOT NULL ,
         l_endDate        Date NOT NULL ,
-        l_realReturnDate Date NOT NULL ,
         l_plannedKm      Int NOT NULL ,
-        l_realKm         Int NOT NULL ,
-        l_chosenOptions  Varchar (20) NOT NULL ,
-        l_toArchive      Bool NOT NULL ,
         pp_id            Int NOT NULL ,
         pk_id            Int NOT NULL ,
         ctr_id           Int NOT NULL ,
         u_id             Int NOT NULL ,
-        ls_id            Int NOT NULL
+        ls_id            Int DEFAULT 1
 	,CONSTRAINT locations_PK PRIMARY KEY (l_id)
 
 	,CONSTRAINT locations_packagePeriod_FK FOREIGN KEY (pp_id) REFERENCES packagePeriod(pp_id)
 	,CONSTRAINT locations_packageKm0_FK FOREIGN KEY (pk_id) REFERENCES packageKm(pk_id)
 	,CONSTRAINT locations_carsToRent1_FK FOREIGN KEY (ctr_id) REFERENCES carsToRent(ctr_id)
 	,CONSTRAINT locations_users2_FK FOREIGN KEY (u_id) REFERENCES users(u_id)
-	,CONSTRAINT locations_locationState3_FK FOREIGN KEY (ls_id) REFERENCES locationState(ls_id)
+	,CONSTRAINT locations_locationStatement3_FK FOREIGN KEY (ls_id) REFERENCES locationStatement(ls_id)
 )ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: billing
-#------------------------------------------------------------
-
-CREATE TABLE billing(
-        b_id     Int  Auto_increment  NOT NULL ,
-        b_amount Float NOT NULL ,
-        l_id     Int NOT NULL
-	,CONSTRAINT billing_PK PRIMARY KEY (b_id)
-
-	,CONSTRAINT billing_locations_FK FOREIGN KEY (l_id) REFERENCES locations(l_id)
-	,CONSTRAINT billing_locations_AK UNIQUE (l_id)
-)ENGINE=InnoDB COMMENT "Facturation " ;
 
 
 #------------------------------------------------------------

@@ -1,12 +1,12 @@
 <?php
 //echo 'ma page arborescence : views/patients/view.php ';
 // hello();
-var_dump($cars_item);
-echo ' depuis viewOneCarTorent.php /// 1car par id <br><br><br>';
+//var_dump($cars_item);
+echo ' depuis viewOneCarTorent.php /// 1car par id  /// appel depuis index de gestion.php<br><br>';
 echo 'id voiture = ' .$cars_item['ctr_id']. "<br>";
-//  ****  ex: <td><?=  $patients_item['phone']; ?></td>
-
 ?>
+
+
 <table>
                                 <thead>
                                         <tr>

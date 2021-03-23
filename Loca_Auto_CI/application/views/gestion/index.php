@@ -3,7 +3,7 @@
 <head>
 <?php 
   //gammes
-//include()
+//include(listeCarsPourGestion)
   ?>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,84 +48,32 @@
   <section>
   <div>.autant que necessaire ... echo de title <?= $title ?><br></div>
 head a supprimer... c'est dans le header><br>
+depuis gestion/index.php <br>
 <h2>Accordion</h2>
 
 <button class="accordion">Locations</button>
 <div class="panel">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<?php
+//echo 'ma page arborescence : views/patients/view.php ';
+$this->load->view('gestion/listeLocationsPourGestion');
+// hello();
+// var_dump($carsToRent);
+echo ' depuis listeLocationsPourGestion.php /// 1loc par id <br><br><br>'
+
+?>
 </div>
 
 <button class="accordion">Voitures</button>
 <div class="panel">
-<?php
+  <?php
 //echo 'ma page arborescence : views/patients/view.php ';
+$this->load->view('gestion/listeCarsPourGestion');
 // hello();
 // var_dump($carsToRent);
 echo ' depuis listeCarspourGestion.php /// 1car par id <br><br><br>';
 // echo 'id voiture = ' .$cars_item['ctr_id']. "<br>";
-
-
-?>
-<table>
-                                <thead>
-                                        <tr>
-                                                <th>gamme</th>
-                                                <th>immat.</th>
-                                                <th>€/jr</th>
-                                                <th> km </th>
-                                                <th>year</th>
-                                                <th>img</th>
-                                                <th>arch?</th>
-                                                <th>Marque</th>
-                                                <th>type</th>
-                                                <th>seats</th>
-                                                <th>gearbox</th>
-                                                <th>energy</th>
-                                                <th>mileage</th>
-                                                <th>Modifier</th>
-                                                <th>Supprimer</th>
-                                        </tr>
-                                </thead>
-                                <tbody>
-                                <?php
-
-foreach ($carsToRent as $cars_item) :
-?>
-                        <tr>
-                                <td><?= $cars_item['ctr_gamme']; ?></td>
-                                <td><?= $cars_item['ctr_immatriculation']; ?></td>
-                                <td><?= $cars_item['ctr_pricePerDay']; ?></td>
-                                <td><?= $cars_item['ctr_km']; ?></td>
-                                <td><?= $cars_item['ctr_year']; ?></td>
-                                <td><?= $cars_item['ctr_img']; ?></td>
-                                <td><?= $cars_item['ctr_toArchive']; ?></td>
-                                <td><?= $cars_item['cd_brandSerie']; ?></td>
-                                <td><?= $cars_item['cd_type']; ?></td>
-                                <td><?= $cars_item['cd_seats']; ?></td>
-                                <td><?= $cars_item['cd_gearbox']; ?></td>
-                                <td><?= $cars_item['cd_energy']; ?></td>
-                                <td><?= $cars_item['cd_mileage']; ?></td>
-                                <!-- <td><a href="<?= site_url('mysession/view_1car/' . $cars_item['ctr_id']); ?>">détails</a></td>                                                 -->
-                        </tr>
-   <?php
-
-endforeach ;
-?>
-                                </tbody>
- 
-                                <tr><td colspan="14" height="20px"></td></tr>
-                                <tfoot>
-                                  <tr>    
-                                  <td colspan="7"  style="text-align:right;"><a class="bouton" href="<?php echo site_url('carsToRent/delete_1carToRent/'.$cars_item['ctr_id']); ?>" onclick="return confirm('Etes vous sûre de vouloir supprimer cette voiture ?');" >Supprimer</a> </td>
-                                    
-                                  <td colspan="7" ><a class="bouton" href="<?php echo site_url('carsToRent/create/'.$cars_item['ctr_id']); ?>" onclick="return confirm('Etes vous sûre de vouloir modifier cette voiture ?');" >Modifier</a>
-                                </td>
-                              </tr>
-                              
-                              </tfoot>
-
-                        </table>
-</div>
+?>                     
+</div> 
 
 <button class="accordion">Section 3</button>
 <div class="panel">
