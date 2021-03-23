@@ -32,12 +32,45 @@ echo ' depuis gestion/formPrModifCar.php par id <br><br><br>';
     <?= !empty($car_items['ctr_id']) ? form_open('carsToRent/modifyORcreate/'.$car_items['ctr_id']) : form_open('carsToRent/modifyORcreate/'); ?>
     <!-- , array('onsubmit' => "return confirm('Etes vous sûr de valider?')" ) -->
     
-    <!-- //pour choix action  -->
-         <input type="hidden" name="id" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_id'] : '' ?>"/>
-    
-        <label for="gamme"> GAMME:</label><br>
-            <select type="text" name="gamme" id="gamme" width="15" title="GAMME">
-    
+    <label for="cd_id"> cd_id code details</label>
+<input type="number" name="cd_id" value="<?= !empty($car_items['ctr_id']) ? $car_items['cd_id'] : '' ?>" style="width:50px;" />A finir<br /><br />
+        <!-- //affichage des details technique de la voiture d'apres carDetails -->
+
+        <label for="infos">Infos modéle</label><br>
+       <?= !empty($car_items['ctr_id']) ?  $car_items['cd_brandSerie'] .' ('. $car_items['cd_type'] . ') ' .$car_items['cd_seats'] .'sièges, boite ' .$car_items['cd_gearbox'] . ' '. $car_items['cd_energy'] : '' ?> <br /><br />
+       <label for="modele"> MODELE:</label><br>
+            <select type="text" name="modele" id="modele" width="150" title="MODELE" style="width:450px; font-size:11px;">
+            <?php
+        if (!empty($modeles)){
+                    foreach ($modeles as $modele_items) :
+                    ?>
+           
+                    <option value="<?= $modele_items['cd_id'] ?>"
+                    <?= ($modele_items['cd_id']  == $car_items['cd_id'])? "selected": '' ?>  > 
+                    code<?= $modele_items['cd_id'] ?>
+                    <?= $modele_items['cd_brandSerie'] ?>
+                    <?= $modele_items['cd_type'] ?>
+                    <?= $modele_items['cd_seats'] ?> pl., bte 
+                    <?= $modele_items['cd_gearbox'] ?>
+                    <?= $modele_items['cd_energy'] ?>
+                    <?= $modele_items['ctr_gamme'] ?>
+                  <!-- <?= $modele_items['cd_toArchive'] ?> -->
+                  
+                  </option>
+                    <?php
+                    endforeach;
+                  }
+                    ?>
+            </select> <br><br>
+            
+            
+            <input type="hidden" name="id" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_id'] : '' ?>"/><br>
+            
+            <img id="imgLogoGamme" src="<?= base_url('assets/img/logo/gammes.png'); ?>" alt="Logo gammes"><br><br>
+            
+            <img id="imgCar" src="<?= base_url('assets/img/cars/' .$car_items['ctr_img']); ?>" alt="photo car"  style="width:220px; float:right;">
+        <label for="gamme"> GAMME:</label>
+            <select type="text" name="gamme" id="gamme" width="15" title="GAMME" style="width:80px;">
                     <?php
                     foreach ($gammes as $gamme_items) :
                     ?>
@@ -47,27 +80,22 @@ echo ' depuis gestion/formPrModifCar.php par id <br><br><br>';
                     endforeach;
                     ?>
             </select> <br><br>
-            <label for="cd_id"> cd_id code details</label>
-        <input type="number" name="cd_id" value="<?= !empty($car_items['ctr_id']) ? $car_items['cd_id'] : '' ?>"/>a finir<br /><br />
-        <!-- //affichage des details technique de la voiture d'apres carDetails -->
 
-        <label for="infos">Infos modéle</label><br>
-       <?= !empty($car_items['ctr_id']) ?  $car_items['cd_brandSerie'] .' ('. $car_items['cd_type'] . ') ' .$car_items['cd_seats'] .'sièges, boite ' .$car_items['cd_gearbox'] . ' '. $car_items['cd_energy'] : '' ?> <br /><br />
-  
+                    
         <label for="immatriculation">immatriculation</label>
-        <input type="text" name="immatriculation" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_immatriculation'] : '' ?>"/><br /><br />
+        <input type="text" name="immatriculation" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_immatriculation'] : '' ?>" style="width:80px;" /><br /><br />
     
         <label for="pricePerDay"> pricePerDay</label>
-        <input type="number" name="pricePerDay" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_pricePerDay'] : '' ?>"/><br /><br />
+        <input type="number" name="pricePerDay" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_pricePerDay'] : '' ?>" style="width:80px;" /><br /><br />
     
         <label for="km"> km voiture</label>
-        <input type="number" name="km" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_km'] : '' ?>"/><br /><br />
+        <input type="number" name="km" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_km'] : '' ?>" style="width:80px;" /><br /><br />
     
         <label for="year"> année</label>
-        <input type="number" name="year" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_year'] : '' ?>"/><br /><br />
+        <input type="number" name="year" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_year'] : '' ?>" style="width:80px;" /><br /><br />
     
-        <label for="img"> Photo</label>
-        <input type="text" name="img" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_img'] : '' ?>"/><br /><br />
+        <label for="img"> Photo</label><br>
+        <input type="text" name="img" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_img'] : '' ?>" style="width:200px;font-size: 10px;" /><br /><br />
     
      A Archiver ?
         
@@ -79,7 +107,11 @@ echo ' depuis gestion/formPrModifCar.php par id <br><br><br>';
     
                     <br /><br />
 
-        <input type="submit" name="submit" value="<?= !empty($car_items['ctr_id']) ? "Modify CAR item" : "Create CAR item" ?>" /><br />
+        <input type="submit" name="submit" class="bouton" value="<?= !empty($car_items['ctr_id']) ? "Modify CAR item" : "Create CAR item" ?>" onclick="return confirm('Etes vous sûre de vouloir modifier cette voiture ?');"  /> <br />
+
+        <!-- <a class="bouton" href="<?php echo site_url('carsToRent/modify/'.$cars_item['ctr_id']); ?>" onclick="return confirm('Etes vous sûre de vouloir modifier cette voiture ?');" >Modifier</a>
+      
+      'onsubmit="return confirm(\'Etes-vous sur de votre choix ?\');"'-->
     
     <?php hello(); ?>
     
@@ -89,28 +121,12 @@ echo ' depuis gestion/formPrModifCar.php par id <br><br><br>';
   nouvelle div pour TABLE  carDetails voiture  <BR>
   <?php
   //var_dump($modeles);
+//echo " (_modele_items['cd_id'] = " . $modeles['carDetails.cd_id'] . "<br>";
+echo " (_car_items['cd_id'] = " . $car_items['cd_id'] . "<br>";
+?>
+  <form>
 
-        if (!empty($modeles)){
-                    foreach ($modeles as $modele_items) :
-                    ?>
-                  <ul>
-                    <li>CODE:<?= $modele_items['cd_id'] ?></li>
+  
+    </form>
 
-                    <li><?= $modele_items['cd_brandSerie'] ?></li>
-                    <li><?= $modele_items['cd_type'] ?></li>
-                    <li><?= $modele_items['cd_seats'] ?></li>
-                    <li><?= $modele_items['cd_gearbox'] ?></li>
-                    <li><?= $modele_items['cd_energy'] ?></li>
-                    <li><?= $modele_items['ctr_gamme'] ?></li>
-                  <!-- <li><?= $modele_items['cd_toArchive'] ?></li> -->
-                  </ul>
-      
-                    <?php
-                    endforeach;
-                  }
-                  else{
-                    echo "pb avec les details de la voiture <br>";
-                  }
-                      ?>
-  </div>
 </div>
