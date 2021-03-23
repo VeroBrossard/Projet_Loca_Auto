@@ -37,18 +37,18 @@ foreach ($carsToRent as $cars_item) :
                                 <td><?= $cars_item['ctr_id']; ?></td>
                                 <td><?= $cars_item['ctr_immatriculation']; ?></td>
                                 <td><?= $cars_item['ctr_gamme']; ?></td>
+                                <td><?= $cars_item['cd_brandSerie']; ?></td>
                                 <td><?= $cars_item['ctr_pricePerDay']; ?></td>
                                 <td><?= $cars_item['ctr_km']; ?></td>
                                 <td><?= $cars_item['ctr_year']; ?></td>
                                 <td><?= $cars_item['ctr_img']; ?></td>
-                                <td><?= $cars_item['ctr_toArchive']; ?></td>
-                                <td><?= $cars_item['cd_brandSerie']; ?></td>
                                 <td><?= $cars_item['cd_type']; ?></td>
+                                <td><?= $cars_item['ctr_toArchive']; ?></td>
                                 <!-- <td><?= $cars_item['cd_seats']; ?></td> -->
                                 <!-- <td><?= $cars_item['cd_gearbox']; ?></td>
                                 <td><?= $cars_item['cd_energy']; ?></td>
                                 <td><?= $cars_item['cd_mileage']; ?></td> -->
-                                <td><a href="<?= site_url('gestion/view_1car/' . $cars_item['ctr_id']); ?>">modifier<a><td> 
+                                <td><a href="<?= site_url('gestion/view_1car/' . $cars_item['ctr_id']); ?>">modifier<a></td> 
 
 
                                 <!-- //<td><a href="<?= site_url('carsToRent/modify/' . $cars_item['ctr_id']); ?>">modifier<a><td>  -->

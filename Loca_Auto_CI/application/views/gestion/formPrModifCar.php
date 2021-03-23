@@ -70,7 +70,6 @@ echo ' depuis gestion/formPrModifCar.php par id <br><br><br>';
         <input type="text" name="img" value="<?= !empty($car_items['ctr_id']) ? $car_items['ctr_img'] : '' ?>"/><br /><br />
     
      A Archiver ?
-                toArchive = <?= $car_items['ctr_toArchive'] ?> <br>
         
                     <input type="radio" id="non" name="toArchive" value="0" <?= ($car_items['ctr_toArchive']) == "0" ? "checked" : '' ?> >
                     <label for="non">Non</label>
@@ -95,14 +94,14 @@ echo ' depuis gestion/formPrModifCar.php par id <br><br><br>';
                     foreach ($modeles as $modele_items) :
                     ?>
                   <ul>
+                    <li>CODE:<?= $modele_items['cd_id'] ?></li>
 
-                  <li><?= $modele_items['ctr_gamme'] ?></li>
-                  <li><?= $modele_items['cd_id'] ?></li>
-                  <li><?= $modele_items['cd_brandSerie'] ?></li>
-                  <li><?= $modele_items['cd_type'] ?></li>
-                  <li><?= $modele_items['cd_seats'] ?></li>
-                  <li><?= $modele_items['cd_gearbox'] ?></li>
-                  <li><?= $modele_items['cd_energy'] ?></li>
+                    <li><?= $modele_items['cd_brandSerie'] ?></li>
+                    <li><?= $modele_items['cd_type'] ?></li>
+                    <li><?= $modele_items['cd_seats'] ?></li>
+                    <li><?= $modele_items['cd_gearbox'] ?></li>
+                    <li><?= $modele_items['cd_energy'] ?></li>
+                    <li><?= $modele_items['ctr_gamme'] ?></li>
                   <!-- <li><?= $modele_items['cd_toArchive'] ?></li> -->
                   </ul>
       

@@ -88,7 +88,7 @@ class CarsToRent extends CI_Controller
       $this->form_validation->set_rules('toArchive', 'ToArchive', 'required');
       $this->form_validation->set_rules('cd_id', 'Cd_id', 'required'); //voir carDetails pour gammeà choisir.
         //on recupe les données du POST pour renvoi au form si erreur et traitement si ok
-        $data['car_items'] = array(
+        $data['car_post'] = array(
           'ctr_id' => $id,
           'ctr_gamme' => $this->input->post('gamme'),
           'ctr_immatriculation' => $this->input->post('immatriculation'),
@@ -110,7 +110,9 @@ class CarsToRent extends CI_Controller
   //données du form OK
        // $data['title'] = 'update a  car 1';
         //on fait MAJ la voiture  by id
-        $test =  $data['car_items']['ctr_gamme'];
+        $data['carsUpdate'] = $this->carsToRent_model->update_carToRent_md($id,$data['car_post']);
+
+        $test =  $data['car_post']['ctr_gamme'];
         $data['title'] ="<h2>UPDATE OK</h2> de CAR " .$id ." by Id et gamme modifiée= ". $test ."";
 //voiture à modifier
         $data['details']=  $this->carsToRent_model->researchDetails_md($id);
@@ -118,7 +120,8 @@ class CarsToRent extends CI_Controller
         $data['gammes']=  $this->carsToRent_model->view_Gammes_md();
         $data['modeles']=  $this->carsToRent_model->researchModeles_md();//tous les modéles de voiture
         $data['total_modeles'] = count($data['modeles']);
-              $data['carsUpdate'] = $this->carsToRent_model->update_carToRent($id,$data['car_items']);
+
+
               $data['car_items']=  $this->carsToRent_model->get_carsToRent_md($id); 
           $this->load->view('templates/header_gestion', $data);
           $this->load->view('templates/update_success');

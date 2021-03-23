@@ -32,21 +32,7 @@ class CarsToRent_model extends CI_Model {
                 !empty($gamme)? $this->db->where('ctr_gamme',$gamme) :'';
                 $query = $this->db->get();
                 return $query->result_array();
-
-
-                //LEWEL voir par param différents
-                // $query = $this->db->get_where('carsToRent', array('ctr_gamme' => $gamme));
-                // return $query->result_array();
-
         }
-
-
-        // public function recup_post(){
-        //         $this->load->helper('url');
-
-
-
-
 
 //there are two methods to view all carsToRent items (if slug empty) and one for a specific carToRent item (if parametre NOT empty)
         public function get_carsToRent_md($id = FALSE) //
@@ -58,7 +44,7 @@ class CarsToRent_model extends CI_Model {
                 $this->db->select('*');        
                 $this->db->from('carsToRent');
                 $this->db->join ('carDetails','carDetails.cd_id = carsToRent.cd_id');
-                $this->db->order_by('ctr_gamme', 'DESC');
+                $this->db->order_by('ctr_immatriculation', 'ASC');
                 $query = $this->db->get();
                 return $query->result_array();
         
@@ -73,8 +59,6 @@ class CarsToRent_model extends CI_Model {
                 return $query->row_array();
         }
 }
-//méthode qui écrit les données dans la base de données. Vous allez utiliser la classe Query Builder pour insérer les informations et utiliser la bibliothèque d'entrée pour obtenir les données publiées
-
 
 public function set_carToRent()
 {
@@ -83,7 +67,7 @@ public function set_carToRent()
     echo 'insert réalisé par set_carToRent';
 }
 
-public function update_carToRent($id,$dataCar)
+public function update_carToRent_md($id,$dataCar)
 {
         // $dataCars =  $this -> recup_post();
         $this -> db -> where ('ctr_id',$id);
@@ -135,10 +119,11 @@ public function view_Gammes_md(){
 public function researchModeles_md(){
         // recherche des modeles voitures pour gestion
        
-                        $this->db->select('*, ctr_gamme');        
+                        $this->db->select('carDetails.cd_id,cd_brandSerie,cd_type,cd_seats,cd_gearbox,cd_energy, cd_toArchive, ctr_gamme'); 
                         $this->db->from('carDetails');
-                        $this->db->join ('carsToRent','carDetails.cd_id = carsToRent.cd_id');
+                        $this->db->join ('carsToRent','carsToRent.cd_id = carDetails.cd_id');
                         //$this->db->where('ctr_id',$id);
+                        $this->db->distinct();
                         $this->db->order_by('cd_brandSerie ASC');
                         $query = $this->db->get();
                         return $query->result_array();
