@@ -30,16 +30,15 @@ echo ' depuis gestion/formPrModifCar.php par id <br><br><br>';
     <?php echo validation_errors(); ?>
     
     <?= !empty($car_items['ctr_id']) ? form_open('carsToRent/modifyORcreate/'.$car_items['ctr_id']) : form_open('carsToRent/modifyORcreate/'); ?>
-    <!-- , array('onsubmit' => "return confirm('Etes vous sûr de valider?')" ) -->
-    
-    <label for="cd_id"> cd_id code details</label>
-<input type="number" name="cd_id" value="<?= !empty($car_items['ctr_id']) ? $car_items['cd_id'] : '' ?>" style="width:50px;" />A finir<br /><br />
-        <!-- //affichage des details technique de la voiture d'apres carDetails -->
+   
+    <!-- //affichage des details technique de la voiture d'apres carDetails -->
 
-        <label for="infos">Infos modéle</label><br>
-       <?= !empty($car_items['ctr_id']) ?  $car_items['cd_brandSerie'] .' ('. $car_items['cd_type'] . ') ' .$car_items['cd_seats'] .'sièges, boite ' .$car_items['cd_gearbox'] . ' '. $car_items['cd_energy'] : '' ?> <br /><br />
-       <label for="modele"> MODELE:</label><br>
-            <select type="text" name="modele" id="modele" width="150" title="MODELE" style="width:450px; font-size:11px;">
+        <label for="infos">Infos modèle</label><br>
+       <?= !empty($car_items['ctr_id']) ? 'code détails' . $car_items['cd_id']. ''. $car_items['cd_brandSerie'] .' ('. $car_items['cd_type'] . ') ' .$car_items['cd_seats'] .'sièges, boite ' .$car_items['cd_gearbox'] . ' '. $car_items['cd_energy'] : '' ?> <br /><br />
+
+
+       <label for="cd_id"> MODELES:</label><br>
+            <select type="text" name="cd_id" id="cd_id" width="150" title="MODELE" style="width:350px; font-size:11px;">
             <?php
         if (!empty($modeles)){
                     foreach ($modeles as $modele_items) :
